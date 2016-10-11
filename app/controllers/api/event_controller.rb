@@ -1,7 +1,7 @@
 class Api::EventController < ApplicationController
 
     def index
-        @events = Event.paginate(:page => params[:page], :per_page => 30)
+        @events = Event.all
         @json_events = []
         for event in @events
             @post = to_json event

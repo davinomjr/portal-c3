@@ -1,7 +1,7 @@
 class Api::OportunityController < ApplicationController
 
     def index
-        @oportunities = Oportunity.paginate(:page => params[:page], :per_page => 30)
+        @oportunities = Oportunity.all
         @json_oportunities = []
         for oportunity in @oportunities
             @post = to_json oportunity
@@ -11,8 +11,7 @@ class Api::OportunityController < ApplicationController
     end
     
     def show
-        @oportunity = Oportunity.find params[:id]
-        
+        @oportunity = Oportunity.find params[:id]      
         render :json => to_json(@oportunity)
     end
     

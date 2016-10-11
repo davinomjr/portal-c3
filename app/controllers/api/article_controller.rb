@@ -1,7 +1,7 @@
 class Api::ArticleController < ApplicationController
 
     def index
-        @articles = Article.paginate(:page => params[:page], :per_page => 30)
+        @articles = Article.all
         @json_articles = []
         for article in @articles
             @post = to_json article
