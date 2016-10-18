@@ -1,81 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../../../img/favicon.png" />
-    <title>PORTAL C3</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../../../img/favicon.png" />
+	<title>Portal C3 - Curso de Ciência da Computação</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 
 
-            <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800" rel="stylesheet" type="text/css">
 
-            <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/js/dropdown-menu/dropdown-menu.css" rel="stylesheet" type="text/css">
+	<link href="/assets/js/dropdown-menu/dropdown-menu.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+	<link href="/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/js/audioplayer/audioplayer.css" rel="stylesheet" type="text/css">
+	<link href="/assets/js/audioplayer/audioplayer.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/style.css" rel="stylesheet" type="text/css">
+	<link href="/assets/style.css" rel="stylesheet" type="text/css">
 
-            <link href="/assets/dist/css/lightbox.css" rel="stylesheet">
-            
+
+	<link href="/assets/dist/css/lightbox.css" rel="stylesheet">
 
 </head>
 
 <body role="document">
 
+	<div id="k-head">
 
-    <span class="visible-xs"></span><span class="visible-sm"></span><span class="visible-md"></span><span class="visible-lg"></span>
-
-
-    <div id="k-head">
-
-        <%= render :partial => "layouts/header.html.erb" %>
-    </div>
+		<%= render :partial => "layouts/header.html.erb" %>
+	</div>
 
 
-    <div id="k-body">
+	<div id="k-body">
 
-        <div class="container">
-            <div class="row no-gutter">
-              <% if notice %>
-                <p class="alert alert-success"><%= notice %></p>
-              <% end %>
-              <% if alert %>
-                <p class="alert alert-danger"><% alert %></p>
-              <% end %>     
-              <%= yield %>              
-              <%= render :partial => 'layouts/sidebar.html.erb' %>
-            </div>
-        </div>
-    </div>
+		<div class="container">
+			<nav id="k-menu" class="k-main-navig col-lg-8 col-md-8">
+				<!-- main navig -->
+				<ul id="drop-down-left" class="k-dropdown-menu navbar navbar-left">
+					<li>
+						<%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %>
+					</li>
+					<li>
+						<%= link_to 'Notícias', articles_path(), class: (controller_name=='articles' ? 'active':'') %>
+					</li>
+					<li>
+						<%= link_to 'Eventos', events_path(), class: (controller_name=='events' ? 'active':'') %>
+					</li>
+					<li>
+						<%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %>
+					</li>
+				</ul>
+			</nav>
 
-    <%= render :partial => "layouts/footer.html.erb" %>
+			<div class="col-lg-4 col-md-4 inner-addon right-addon sty-search-div">
+				<i class="glyphicon glyphicon-search"></i>
+				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
+			</div>
+			<!-- main navig end -->
+			<!-- <p class="notice"><%= notice %></p> -->
+			<!-- <p class="alert"><%= alert %></p> -->
+			<%= yield %>              
+			<%= render :partial => 'layouts/sidebar.html.erb' %>
+			<!-- </div> -->
+		</div>
+	</div>
 
-        <div id="k-subfooter">
-            <%= render :partial => "layouts/sub_footer.html.erb" %>
+	<%= render :partial => "layouts/footer.html.erb" %>
 
-        </div>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-            <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-            <script src="/assets/js/dropdown-menu/dropdown-menu.js"></script>
-            <script src="/assets/js/fancybox/jquery.fancybox.pack.js"></script>
-            <script src="/assets/js/fancybox/jquery.fancybox-media.js"></script>
-            <script src="/assets/js/jquery.fitvids.js"></script>
-            <script src="/assets/js/audioplayer/audioplayer.min.js"></script>
-            <script src="/assets/js/jquery.easy-pie-chart.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-            <script src="/assets/js/theme.js"></script>
-            <script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
+	<div id="k-subfooter">
+		<%= render :partial => "layouts/sub_footer.html.erb" %>
+
+	</div>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/dropdown-menu/dropdown-menu.js"></script>
+	<script src="/assets/js/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="/assets/js/fancybox/jquery.fancybox-media.js"></script>
+	<script src="/assets/js/jquery.fitvids.js"></script>
+	<script src="/assets/js/audioplayer/audioplayer.min.js"></script>
+	<script src="/assets/js/jquery.easy-pie-chart.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script src="/assets/js/theme.js"></script>
+	<script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
+
 </body>
 
 </html>
