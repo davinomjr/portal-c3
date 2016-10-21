@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="../../../img/favicon.png" />
 	<title>Portal C3 - Curso de Ciência da Computação</title>
 
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 
 
@@ -66,6 +66,12 @@
 			<!-- main navig end -->
 			<!-- <p class="notice"><%= notice %></p> -->
 			<!-- <p class="alert"><%= alert %></p> -->
+			<% if notice.present? %>
+				<p id="notice"><%= notice %></p>
+			<% end %>
+			<% if alert.present? %>
+				<p id="notice"><%= alert %></p>
+			<% end %>
 			<%= yield %>              
 			<%= render :partial => 'layouts/sidebar.html.erb' %>
 			<!-- </div> -->

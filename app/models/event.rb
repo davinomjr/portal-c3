@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
-
     belongs_to :user
+    validates_presence_of :title, :place
+    validates_length_of :description, minimum: 20, allow_blank: false
 
         # Define o tipo de imagem que a notícia pode ter
     has_attached_file :image, :styles => { 

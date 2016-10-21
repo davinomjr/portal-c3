@@ -24,20 +24,14 @@
   <a href="<%= dashboard_events_path() %>"><button class="green">Voltar</button></a>
 </div>
 <%= form_for([:dashboard, @event], :multipart => true) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível completar a ação, o formulario possui erros!</h2>
+    </div>
+  <% end %>
     <section class="content">
       <section class="widget" style="min-height:300px">
         <header>
-          <% if @event.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@event.errors.count, "error") %> prohibited this dashboard_article from being saved:</h2>
-
-                <ul>
-                  <% @event.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-          <% end %>
           <span class="icon">&#59160;</span>
           <hgroup>
             <h1>Evento</h1>
@@ -47,8 +41,8 @@
         </header>
         <div class="content">
           <div class="field-wrap">
-            <label>Título:</label>
-            <%= f.text_field :title %>
+            <label>Título: <%= error_tag @event, :title%></label>
+            <%= f.text_field :title %> 
           </div>
 
           <div class="field-wrap">
@@ -57,8 +51,9 @@
           </div>
 
           <div class="field-wrap">
-            <label>Local:</label>
+            <label>Local: <%= error_tag @event, :place%></label>
             <%= f.text_field :place %>
+            
           </div>
 
           <div class="field-wrap">
@@ -67,7 +62,8 @@
           </div>
 
           <div class="field-wrap wysiwyg-wrap">
-            <%= f.text_area :description %>
+            <%= error_tag @event, :description%>
+            <%= f.text_area :description %> 
           </div>
 
           <%= f.button 'Salvar', class: 'green', type: 'submit' %>

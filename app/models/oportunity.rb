@@ -1,7 +1,9 @@
 class Oportunity < ActiveRecord::Base
     belongs_to :user
+    validates_presence_of :title, :employer
+    validates_length_of :description, minimum: 20, allow_blank: false
     
-        # Define o tipo de imagem que a notícia pode ter
+    # Define o tipo de imagem que a notícia pode ter
     has_attached_file :image, :styles => { 
         :medium => ["300x300>", :jpg], 
         :thumb => ["100x100>", :jpg] 
