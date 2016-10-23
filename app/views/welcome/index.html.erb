@@ -1,8 +1,10 @@
 <div class="col-md-8">
-  <img class="mySlides" src="/assets/img/slide-1.jpg" style="width:100%">
-  <!-- <img class="mySlides" src="img_ny.jpg" style="width:100%"> -->
-  <!-- <img class="mySlides" src="img_chicago.jpg" style="width:100%"> -->
-  <!-- </div> -->
+    <figure id="slide">
+      <img class="mySlides" src="/assets/img/slide-1.jpg" data-description="Meninas do curso de computação" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-2.jpg" data-description="Biblioteca da unicap" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-3.jpg" data-description="Alunos no laboratório Inácio Loyola" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-4.jpg" data-description="65 anos da Unicap" style="width:100%">
+  </figure>
 
   <div class="col-lg-6 col-md-6">
     <div class="col-padded col-shaded">
@@ -36,7 +38,7 @@
 </div>
 <div class="col-lg-6 col-md-6">
     <% if not @latest_articles.nil? and not @latest_articles.empty? %>
-    <div class="col-padded">
+    <div class="col-padded col-shaded">
         <ul class="list-unstyled clear-margins">
             <li class="widget-container widget_recent_news">
                 <h1 class="title-widget">Últimas Notícias</h1>

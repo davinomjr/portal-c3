@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../../../img/favicon.png" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico" />
 	<title>Portal C3 - Curso de Ciência da Computação</title>
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -31,7 +31,7 @@
 
 </head>
 
-<body role="document">
+<body role="document" onload="carregarSlides()">
 
 	<div id="k-head">
 
@@ -42,9 +42,9 @@
 	<div id="k-body">
 
 		<div class="container">
-			<nav id="k-menu" class="k-main-navig col-lg-8 col-md-8">
+			<nav id="k-menu" class="nav navbar k-main-navig col-lg-8 col-md-8">
 				<!-- main navig -->
-				<ul id="drop-down-left" class="k-dropdown-menu navbar navbar-left">
+				<ul id="main-menu" class="k-dropdown-menu navbar navbar-left" style="width: 100%;padding: 0!important;">
 					<li>
 						<%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %>
 					</li>
@@ -59,7 +59,6 @@
 					</li>
 				</ul>
 			</nav>
-
 			<div class="col-lg-4 col-md-4 inner-addon right-addon sty-search-div">
 				<i class="glyphicon glyphicon-search"></i>
 				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
@@ -90,6 +89,30 @@
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 	<script src="/assets/js/theme.js"></script>
 	<script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
+	<script type="text/javascript">
+		function carregarSlides() {
+			$("#slide img:eq(0)").addClass("ativo").show();
+			var texto = $(".ativo").attr("data-description");
+			$("#slide").prepend("<span>"+texto+"</span>");
+			$("#slide span").hide().html(texto).delay(500).fadeIn();
+
+			setInterval(slide,4000);
+
+			function slide(){
+				
+				if($(".ativo").next().size()){							
+					$(".ativo").fadeOut().removeClass("ativo").next().fadeIn().addClass("ativo");
+				}else{
+					$(".ativo").fadeOut().removeClass("ativo");
+					$("#slide img:eq(0)").fadeIn().addClass("ativo");
+				}
+
+				$('#slide span').remove();
+				texto = $(".ativo").attr("data-description");
+				$("#slide").prepend("<span>"+texto+"</span>");
+			}
+		}
+	</script>
 
 </body>
 
