@@ -10,6 +10,12 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
         reset_password_token: 'Token de confirmação'
+      discipline:
+        code: 'Código da Ementa'
+        name: 'Nome'
+        credit: 'Número de Créditos'
+        semester: 'Período'
+        shift: 'Turno'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

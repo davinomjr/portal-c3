@@ -1,7 +1,8 @@
 # Esta classe representa a disciplina do curso
 class Discipline < ActiveRecord::Base
     enum shift: [:noon, :night]
-    
+    validates :code, :name, :credit, :semester, :shift,  presence: true
+
     # Identifica como uma relação many to many com a classe User
     has_and_belongs_to_many :users
     has_many :materials

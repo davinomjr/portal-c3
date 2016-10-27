@@ -19,9 +19,11 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     respond_to do |format|
       if @user.save
         @user.user_profile.save
-        format.html { redirect_to dashboard_users_path, notice: 'Usuário criado com sucesso.' }
+        flash[:success] = "Usuário criado com sucesso."
+        format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :created, location: @user }
       else
+        flash[:error] = @user.errors.full_messages.to_sentence
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

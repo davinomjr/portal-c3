@@ -15,3 +15,11 @@
     margin: auto;
     width: 50%;
   }
+
+  .btn-form{
+    margin-top: 15px !important;
+  }
+
+  .multiselect-container input {
+    display: none
+}

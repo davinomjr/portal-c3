@@ -29,12 +29,14 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
   # POST /dashboard/disciplines.json
   def create
     @dashboard_discipline = Discipline.new(dashboard_discipline_params)
-
     respond_to do |format|
+      byebug
       if @dashboard_discipline.save
-        format.html { redirect_to dashboard_disciplines_path, notice: 'Discipline was successfully created.' }
+        flash[:success] = "Disciplina criada com sucesso."
+        format.html { redirect_to dashboard_disciplines_path }
         format.json { render :show, status: :created, location: @dashboard_discipline }
       else
+        flash[:error] = @dashboard_discipline.errors.full_messages.to_sentence
         format.html { render :new }
         format.json { render json: @dashboard_discipline.errors, status: :unprocessable_entity }
       end

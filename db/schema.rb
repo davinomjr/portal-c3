@@ -53,15 +53,15 @@ ActiveRecord::Schema.define(version: 20161008032428) do
   add_index "discipline_classes", ["user_id"], name: "index_discipline_classes_on_user_id", using: :btree
 
   create_table "disciplines", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
+    t.string   "name",       default: "", null: false
+    t.string   "code",       default: "", null: false
     t.string   "link"
-    t.integer  "credit"
+    t.integer  "credit",                  null: false
     t.integer  "hours"
-    t.integer  "semester"
-    t.integer  "shift"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "semester",                null: false
+    t.integer  "shift",                   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "disciplines_users", id: false, force: :cascade do |t|
