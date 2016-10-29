@@ -22,12 +22,19 @@
 </head>
 
 <body data-no-turbolink="true">
-	<%= render :partial => 'layouts/admin_header.html.erb' %>
 
+
+<div class="col-xs-12 no-padding">
+	<%= render :partial => 'layouts/admin_header.html.erb' %>
+</div>
+
+
+<div class="col-xs-2 no-padding">
 	<%= render :partial => 'layouts/admin_sidebar.html.erb' %>
-	     
-   
+</div>
+	 <div class="col-xs-10">
 	<%= yield %>
+	</div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -35,5 +42,6 @@
 <script src="/assets/js/jQuery/jquery.tablesorter.min.js"></script>
 <script src="/assets/js/admin/custom.js"></script>
 <script src="/assets/js/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<script src="/assets/js/jQuery/jquery.twbsPagination.js"></script>
 </body>
 </html>

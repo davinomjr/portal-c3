@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
-
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'devise'
 
 # fix on time-zone for Windows platform
