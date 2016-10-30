@@ -1,5 +1,5 @@
 <div class="col-lg-8 col-md-8">
-    <div class="col-padded">
+    <div class="col-padded2">
         <div class="gutter">
             <div class="col-lg-12 col-md-12">
                 <h1 class="page-title">Oportunidades</h1>
@@ -8,19 +8,26 @@
         <div class="gutter">
             <div class="col-lg-12 col-md-12">
                 <% @oportunities.each do |oportunity| %>
-                <div class="news-mini-wrap col-lg-6 col-md-6">
-                    <figure class="news-featured-image">
+                <div class="news-mini-wrap4 col-lg-2 col-md-2">
+                    <figure class="news-featured-image3">
                         <a href="<%= oportunity_path(oportunity) %>" title="<%= oportunity.title%>">
-                            <%= image_tag oportunity.image.url(:thumb), class: 'attachment-thumbnail wp-post-image' %>
-                        </a>
+                            <img src="<%= oportunity.image.url %>" class="attachment-thumbnail wp-post-image" height="123" width="264" />
+                       </a>
                     </figure>
+                    </div>
+
+                <div class="news-mini-wrap4 col-lg-10 col-md-10">
                     <div class="page-title-meta">
-                        <h1 class="title-median"><%= link_to oportunity.title, oportunity_path(oportunity)%></h1>
-                        <span class="news-meta-date"><b>Publicado em:</b> <%= oportunity.created_at.strftime("%d/%m/%Y")%></span>
-                        <p><span class="news-meta-date"><b>Empresa:</b> <%= oportunity.employer%></span></p>
-                        <div class="news-summary">
-                            <p>
-                                <%= sanitize oportunity.description[0..30]%>...
+                        <h1 class="title-median3">
+                            <a href="<%= oportunity_path(oportunity) %>" title="<%= oportunity.title%>" style="color: #00636F;">   
+                                <%= oportunity.title%>
+                            </a>
+                        </h1>
+                        <span class="news-meta-date">Publicado em <%= oportunity.created_at.strftime("%d/%m/%Y")%></span>
+                        <p style="padding-top: 10px; margin-bottom: 0px; color: #333333;"><span class="news-meta-date"><b> <%= oportunity.employer%></span> </b> </p>
+                        <div>
+                            <p style="color: #333333;">
+                                <%= sanitize oportunity.description[0..220]%>...
                             </p>
                         </div>
                     </div>
