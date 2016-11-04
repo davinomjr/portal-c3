@@ -1,60 +1,61 @@
 
-  <!-- row -->
+<!-- row -->
 
-    <!-- row -->
+<!-- row -->
 
-    <nav class="k-functional-navig">
-      <!-- functional navig -->
-      <ul class="main-nav list-inline pull-right">
-        <li>
-          <% if user_signed_in? %>
-          <li>
-            <%= link_to('Gerenciador', dashboard_articles_path, class: 'btn sty-manager-button') %>
-          </li>
-          <li>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn sty-logout-button') %>
-          </li>
-          <% else %>
-          <li>
-            <span>Professor?</span>
-              <%= link_to('Login', new_user_session_path, class: 'btn sty-login-button') %>
-          </li>
-          <% end %>
-        </li>
+<nav class="k-functional-navig">
+  <!-- functional navig -->
+  <ul class="main-nav list-inline pull-right">
+    <li>
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to('Gerenciador', dashboard_articles_path, class: 'btn sty-manager-button') %>
+      </li>
+      <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn sty-logout-button') %>
+      </li>
+      <% else %>
+      <li>
+        <span>Professor?</span>
+        <%= link_to('Login', new_user_session_path, class: 'btn sty-login-button') %>
+      </li>
+      <% end %>
+    </li>
 
-      </ul>
-    </nav>
-    <!-- functional navig end -->
+  </ul>
+</nav>
+<!-- functional navig end -->
 
-    <div class="col-lg-12" style="padding-left: 40px;padding-right: 40px;background-color: #fff;border-bottom: 1px solid #f7f7f7;box-shadow: 0px 0px 3px 0px #adadad;">
+<div class="container">
+
+  <div class="row">
+
+    <div id="k-site-logo" class="">
+      <!-- site logo -->
+
+      <!-- <h1 class="k-logo"> -->
+      <a href="<%= home_path %>" title="Portal C3">
+        <img src="/assets/img/logoPortal.png" alt="Portal C3" width="80" class="img-responsive" style="margin-right: 45px;margin-top: 10px;margin-bottom: 10px;" />
+        <!-- <span>Curso de Ciência da Computação</span> -->
+      </a>
+
+      <span class="divisoria-logos" style="width: 2px;height: 65px;position: absolute;background-color: #bdc3c7;left: 100px;top: 18px;"></span>
+
+      <a href="http://www.unicap.br/" target="_blank" title="Nosso Campus é a Cidade">
+        <img src="/assets/img/logo_catolica_header.png" alt="Universidade Católica de Pernambuco" width="220" class="img-responsive" style="margin-right: 50px"/>
+      </a>
+      <!-- </h1> -->
 
 
+      <!-- <a id="mobile-nav-switch" href="#drop-down-left"><span class="alter-menu-icon"></span></a> -->
+      <!-- alternative menu button -->
 
-      <div id="k-site-logo" class="">
-        <!-- site logo -->
-
-        <!-- <h1 class="k-logo"> -->
-          <a href="<%= home_path %>" title="Portal C3">
-            <img src="/assets/img/logoPortal.png" alt="Portal C3" width="80" class="img-responsive" style="margin-right: 45px;margin-top: 10px;margin-bottom: 10px;" />
-            <!-- <span>Curso de Ciência da Computação</span> -->
-          </a>
-
-          <span class="divisoria-logos" style="width: 2px;height: 65px;position: absolute;background-color: #bdc3c7;left: 100px;top: 18px;"></span>
-
-          <a href="http://www.unicap.br/" target="_blank" title="Nosso Campus é a Cidade">
-            <img src="/assets/img/logo_catolica_header.png" alt="Universidade Católica de Pernambuco" width="220" class="img-responsive" style="margin-right: 50px"/>
-          </a>
-        <!-- </h1> -->
-
-
-        <!-- <a id="mobile-nav-switch" href="#drop-down-left"><span class="alter-menu-icon"></span></a> -->
-        <!-- alternative menu button -->
-
-      </div>
-
-      <h2>Curso de Ciência da Computação</h2>
-
-      <!-- site logo end -->
     </div>
-  <!-- row end -->
+
+    <h2>Curso de Ciência da Computação</h2>
+  </div>
+
+  <!-- site logo end -->
+</div>
+<!-- row end -->
 <!-- container end -->

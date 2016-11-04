@@ -2,12 +2,12 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Portal C3 - Curso de Ciência da Computação</title>
-<link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico" />
+	<title>Portal C3 - Curso de Ciência da Computação</title>
+	<link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico" />
 
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -27,85 +27,90 @@
 
 <body role="document" onload="carregarSlides()">
 
-<header id="k-head">
-	<%= render :partial => "layouts/header.html.erb" %>
-</header>
+	<header id="k-head" style="background-color: #fff;border-bottom: 1px solid #f7f7f7;box-shadow: 0px 1px 1px 1px #adadad;">
+		<%= render :partial => "layouts/header.html.erb" %>
+	</header>
 
 
-	<section class="" id="k-body">
-
-		<div class="main-section" style="padding-left: 40px;padding-right: 40px;">
-			<nav id="k-menu" class="nav navbar k-main-navig col-lg-9 col-md-9">
-				<!-- main navig -->
-				<ul id="main-menu" class="k-dropdown-menu navbar navbar-left" style="width: 100%;padding: 0!important;font-size: 14px;">
-					<li>
-						<strong><%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %></strong>
-					</li>
-					<li>
-						<strong><%= link_to 'Notícias', articles_path(), class: (controller_name=='articles' ? 'active':'') %></strong>
-					</li>
-					<li>
-						<strong><%= link_to 'Eventos', events_path(), class: (controller_name=='events' ? 'active':'') %></strong>
-					</li>
-					<li>
-						<strong><%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %></strong>
-					</li>
-				</ul>
-			</nav>
+	<section class="main-section" id="k-body" style="padding-left: 30px;padding-right: 30px;">
+		<div class="row">
+			<div class="col-lg-9 col-md-9">
+				<nav id="k-menu" class="navbar k-main-navig">
+					<!-- main navig -->
+					<ul id="main-menu" class="k-dropdown-menu navbar-left" style="width: 100%;padding: 0!important;font-size: 14px;">
+						<li>
+							<strong><%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %></strong>
+						</li>
+						<li>
+							<strong><%= link_to 'Notícias', articles_path(), class: (controller_name=='articles' ? 'active':'') %></strong>
+						</li>
+						<li>
+							<strong><%= link_to 'Eventos', events_path(), class: (controller_name=='events' ? 'active':'') %></strong>
+						</li>
+						<li>
+							<strong><%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %></strong>
+						</li>
+					</ul>
+				</nav>
+			</div>
 			<div class="col-lg-3 col-md-3 inner-addon right-addon sty-search-div">
 				<i class="glyphicon glyphicon-search"></i>
 				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
 			</div>
-			<!-- main navig end -->
-			<!-- <p class="notice"><%= notice %></p> -->
-			<!-- <p class="alert"><%= alert %></p> -->
-			<%= yield %>              
-			<%= render :partial => 'layouts/sidebar.html.erb' %>
-			<!-- </div> -->
 		</div>
-	</section>
+		<!-- <div class="row no-gutter">
 
-	<%= render :partial => "layouts/footer.html.erb" %>
-
-	<div id="k-subfooter">
-		<%= render :partial => "layouts/sub_footer.html.erb" %>
-
+	</div> -->
+	<!-- main navig end -->
+	<!-- <p class="notice"><%= notice %></p> -->
+	<!-- <p class="alert"><%= alert %></p> -->
+	<div class="row">
+		<%= yield %>              
+		<%= render :partial => 'layouts/sidebar.html.erb' %>
 	</div>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/assets/js/dropdown-menu/dropdown-menu.js"></script>
-	<script src="/assets/js/fancybox/jquery.fancybox.pack.js"></script>
-	<script src="/assets/js/fancybox/jquery.fancybox-media.js"></script>
-	<script src="/assets/js/jquery.fitvids.js"></script>
-	<script src="/assets/js/audioplayer/audioplayer.min.js"></script>
-	<script src="/assets/js/jquery.easy-pie-chart.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-	<script src="/assets/js/theme.js"></script>
-	<script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
-	<script type="text/javascript">
-		function carregarSlides() {
-			$("#slide img:eq(0)").addClass("ativo").show();
-			var texto = $(".ativo").attr("data-description");
-			$("#slide").prepend("<span>"+texto+"</span>");
-			$("#slide span").hide().html(texto).delay(500).fadeIn();
+</section>
 
-			setInterval(slide,4000);
+<%= render :partial => "layouts/footer.html.erb" %>
 
-			function slide(){
-				
-				if($(".ativo").next().size()){							
-					$(".ativo").fadeOut().removeClass("ativo").next().fadeIn().addClass("ativo");
-				}else{
-					$(".ativo").fadeOut().removeClass("ativo");
-					$("#slide img:eq(0)").fadeIn().addClass("ativo");
-				}
+<footer class="footer">
+	<%= render :partial => "layouts/sub_footer.html.erb" %>
 
-				$('#slide span').remove();
-				texto = $(".ativo").attr("data-description");
-				$("#slide").prepend("<span>"+texto+"</span>");
+</footer>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/dropdown-menu/dropdown-menu.js"></script>
+<script src="/assets/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/assets/js/fancybox/jquery.fancybox-media.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<script src="/assets/js/audioplayer/audioplayer.min.js"></script>
+<script src="/assets/js/jquery.easy-pie-chart.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
+<script type="text/javascript">
+	function carregarSlides() {
+		$("#slide img:eq(0)").addClass("ativo").show();
+		var texto = $(".ativo").attr("data-description");
+		$("#slide").prepend("<span>"+texto+"</span>");
+		$("#slide span").hide().html(texto).delay(500).fadeIn();
+
+		setInterval(slide,4000);
+
+		function slide(){
+
+			if($(".ativo").next().size()){							
+				$(".ativo").fadeOut().removeClass("ativo").next().fadeIn().addClass("ativo");
+			}else{
+				$(".ativo").fadeOut().removeClass("ativo");
+				$("#slide img:eq(0)").fadeIn().addClass("ativo");
 			}
+
+			$('#slide span').remove();
+			texto = $(".ativo").attr("data-description");
+			$("#slide").prepend("<span>"+texto+"</span>");
 		}
-	</script>
+	}
+</script>
 
 </body>
 

@@ -27,7 +27,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	/* == font and links == */
 	/*body { font-family: 'Open Sans', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 16px; font-weight: 300; line-height: 26px; color: #777; }*/
 
-	body { font-family: 'Open Sans', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 12px; font-weight: 300; line-height: 15px; color: #999; }	
+	body { font-family: 'Open Sans', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 12px; font-weight: 300; line-height: 15px; color: #999; background-color: #f7f7f7;}	
 
 	a { -webkit-transition: 0.2s ease-in-out all; -moz-transition: 0.2s ease-in-out all; -o-transition: 0.2s ease-in-out all; transition: 0.2s ease-in-out all;   }
 	.btn #b { -webkit-transition: 0.2s ease-in-out all; -moz-transition: 0.2s ease-in-out all; -o-transition: 0.2s ease-in-out all; transition: 0.2s ease-in-out all;padding-left: 40px;}
@@ -800,6 +800,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .sty-search-div {
 	line-height: 25px;
 	margin-top: 15px;
+	padding-left: 24px;
+    padding-right: 24px;
 }
 
 .sty-search-input {
@@ -832,7 +834,7 @@ input:focus {
 
 .inner-addon .glyphicon {
 	position: absolute;
-	padding: 8px 23px 0 0;
+	padding: 8px 32px 0px 0;
 	pointer-events: none;
 }
 
