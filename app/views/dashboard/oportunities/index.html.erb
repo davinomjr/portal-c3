@@ -52,7 +52,7 @@
               <% end %>
               <td>
                 <%= link_to 'Remover', {:controller => :oportunities  ,
-                                        :action => 'destroy', :id => oportunity.id }, :method => :delete %>
+                                        :action => 'destroy', :id => oportunity.id }, :data => {:confirm => 'Deseja realmente excluir o item?'}, :method => :delete %>
               </td>
             </tr>
         <% end %>

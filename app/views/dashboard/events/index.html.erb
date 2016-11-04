@@ -48,7 +48,7 @@
               <% end %>
               <td>
                 <%= link_to 'Remover', {:controller => :events,
-                                        :action => 'destroy', :id => article.id }, :method => :delete %>
+                                        :action => 'destroy', :id => article.id }, :data => {:confirm => 'Confima a exclusão?'}, :method => :delete %>
               </td>
             </tr>
         <% end %>
