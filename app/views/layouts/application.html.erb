@@ -2,64 +2,57 @@
 <html lang="pt-br">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico" />
-	<title>Portal C3 - Curso de Ciência da Computação</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Portal C3 - Curso de Ciência da Computação</title>
+<link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico" />
+
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 
 
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800" rel="stylesheet" type="text/css">
-
 	<link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 	<link href="/assets/js/dropdown-menu/dropdown-menu.css" rel="stylesheet" type="text/css">
-
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
 	<link href="/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
-
 	<link href="/assets/js/audioplayer/audioplayer.css" rel="stylesheet" type="text/css">
-
 	<link href="/assets/style.css" rel="stylesheet" type="text/css">
-
-
 	<link href="/assets/dist/css/lightbox.css" rel="stylesheet">
 
 </head>
 
 <body role="document" onload="carregarSlides()">
 
-	<div id="k-head">
+<header id="k-head">
+	<%= render :partial => "layouts/header.html.erb" %>
+</header>
 
-		<%= render :partial => "layouts/header.html.erb" %>
-	</div>
 
+	<section class="" id="k-body">
 
-	<div id="k-body">
-
-		<div class="container">
-			<nav id="k-menu" class="nav navbar k-main-navig col-lg-8 col-md-8">
+		<div class="main-section" style="padding-left: 40px;padding-right: 40px;">
+			<nav id="k-menu" class="nav navbar k-main-navig col-lg-9 col-md-9">
 				<!-- main navig -->
-				<ul id="main-menu" class="k-dropdown-menu navbar navbar-left" style="width: 100%;padding: 0!important;">
+				<ul id="main-menu" class="k-dropdown-menu navbar navbar-left" style="width: 100%;padding: 0!important;font-size: 14px;">
 					<li>
-						<%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %>
+						<strong><%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %></strong>
 					</li>
 					<li>
-						<%= link_to 'Notícias', articles_path(), class: (controller_name=='articles' ? 'active':'') %>
+						<strong><%= link_to 'Notícias', articles_path(), class: (controller_name=='articles' ? 'active':'') %></strong>
 					</li>
 					<li>
-						<%= link_to 'Eventos', events_path(), class: (controller_name=='events' ? 'active':'') %>
+						<strong><%= link_to 'Eventos', events_path(), class: (controller_name=='events' ? 'active':'') %></strong>
 					</li>
 					<li>
-						<%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %>
+						<strong><%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %></strong>
 					</li>
 				</ul>
 			</nav>
-			<div class="col-lg-4 col-md-4 inner-addon right-addon sty-search-div">
+			<div class="col-lg-3 col-md-3 inner-addon right-addon sty-search-div">
 				<i class="glyphicon glyphicon-search"></i>
 				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
 			</div>
@@ -70,7 +63,7 @@
 			<%= render :partial => 'layouts/sidebar.html.erb' %>
 			<!-- </div> -->
 		</div>
-	</div>
+	</section>
 
 	<%= render :partial => "layouts/footer.html.erb" %>
 

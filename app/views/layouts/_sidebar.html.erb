@@ -1,29 +1,29 @@
-<div id="k-sidebar" class="col-lg-4 col-md-4">
-    <div class="col-padded col-shaded">
-        <ul class="list-unstyled clear-margins">
+<div id="k-sidebar" class="col-lg-3 col-md-3">
+    <div class="" style="padding: 0 10px 0 10px;">
+        <ul class="list-unstyled clear-margins" style="font-size: 14px;color:#3396a3;">
             <!-- <li class="widget-container widget_course_search"> -->
             <li class="widget-container widget_text">
                 <a href="http://www.unicap.br/biblioteca/pages/" target="_blanck" class="" title="Biblioteca Central">                          
-                    <img src="/assets/img/biblioteca.jpg"/>
+                    <img src="/assets/img/biblioteca.jpg" style="margin-bottom: 20px;"/>
                 </a>
                 <a href="http://www.unicap.br/PortalProfessor/" target="_blanck" class="" title="Portal do Professor">
 
-                    <img src="/assets/img/portalProfessor.jpg"/> 
+                    <img src="/assets/img/portalProfessor.jpg" style="margin-bottom: 20px;"/> 
 
                 </a>
                 <a href="http://www.unicap.br/PortalGraduacao/" target="_blanck" class="" title="Portal do Aluno de Graduação">
-                    <img src="/assets/img/portal-graduacao.png" />
+                    <img src="/assets/img/portal-graduacao.png" style="margin-bottom: 20px;"/>
                 </a>
             </li>
             
-            <li>
+            <li class="sty-menu-sidebar">
                 <%= link_to 'Disciplinas', disciplines_path(), class: (controller_name=='discipline' ? 'active':'') %>
             </li>
-            <li>
+            <li class="sty-menu-sidebar">
               <%= link_to 'Professores', teachers_path(), class: (controller_name=='teachers' ? 'active':'') %>
           </li>
-          <li>
-            <%= link_to 'Sobre', about_path(), class: (action_name=='about' ? 'active':'') %>
+          <li  class="sty-menu-sidebar">
+            <%= link_to 'Sobre o Curso', about_path(), class: (action_name=='about' ? 'active':'') %>
         </li>
         <!-- </li> -->
     </ul>

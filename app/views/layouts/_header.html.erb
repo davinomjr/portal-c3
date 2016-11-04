@@ -1,24 +1,22 @@
-<div class="container">
 
   <!-- row -->
 
-  <div class="row">
     <!-- row -->
 
     <nav class="k-functional-navig">
       <!-- functional navig -->
-      <ul class="list-inline pull-right">
+      <ul class="main-nav list-inline pull-right">
         <li>
           <% if user_signed_in? %>
           <li>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn sty-logout-button') %>
+            <%= link_to('Gerenciador', dashboard_articles_path, class: 'btn sty-manager-button') %>
           </li>
           <li>
-            <%= link_to('Gerenciador', dashboard_articles_path, class: 'btn sty-manager-button') %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn sty-logout-button') %>
           </li>
           <% else %>
           <li>
-            <p>Professor?</p>
+            <span>Professor?</span>
               <%= link_to('Login', new_user_session_path, class: 'btn sty-login-button') %>
           </li>
           <% end %>
@@ -28,7 +26,7 @@
     </nav>
     <!-- functional navig end -->
 
-    <div class="col-lg-12" style="text-align: center;">
+    <div class="col-lg-12" style="padding-left: 40px;padding-right: 40px;background-color: #fff;border-bottom: 1px solid #f7f7f7;box-shadow: 0px 0px 3px 0px #adadad;">
 
 
 
@@ -43,8 +41,8 @@
 
           <span class="divisoria-logos" style="width: 2px;height: 65px;position: absolute;background-color: #bdc3c7;left: 100px;top: 18px;"></span>
 
-          <a href="http://www.unicap.br/" title="Nosso Campus é a Cidade">
-            <img src="/assets/img/logo_catolica_header.png" alt="Universidade Católica de Pernambuco" width="220" class="img-responsive" />
+          <a href="http://www.unicap.br/" target="_blank" title="Nosso Campus é a Cidade">
+            <img src="/assets/img/logo_catolica_header.png" alt="Universidade Católica de Pernambuco" width="220" class="img-responsive" style="margin-right: 50px"/>
           </a>
         <!-- </h1> -->
 
@@ -54,11 +52,9 @@
 
       </div>
 
-      <h1>Curso de Ciência da Computação</h1>
+      <h2>Curso de Ciência da Computação</h2>
 
       <!-- site logo end -->
     </div>
-  </div>
   <!-- row end -->
-</div>
 <!-- container end -->
