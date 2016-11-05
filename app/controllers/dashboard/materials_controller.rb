@@ -51,7 +51,7 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
   # DELETE /dashboard/materials/1
   # DELETE /dashboard/materials/1.json
   def destroy
-    MaterialClass.destroy_all(:material_id => @dashboard_material.id)
+    Material.destroy_all(:id => @dashboard_material.id)
     @dashboard_material.destroy
     respond_to do |format|
       format.html { redirect_to dashboard_materials_path, notice: 'material was successfully destroyed.' }
