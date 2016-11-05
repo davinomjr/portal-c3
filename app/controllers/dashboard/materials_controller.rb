@@ -67,6 +67,6 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dashboard_material_params
-      params.require(:material).permit(:name, :attachment, :discipline_id)
+      params.require(:material).permit(:name, :attachment, :discipline_id, :user_id)
    end
 end
