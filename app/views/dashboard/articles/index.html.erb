@@ -1,9 +1,11 @@
 
-<section class="content">
-    <section class="widget">        	
-         <%= render "shared/messages" %>
+
+<div class="row">
+    <div class="col-xs-12">
+    <section class="widget">
+    <%= render "shared/messages" %>     
         <header>
-            <span class="icon">&#59160;</span>
+       <span class="icon">&#59160;</span>
             <hgroup>
                 <h1>Notícias</h1>
                 <h2>Notícias recentes</h2>
@@ -11,13 +13,6 @@
 
         </header>
         <div class="content">
-            <div class="gutter">
-              <div class="col-lg-12">
-                <div class="portal_pagination">
-                  <%= will_paginate @dashboard_articles, :previous_label => 'Anterior', :next_label => 'Próximo'%>
-                </div>
-              </div>            
-            </div>
             <table id="myTable" border="0" width="100">
                 <thead>
                     <tr>
@@ -45,12 +40,19 @@
                             <% end %>
                             <td>
                               <%= link_to 'Remover', {:controller => :articles,
-      :action => 'destroy', :class => "btn btn-danger", :id => article.id }, :method => :delete %>  
+                              :action => 'destroy', :class => "btn btn-danger", :id => article.id }, :method => :delete %>  
                             </td>
                         </tr>
                       <% end %>
                 </tbody>
             </table>
+
+              <div class="col-md-12" id="pagination-content" style="margin-top:15px;">
+                    <%= will_paginate(@dashboard_articles) %>
+                </div>
         </div>
     </section>
-</section>
+   </div>
+</div>   
+
+

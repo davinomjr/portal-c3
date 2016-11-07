@@ -1252,6 +1252,9 @@ ul.settings-dd li label {
 
 .widget .timeline {
     border-left: 1px solid #e3e3e3;
+}
+
+.widget .content {
     margin: 25px 25px 2px 45px;
     position: relative;
 }
@@ -2464,9 +2467,5 @@ div.botao2 {
 }
 
 .pagination {
-    margin: 0 !important;
-}
-
-.widget .timeline {
-    height: 800px !important;
+    margin-top: 15px;
 }
