@@ -3,7 +3,7 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
 
   def index
     if current_user.admin?
-      @dashboard_articles = Article.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 1)
+      @dashboard_articles = Article.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 10)
       # @dashboard_articles = Article.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 30).eager_load(:user)
     else
       @dashboard_articles = current_user.articles.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 30).eager_load(:user)

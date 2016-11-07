@@ -561,8 +561,8 @@ section.user .button .pip {
 
 .button.icon {
     font-family: "entypo";
-    font-size: 14px;
-    width: 10px;
+    font-size: 12px;
+    /*width: 10px;*/
 }
 
 button.ico-font {
@@ -1437,20 +1437,20 @@ ul.settings-dd li label {
 
 /** TABLE STYLES **/
 
-table#myTable input[type="checkbox"] {
+table.sorteable-table input[type="checkbox"] {
     width: k30px;
     margin: 0;
 }
 
-table#myTable th:first-child {
+table.sorteable-table th:first-child {
     padding-left: 50px;
 }
 
-table#myTable tr:nth-child(odd) {
-    background: #f0f0f0;
+table.sorteable-table tr:nth-child(odd) {
+    /*background: #f0f0f0;*/
 }
 
-table#myTable {
+table.sorteable-table {
     border: 1px solid #e9e9e9;
     width: 100%;
     -khtml-border-radius: 5px;
@@ -1461,7 +1461,7 @@ table#myTable {
     border-radius: 5px;
 }
 
-table#myTable thead tr {
+table.sorteable-table thead tr {
     background: #ededee !important;
     background: -moz-linear-gradient(top, #ededee 0%, #dddddd 100%) !important;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededee), color-stop(100%, #dddddd)) !important;
@@ -1472,47 +1472,48 @@ table#myTable thead tr {
     border-bottom: 1px solid #fff;
 }
 
-table#myTable thead tr:hover {
+
+/*table.sorteable-table thead tr:hover {
     color: #000;
-}
+}*/
 
-table#myTable tr {
+table.sorteable-table tr {
     border: 1px solid #e9e9e9;
-    background: #fff;
+    /*background: #fff;*/
 }
 
-table#myTable tr:hover {
-    background: #208ed3;
+table.sorteable-table tr:hover {
+    /*background: #208ed3;*/
     /* Old browsers */
-    background: -moz-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    /*background: -moz-linear-gradient(top, #208ed3 0%, #0272bd 100%);*/
     /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #208ed3), color-stop(100%, #0272bd));
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #208ed3), color-stop(100%, #0272bd));
     /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    /*background: -webkit-linear-gradient(top, #208ed3 0%, #0272bd 100%);
     /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    /*background: -o-linear-gradient(top, #208ed3 0%, #0272bd 100%);
     /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    /*background: -ms-linear-gradient(top, #208ed3 0%, #0272bd 100%);
     /* IE10+ */
-    background: linear-gradient(to bottom, #208ed3 0%, #0272bd 100%);
+    /*background: linear-gradient(to bottom, #208ed3 0%, #0272bd 100%);
     /* W3C */
-    color: #fff;
+    /*color: #fff;*/
     cursor: pointer;
 }
 
-table#myTable th {
+table.sorteable-table th {
     font-weight: bold;
     /*min-width:100px;*/
     padding: 15px 100px 0 15px;
     text-align: left;
 }
 
-table#myTable td {
+table.sorteable-table td {
     vertical-align: middle;
     padding: 15px;
 }
 
-table#myTable thead tr .header {
+table.sorteable-table thead tr .header {
     /*background-image: url('../images/bg.gif');*/
     background-repeat: no-repeat;
     background-position: center right;
@@ -1520,30 +1521,34 @@ table#myTable thead tr .header {
     height: 2em;
 }
 
-table#myTable thead tr .headerSortUp {
+table.sorteable-table thead tr .headerSortUp {
     background-image: url('../images/asc.gif');
 }
 
-table#myTable thead tr .headerSortDown {
+table.sorteable-table thead tr .headerSortDown {
     background-image: url('../images/desc.gif');
 }
 
-table#myTable thead tr .headerSortDown,
-table#myTable thead tr .headerSortUp {
+table.sorteable-table thead tr .headerSortDown,
+table.sorteable-table thead tr .headerSortUp {
     color: #208ed3;
 }
 
-table#myTable thead tr th.avatar {
+table.sorteable-table thead tr th.avatar {
     padding-left: 70px;
 }
 
-table#myTable td.avatar {
+table.sorteable-table td.avatar {
     line-height: 30px;
 }
 
-table#myTable td.avatar img {
+table.sorteable-table td.avatar img {
     float: left;
     margin: 0 15px 0 0
+}
+
+.td-action{
+    text-align: center !important;
 }
 
 
@@ -2234,7 +2239,7 @@ only screen and (max-device-width: 767px) {
     table tr td:nth-child(9) {
         display: none;
     }
-    table#myTable th {
+    table.sorteable-table th {
         min-width: 50px;
     }
     .gallery a {
