@@ -1,5 +1,6 @@
 # Classe de usuário
 class User < ActiveRecord::Base
+  validates_uniqueness_of :enrollment, :email
   # Funcoes do devise
   # - database_authenticatable: Indica que essa classe é autenticável
   # - registerable: Indica que essa classe é registrável

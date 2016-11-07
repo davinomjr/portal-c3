@@ -29,10 +29,10 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
   # POST /dashboard/disciplines.json
   def create
     @dashboard_discipline = Discipline.new(dashboard_discipline_params)
-
     respond_to do |format|
       if @dashboard_discipline.save
-        format.html { redirect_to dashboard_disciplines_path, notice: 'Discipline was successfully created.' }
+        flash[:success] = "Disciplina criada com sucesso."
+        format.html { redirect_to dashboard_disciplines_path }
         format.json { render :show, status: :created, location: @dashboard_discipline }
       else
         format.html { render :new }
@@ -46,8 +46,9 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @dashboard_discipline.update(dashboard_discipline_params)
-        format.html { redirect_to dashboard_disciplines_path, notice: 'Discipline was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dashboard_discipline }
+        flash[:success] = "Disciplina alterada com sucesso."
+        format.html { redirect_to dashboard_disciplines_path }
+        format.json { render :show, status: :ok, location: @dashboard_discipline }    
       else
         format.html { render :edit }
         format.json { render json: @dashboard_discipline.errors, status: :unprocessable_entity }
@@ -61,7 +62,8 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
     DisciplineClass.destroy_all(:discipline_id => @dashboard_discipline.id)
     @dashboard_discipline.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_disciplines_path, notice: 'Discipline was successfully destroyed.' }
+        flash[:success] = "Disciplina removida com sucesso."
+      format.html { redirect_to dashboard_disciplines_path }
       format.json { head :no_content }
     end
   end

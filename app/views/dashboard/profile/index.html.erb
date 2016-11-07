@@ -3,7 +3,7 @@
 <%= form_for(dashboard_profile_update_path, html: { multipart: true }) do |f| %>
     <section class="content">
       <section class="widget" style="min-height:300px">
-          <%= render "shared/error_messages" %>
+          <%= render "shared/messages" %>
           <% if current_user.errors.any? %>
               <div class="alert alert-danger">
                   <% current_user.errors.full_messages.each do |message| %>
