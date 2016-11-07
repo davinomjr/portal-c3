@@ -569,11 +569,11 @@ button.ico-font {
     color: #fff;
     background: #208ed3;
     background: -moz-linear-gradient(top, #208ed3 0%, #0272bd 100%);
-    background: -	webkit-gradient(linear, left top, left bottom, color-stop(0%,#208ed3), color-stop(100%,#0272bd));
-    background: -webkit-linear-gradient(top, #208ed3 0%,#0272bd 100%);
-    background: -o-linear-gradient(top, #208ed3 0%,#0272bd 100%);
-    background: -ms-linear-gradient(top, #208ed3 0%,#0272bd 100%);
-    background: linear-gradient(to bottom, #208ed3 0%,#0272bd 100%);
+    background: - webkit-gradient(linear, left top, left bottom, color-stop(0%, #208ed3), color-stop(100%, #0272bd));
+    background: -webkit-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    background: -o-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    background: -ms-linear-gradient(top, #208ed3 0%, #0272bd 100%);
+    background: linear-gradient(to bottom, #208ed3 0%, #0272bd 100%);
     padding: 12px 0;
     font-size: 20px;
     width: 39px;
