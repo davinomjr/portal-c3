@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :articles
   has_many :events
-  has_many :events
   has_many :discipline_classes
+  has_many :materials
   belongs_to :user_profile
   has_and_belongs_to_many :disciplines
 

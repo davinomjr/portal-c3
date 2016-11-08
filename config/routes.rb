@@ -80,6 +80,9 @@ Rails.application.routes.draw do
 
       get 'professores' => 'teacher#index'
       get 'professores/:id' => 'teacher#show'
+
+      get 'materiais' => 'material#index'
+      get 'materiais/:id' => 'material#show'
     end
   end
 
