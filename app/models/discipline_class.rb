@@ -1,4 +1,5 @@
 class DisciplineClass < ActiveRecord::Base
+  validates :name,:discipline_id, presence: true
   belongs_to :user
   belongs_to :discipline
   has_many :class_files
