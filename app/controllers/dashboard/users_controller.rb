@@ -2,7 +2,7 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
@@ -23,7 +23,6 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
         format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :created, location: @user }
       else
-        flash[:error] = @user.errors.full_messages.to_sentence
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -37,7 +36,8 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     respond_to do |format|
       if @user.update(user_params)
         @user.user_profile.update profile_params
-        format.html { redirect_to dashboard_users_path, notice: 'Usuário atualizado com sucesso.' }
+        flash[:success] = "Usuário alterado com sucesso."
+        format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -54,7 +54,8 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     @user.destroy
     profile.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_users_path, notice: 'Usuário removido com sucesso.' }
+      flash[:success] = "Usuário removido com sucesso."
+      format.html { redirect_to dashboard_users_path }
       format.json { head :no_content }
     end
   end

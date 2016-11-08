@@ -10,7 +10,7 @@
             </p>
         </div>
         <div class="buttons">
-            <a href="<%= dashboard_profile_path %>"><span class="button">Editar Perfil</span></a>
+            <a href="<%= edit_dashboard_user_path(current_user.id) %>"><span class="button">Editar Perfil</span></a>
             <a href="./.."><span class="button">Portal</span></a>
             <%= link_to('SAIR', destroy_user_session_path, :method => :delete, :class => "button blue") %>
         </div>
