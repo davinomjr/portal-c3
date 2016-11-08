@@ -22,7 +22,7 @@
 	$(document).ready(function() {
 	    /* Initiating tinymce */
 	    tinymce.init({
-	        selector: 'textarea',
+	        selector: 'textarea.html-editor',
 	        statusbar: false,
 	        menubar: false,
 	        min_height: 400,
@@ -223,6 +223,6 @@
 	        includeSelectAllOption: true,
 	        maxHeight: 200
 	    });
-	    
+
 	    $(".datarangepicker").loadDate();
 	});

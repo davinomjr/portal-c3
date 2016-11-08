@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/assets/css/dashboard/dashboard-form.css" media="all">
 
-<%= form_for([:dashboard, @user], html: { multipart: true }) do |f| %>
-    <section class="content">
-      <section class="widget" style="min-height:300px">
+<div class="row">
+	<%= form_for([:dashboard, @user], :multipart => true, :html => { :class => "form-horizontal form-dashboard"})  do |f| %>
+      <section class="widget">
       <%= render "shared/messages", :target => @user %>          
         <header>
           <span class="icon">&#59160;</span>
@@ -86,6 +86,6 @@
           </div>
 
         </div>
-      </section>
     </section>
-<% end %>
+  <% end %>
+</div>

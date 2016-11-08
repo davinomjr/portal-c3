@@ -1527,6 +1527,10 @@ table.sorteable-table thead tr .header:first-child {
     background-position: bottom 15px left 80px;
 }
 
+.header.extended-sorteable {
+    background-position: bottom 15px left 55px !important;
+}
+
 table.sorteable-table thead tr .headerSortUp {
     background-image: url('/assets/img/admin/asc.gif');
 }
@@ -2479,4 +2483,8 @@ div.botao2 {
 
 .pagination {
     margin-top: 15px;
+}
+
+.center-text {
+    text-align: center !important;
 }
