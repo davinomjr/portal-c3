@@ -16,6 +16,7 @@
                     <tr>
                         <th>Titulo</th>
                         <th>Data</th>
+                        <th>Local</th>
                         <% if current_user.admin? %>
                             <th>Autor</th>
                         <% end %>
@@ -30,6 +31,9 @@
                             </td>
                             <td>
                               <%= link_to event.created_at,  edit_dashboard_event_path(event) %>
+                            </td>
+                            <td>
+                              <%= link_to event.place,  edit_dashboard_event_path(event) %>
                             </td>
                             <% if current_user.admin? %>
                                 <td>

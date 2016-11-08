@@ -20,7 +20,18 @@
 	});
 
 	$(document).ready(function() {
-
+	    /* Initiating tinymce */
+	    tinymce.init({
+	        selector: 'textarea',
+	        statusbar: false,
+	        menubar: false,
+	        min_height: 400,
+	        plugins: 'link image code',
+	        toolbar: [
+	            'undo redo | styleselect | bold italic | link image',
+	            'alignleft aligncenter alignright'
+	        ]
+	    });
 
 	    $("nav").height($(document).height());
 
@@ -212,4 +223,6 @@
 	        includeSelectAllOption: true,
 	        maxHeight: 200
 	    });
+	    
+	    $(".datarangepicker").loadDate();
 	});

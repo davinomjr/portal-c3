@@ -21,7 +21,8 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
 
     respond_to do |format|
       if @dashboard_material.save
-        format.html { redirect_to dashboard_materials_path, notice: 'material was successfully created.' }
+        flash[:success] = "Material criado com sucesso."
+        format.html { redirect_to dashboard_materials_path }
         format.json { render :show, status: :created, location: @dashboard_material }
       else
         format.html { render :new }
@@ -39,7 +40,8 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @dashboard_material.update(dashboard_material_params)
-        format.html { redirect_to dashboard_materials_path, notice: 'material was successfully updated.' }
+        flash[:success] = "Material alterado com sucesso."
+        format.html { redirect_to dashboard_materials_path }
         format.json { render :show, status: :ok, location: @dashboard_material }
       else
         format.html { render :edit }
@@ -54,7 +56,8 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
     Material.destroy_all(:id => @dashboard_material.id)
     @dashboard_material.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_materials_path, notice: 'material was successfully destroyed.' }
+      flash[:success] = "Material removido com sucesso."
+      format.html { redirect_to dashboard_materials_path }
       format.json { head :no_content }
     end
   end
