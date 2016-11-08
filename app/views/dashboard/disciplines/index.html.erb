@@ -11,7 +11,7 @@
             </hgroup>
 
         </header>
-        <div class="content no-padding timeline">
+        <div class="content timeline">
             <% @dashboard_disciplines.each do |discipline| %>
                 <div class="tl-post">
                     <span class="icon">&#128213;</span>
@@ -21,17 +21,11 @@
                     </p>
                 </div>
                 <% end %>
-
-                <div class="col-md-12" id="pagination-content">
-                    <%= will_paginate(@dashboard_disciplines,  :id => "teste") %>
-                </div>
         </div>
-
-  <%#<ul id="pagination-demo" class="pagination-sm"></ul>%>
-
-      <%#<%= will_paginate @dashboard_disciplines, :previous_label => 'Anterior', :next_label => 'Próximo'%>
-
-</section>
+                <div class="col-md-12" id="pagination-content">
+                    <%= will_paginate(@dashboard_disciplines) %>
+                </div>
+    </section>
    </div>
 </div>   
 
