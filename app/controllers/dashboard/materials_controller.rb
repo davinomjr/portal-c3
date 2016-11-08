@@ -51,7 +51,7 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
   # DELETE /dashboard/materials/1
   # DELETE /dashboard/materials/1.json
   def destroy
-    MaterialClass.destroy_all(:material_id => @dashboard_material.id)
+    Material.destroy_all(:id => @dashboard_material.id)
     @dashboard_material.destroy
     respond_to do |format|
       format.html { redirect_to dashboard_materials_path, notice: 'material was successfully destroyed.' }
@@ -67,6 +67,6 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dashboard_material_params
-      params.require(:material).permit(:name, :attachment, :discipline_id)
+      params.require(:material).permit(:name, :attachment, :discipline_id, :user_id)
    end
 end

@@ -34,12 +34,16 @@
                     <%= f.text_field :name, placeholder: 'Nome' %>
                 </div>
                 <div class="field-wrap">
-                    <%= f.label :attachment %>
+                    <p>Nome</p>
                     <%= f.file_field :attachment %>
                 </div>
                 <div class="field-wrap">
-                    <%= f.label :discipline_id %>
+                    <p>Disciplina</p>
                     <%= f.collection_select :discipline_id, Discipline.all, :id, :name %>
+                </div>
+                <div class="field-wrap">
+                    <p>Professor</p>
+                    <%= f.collection_select :user_id, User.all, :id, :name %>
                 </div>
                 <br>               
 
