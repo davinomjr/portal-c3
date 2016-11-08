@@ -799,7 +799,7 @@ section.widget header aside button.right-btn {
 }
 
 section.widget .content {
-    padding: 25px;
+    padding: 30px;
 }
 
 section.widget header aside>span {
@@ -1442,7 +1442,8 @@ table.sorteable-table input[type="checkbox"] {
     margin: 0;
 }
 
-table.sorteable-table th:first-child {
+table.sorteable-table th:first-child,
+table.sorteable-table td:first-child {
     padding-left: 50px;
 }
 
@@ -1516,17 +1517,22 @@ table.sorteable-table td {
 table.sorteable-table thead tr .header {
     /*background-image: url('../images/bg.gif');*/
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: bottom 15px left 35px;
+    padding-right: 15px;
     cursor: pointer;
     height: 2em;
 }
 
+table.sorteable-table thead tr .header:first-child {
+    background-position: bottom 15px left 80px;
+}
+
 table.sorteable-table thead tr .headerSortUp {
-    background-image: url('../images/asc.gif');
+    background-image: url('/assets/img/admin/asc.gif');
 }
 
 table.sorteable-table thead tr .headerSortDown {
-    background-image: url('../images/desc.gif');
+    background-image: url('/assets/img/admin/desc.gif');
 }
 
 table.sorteable-table thead tr .headerSortDown,
@@ -1547,7 +1553,7 @@ table.sorteable-table td.avatar img {
     margin: 0 15px 0 0
 }
 
-.td-action{
+.td-action {
     text-align: center !important;
 }
 

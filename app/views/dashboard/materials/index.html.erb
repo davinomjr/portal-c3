@@ -1,35 +1,29 @@
-<section class="content">
+<div class="row">
+    <div class="col-xs-12">
     <section class="widget">
+    <%= render "shared/messages" %>     
         <header>
             <span class="icon">&#128213;</span>
             <hgroup>
                 <h1>Materiais</h1>
-                <h2>Materiais de aula cadastrados</h2>
+                <h2>Materiais cadastrados</h2>
             </hgroup>
 
         </header>
-        <div class="gutter">
-            <div class="col-lg-12">
-               <div class="portal_pagination">
-                <%= will_paginate @dashboard_materials, :previous_label => 'Anterior', :next_label => 'Próximo'%>
-              </div>
-            </div>            
-        </div>
-        <div class="content no-padding timeline">
-
-            <% @dashboard_materials.each do |material| %>
-
-
+        <div class="content timeline">
+                <% @dashboard_materials.each do |material| %>
                 <div class="tl-post">
                     <span class="icon">&#128213;</span>
                     <p>
-                      <%= link_to "#{material.name}",  edit_dashboard_material_path(material)%>
+                     <%= link_to "#{material.name}",  edit_dashboard_material_path(material)%>
                         <span><%= material.attachment %></span>
                     </p>
                 </div>
-
                 <% end %>
-
         </div>
+               <div class="col-md-12" id="pagination-content">
+                    <%= will_paginate(@dashboard_materials) %>
+                </div>
     </section>
-</section>
+   </div>
+</div>   

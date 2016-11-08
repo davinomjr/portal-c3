@@ -20,6 +20,12 @@ pt-BR:
         title: 'Título'
         image: 'Imagem'
         description: 'Descrição'
+      event:
+        title: 'Título'
+        image: 'Imagem'
+        place: 'Local'
+        date:  'Data'
+        description: 'Descrição'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
