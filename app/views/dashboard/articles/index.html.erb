@@ -31,7 +31,7 @@
                                 <%= link_to article.title,  edit_dashboard_article_path(article) %>
                             </td>
                             <td>
-                                <%= link_to article.created_at,  edit_dashboard_article_path(article) %>
+                                <%= link_to article.created_at.strftime('%F %T'),  edit_dashboard_article_path(article) %>
                             </td>
                             <% if current_user.admin? %>
                             <td>

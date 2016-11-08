@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+    validates :title, :description, presence: true
     belongs_to :user
 
     # Define o tipo de imagem que a notícia pode ter
