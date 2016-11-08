@@ -15,7 +15,7 @@ class Dashboard::EventsController < Dashboard::AuthenticatedController
   def edit
   end
 
-  def create
+def create
     @event = Event.new(event_params)
     @event.user = current_user
     respond_to do |format|
