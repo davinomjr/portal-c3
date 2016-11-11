@@ -35,7 +35,7 @@
                     </td>
                     <td class="td-action">
                         <%= link_to 'Remover', {:controller => :users,
-                        :action => 'destroy', :id => user.id },:class => "button danger icon trash", :method => :delete %>  
+                        :action => 'destroy', :id => user.id },:class => "button danger icon trash", data: {confirm: "Deseja remover?"}, :method => :delete %>  
                      </td>
                   </tr>
                       <% end %>

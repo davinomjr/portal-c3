@@ -4,7 +4,7 @@
         <div class="row" style="margin-top: 15px;">
             <div class="col-xs-12">
             <%= link_to 'Remover', {:controller => :materials  ,
-                                    :action => 'destroy', :type => "button", :id => @dashboard_material.id},:class => "btn btn-danger", :method => :delete %>
+                                    :action => 'destroy', :type => "button", :id => @dashboard_material.id},:class => "btn btn-danger", data: {confirm: "Deseja remover?"}, :method => :delete %>
             </div>
         </div>
     <% end %>
