@@ -16,7 +16,7 @@
                 <span class="sty-title-box">Últimas Notícias</span>
                 <ul class="list-unstyled" style="margin-top: 20px;">
                     <% @latest_articles.each do |article| %>
-                    <% if not article.image.url.nil? and not article.image.url.empty? %>
+                    <% if article.image? %>
                     <a href="<%= article_path(article)%>" title="<%= article.title%>">
                         <li class="sty-spacing-articles">
                               
