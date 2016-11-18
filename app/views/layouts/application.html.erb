@@ -54,8 +54,9 @@
 				</nav>
 			</div>
 			<div class="col-lg-3 col-md-3 inner-addon right-addon sty-search-div">
-				<i class="glyphicon glyphicon-search"></i>
-				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
+				<%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+					<%= text_field_tag :search, params[:search], :class=>'sty-search-input form-control', placeholder: "Buscar Notícia" %>
+				<% end %>
 			</div>
 		</div>
 		<!-- <div class="row no-gutter">
