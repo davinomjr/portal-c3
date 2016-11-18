@@ -11,18 +11,21 @@
 
         </header>
         <div class="content timeline">
-                <% @dashboard_materials.each do |material| %>
+                <% @dashboard_disciplines.each do |discipline| %>
+                    <%  discipline.materials.each do |material| %>
+                        <span><%= material.name %></span>
+                         <% end %>
                 <div class="tl-post">
                     <span class="icon">&#128213;</span>
                     <p>
-                     <%= link_to "#{material.name}",  edit_dashboard_material_path(material)%>
-                        <span><%= material.attachment %></span>
+                   
                     </p>
                 </div>
                 <% end %>
+                
         </div>
                <div class="col-md-12" id="pagination-content">
-                    <%= will_paginate(@dashboard_materials) %>
+                    <%= will_paginate(@dashboard_disciplines) %>
                 </div>
     </section>
    </div>

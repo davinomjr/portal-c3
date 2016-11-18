@@ -26,7 +26,8 @@ class Dashboard::OportunitiesController < Dashboard::AuthenticatedController
 
     respond_to do |format|
       if @oportunity.save
-        format.html { redirect_to @oportunity, notice: 'Oportunidade criada com sucesso.' }
+        flash[:success] = "Oportunidade criada com sucesso."
+        format.html { redirect_to dashboard_oportunities_url }
         format.json { render :show, status: :created, location: @oportunity }
       else
         format.html { render :new }
@@ -38,7 +39,8 @@ class Dashboard::OportunitiesController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @oportunity.update(oportunity_params)
-        format.html { redirect_to @oportunity, notice: 'Oportunidade atualizada com sucesso.' }
+        flash[:success] = "Oportunidade alterada com sucesso."
+        format.html { redirect_to dashboard_oportunities_url }
         format.json { render :show, status: :ok, location: @oportunity }
       else
         format.html { render :edit }
@@ -50,7 +52,8 @@ class Dashboard::OportunitiesController < Dashboard::AuthenticatedController
   def destroy
     @oportunity.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_oportunities_url, notice: 'Oportunidade removida!' }
+      flash[:success] = "Oportunidade removida com sucesso."
+      format.html { redirect_to dashboard_oportunities_url }
       format.json { head :no_content }
     end
   end

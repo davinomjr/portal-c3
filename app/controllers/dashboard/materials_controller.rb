@@ -4,9 +4,19 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
   # GET /dashboard/materials.json
   def index
     if current_user.admin?
-      @dashboard_materials = Material.paginate(:page => params[:page], :per_page => 10)
+     @dashboard_disciplines = Discipline.joins(:materials)
+                                        .group("disciplines.id")
+                                        .having("COUNT(materials.discipline_id) >= ?", 1)
+                                        .order("COUNT(materials.discipline_id) desc") 
+                                        .paginate(:page => params[:page], :per_page => 10) 
+    #  Discipline.paginate(:page => params[:page], :per_page => 10)      
     else
-      @dashboard_materials = current_user.materials.paginate(:page => params[:page], :per_page => 10)
+     @dashboard_disciplines = current_user.disciplines
+                                          .joins(:materials)
+                                          .group("disciplines.id")
+                                          .having("COUNT(materials.discipline_id) >= ?", 1)
+                                          .order("COUNT(materials.discipline_id) desc") 
+                                          .paginate(:page => params[:page], :per_page => 10)  
     end
   end
 

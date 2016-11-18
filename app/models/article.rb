@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
     # Define o tipo de imagem que a notícia pode ter
     has_attached_file :image, :styles => { 
         :medium => ["300x300>", :jpg], 
-        :thumb => ["100x100>", :jpg] 
+        :thumb => ["100x100>", :jpg]
     }
 
     # Valida o tipo de arquivo a imagem da notícia pode ser

@@ -22,6 +22,7 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def create
     @dashboard_article = Article.new(dashboard_article_params)
     @dashboard_article.user_id = current_user.id
+    @dashboard_article.image = nil;
     respond_to do |format|
       if @dashboard_article.save
         flash[:success] = "Notícia criada com sucesso."
