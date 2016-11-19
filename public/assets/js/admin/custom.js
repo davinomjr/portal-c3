@@ -82,11 +82,10 @@
 		    // Navigation accordion menu
 		    $(window).bind("load resize", function() {
 		        if ($("nav").width() > 100) {
-		            $("nav ul li:has(ul)").hover(function(e) {
-		                $(this).find("ul.submenu").not(this).slideUp();
-						$(this).find("ul.submenu").slideToggle();
-		                e.stopPropagation();
-		                e.preventDefault();
+		            $("nav ul li:has(ul)").on('mouseenter', function() {
+		                $(this).find("ul.submenu").stop().slideDown(300);
+		            }).on('mouseleave', function() {
+		                $(this).find("ul.submenu").stop().slideUp(500);
 		            });
 		        } else {
 		            $("nav ul li ul").empty();
