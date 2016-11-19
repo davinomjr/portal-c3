@@ -2488,3 +2488,11 @@ div.botao2 {
 .center-text {
     text-align: center !important;
 }
+
+   a.discipline-link{
+        color: #0275d8;
+    }
+
+    a.discipline-link:hover {
+        text-decoration: underline;
+    }

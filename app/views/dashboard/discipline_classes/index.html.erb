@@ -24,11 +24,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                     <% @classes.each do |klass| %>
+                    <% @classes.each do |klass| %>
                           <tr>
-                            <td>
-                              <%= link_to klass.name,  edit_dashboard_discipline_class_path(klass) %>
-                            </td>
+                          <td>
+                            <%= link_to klass.name,  edit_dashboard_discipline_class_path(klass) %>
+                          </td>
                             <td>
                               <%= link_to "#{klass.discipline.name} - #{klass.discipline.night? ? 'Noite' : 'Tarde'}",  edit_dashboard_discipline_path(klass.discipline) %>
                             </td>

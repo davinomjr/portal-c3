@@ -12,74 +12,122 @@
         </header>
         
         <div class="content">
+                    <div class="col-md-push-4">
+                        <img src="<%= @user.avatar.url %>" width="128" height="128"/>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-4">Imagem do Perfil</label>
+                      <div class="col-sm-4">
+                        <%= file_field :user, :avatar, :class => "form-control" %>
+                       </div>
+                      </div>
 
-          <div class="field-wrap">
-            <p>
-              <img src="<%= @user.avatar.url %>" width="128" height="128"/>
-            </p>
-            <label>Imagem de perfil:</label>
-            <%= file_field :user, :avatar %>
+											    	
+          <div class="col-sm-6">
+
+          <div class="form-group">
+           <label class="control-label col-sm-2">Nome</label>
+             <div class="col-sm-10">
+               <%= text_field :user, :name, value: @user.name, :class => "form-control" %>
+               </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Nome:</label>
-            <%= text_field :user, :name, value: @user.name %>
+             <div class="form-group">
+           <label class="control-label col-sm-2">Titulação</label>
+             <div class="col-sm-5">
+                  <%= select :user_profile, :degree, options_for_select(['Mestre', 'Doutor', 'Especialista', 'Graduado', 'Técnico'], selected: @user.profile.degree), {}, {class: 'form-control'} %>
+              </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Titulação:</label>
-            <%= select :user_profile, :degree, options_for_select(['Mestre', 'Doutor', 'Especialista', 'Graduado', 'Técnico'], selected: @user.profile.degree), {}, {class: 'form-control'} %>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Página pessoal</label>
+              <div class="col-sm-10">
+                <%= text_field :user_profile, :link, value: @user.profile.link ,:class => "form-control" %>
+              </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Cargo:</label>
-            <%= text_field :user_profile, :role, value: @user.profile.role %>
+          
+          <div class="form-group">
+              <label class="control-label col-sm-2">Áreas de interesse</label>
+              <div class="col-md-10">
+                <%= text_area :user_profile, :interests, value: @user.profile.interests, rows: "4" ,:class => "form-control" %>
+              </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Curriculum lattes:</label>
-            <%= text_field :user_profile, :lattes, value: @user.profile.lattes %>
+      <div class="form-group">
+       <label class="control-label col-sm-2">Nova senha</label>
+        <div class="col-md-10">
+            <%= password_field :user, :password, value: @user.password, :class => "form-control" %>
+         </div>
+       </div>
+
+           <div class="form-group">
+              <label class="control-label col-sm-2">Matrícula</label>
+              <div class="col-md-10">
+                <%= text_field :user, :enrollment, :class => "form-control" %>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+              <label class="control-label col-sm-2">Cargo</label>
+              <div class="col-sm-8">
+                <%= text_field :user_profile, :role, value: @user.profile.role, :class => "form-control" %>
+              </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Página pessoal:</label>
-            <%= text_field :user_profile, :link, value: @user.profile.link %>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Curriculum lattes</label>
+              <div class="col-sm-10">
+                <%= text_field :user_profile, :lattes, value: @user.profile.lattes,:class => "form-control" %>
+              </div>
           </div>
 
-          <div class="field-wrap">
-            <label>Email:</label>
-            <%= text_field :user, :email, value: @user.email %>
+                 
+        <div class="form-group">
+              <label class="control-label col-sm-2">Email</label>
+              <div class="col-md-10">
+                <%= text_field :user, :email, value: @user.email ,:class => "form-control" %>
+              </div>
           </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <label>Áreas de interesse:</label>
-            <%= text_area :user_profile, :interests, value: @user.profile.interests, rows: "5" %>
+
+         <div class="form-group">
+              <label class="control-label col-sm-2">Professor</label>
+              <div class="col-md-4">
+                <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control" } %>
+              </div>
           </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <label>Tipo de conta:</label>
-            <%= select :user, :role, options_for_select(User.roles.keys.to_a, selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+      
+         <div class="form-group">
+              <label class="control-label col-sm-2">Tipo de conta</label>
+              <div class="col-md-9">
+                <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+              </div>
           </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <label>Professor?</label>
-            <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control" } %>
-          </div>
 
-           <div class="field-wrap wysiwyg-wrap">
-            <label>Matrícula</label>
-            <%= text_field :user, :enrollment, :class => "form-control" %>
-          </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <label>Nova senha:</label>
-            <%= password_field :user, :password, value: @user.password %>
+                
+      <div class="form-group">
+       <label class="control-label col-sm-2">Confirmação</label>
+          <div class="col-md-10">
+            <%= password_field :user, :password_confirmation, value: @user.password_confirmation , :class => "form-control" %>
           </div>
+       </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <label>Confirmação de senha:</label>
-            <%= password_field :user, :password_confirmation, value: @user.password_confirmation %>
+           <div class="form-group">
+       <label class="control-label col-sm-2">Confirmação</label>
+          <div class="col-md-10">
+            <%= password_field :user, :password_confirmation, value: @user.password_confirmation , :class => "form-control" %>
           </div>
+       </div>
+
+      </div>
+          
+      
 
           <div class="field-wrap wysiwyg-wrap">
             <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
