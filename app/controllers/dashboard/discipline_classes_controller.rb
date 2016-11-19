@@ -25,6 +25,7 @@ class Dashboard::DisciplineClassesController < Dashboard::AuthenticatedControlle
     respond_to do |format|
       if @class.save
         @class.attachments_array = files
+        flash[:success] = "Turma criada com sucesso."
         format.html { redirect_to dashboard_discipline_classes_url }
         format.json { render :show, status: :created, location: @dashboard_discipline }
       else
@@ -42,6 +43,7 @@ class Dashboard::DisciplineClassesController < Dashboard::AuthenticatedControlle
       if @class.update(args)
         @class.attachments_array = files
         ClassFile.destroy_all id: params[:destroy_files]
+        flash[:success] = "Turma alterada com sucesso."
         format.html { redirect_to dashboard_discipline_classes_url }
         format.json { render :show, status: :ok, location: @dashboard_discipline }
       else
@@ -57,6 +59,7 @@ class Dashboard::DisciplineClassesController < Dashboard::AuthenticatedControlle
     @class.attachments.destroy
     @class.destroy
     respond_to do |format|
+      flash[:success] = "Turma removida com sucesso."
       format.html { redirect_to dashboard_discipline_classes_url }
       format.json { head :no_content }
     end

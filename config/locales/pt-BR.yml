@@ -26,6 +26,14 @@ pt-BR:
         place: 'Local'
         date:  'Data'
         description: 'Descrição'
+      discipline_class:
+        name: 'Nome'
+        discipline_id: 'Disciplina'
+      oportunity:
+        title: 'Título'
+        image: 'Imagem'
+        employer: 'Empresa'
+        description: 'Descrição'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

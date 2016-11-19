@@ -20,7 +20,9 @@ class Api::DisciplineController < ApplicationController
             disciplinaCreditos: discipline.credit,
             disciplinaCargaHoraria: discipline.hours,
             disciplinaTurno: discipline.shift,
-            disciplinaPeriodo: discipline.semester
+            disciplinaPeriodo: discipline.semester,
+            disciplinaUsers: discipline.users,
+            disciplinaMateriais: discipline.materials
         }
     end
 
