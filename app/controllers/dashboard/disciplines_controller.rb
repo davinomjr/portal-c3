@@ -31,7 +31,7 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
     @dashboard_discipline = Discipline.new(dashboard_discipline_params)
     respond_to do |format|
       if @dashboard_discipline.save
-        flash[:success] = "Disciplina criada com sucesso."
+        flash[:success] = "Disciplina cadastrada com sucesso."
         format.html { redirect_to dashboard_disciplines_path }
         format.json { render :show, status: :created, location: @dashboard_discipline }
       else

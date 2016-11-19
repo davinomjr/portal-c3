@@ -20,7 +20,7 @@ def create
     @event.user = current_user
     respond_to do |format|
       if @event.save
-        flash[:success] = "Evento criado com sucesso."
+        flash[:success] = "Evento cadastrado com sucesso."
         format.html { redirect_to dashboard_events_url }
         format.json { render :show, status: :created, location: @event }
       else

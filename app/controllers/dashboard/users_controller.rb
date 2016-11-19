@@ -19,7 +19,7 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     respond_to do |format|
       if @user.save
         @user.user_profile.save
-        flash[:success] = "Usuário criado com sucesso."
+        flash[:success] = "Usuário cadastrado com sucesso."
         format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :created, location: @user }
       else

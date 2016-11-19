@@ -1255,7 +1255,7 @@ ul.settings-dd li label {
 }
 
 .widget .content {
-    margin: 25px 25px 2px 45px;
+    margin: 20px 0 2px 45px;
     position: relative;
 }
 
@@ -2489,10 +2489,14 @@ div.botao2 {
     text-align: center !important;
 }
 
-   a.discipline-link{
-        color: #0275d8;
-    }
+a.discipline-link {
+    color: #0275d8;
+}
 
-    a.discipline-link:hover {
-        text-decoration: underline;
-    }
+a.discipline-link:hover {
+    text-decoration: underline;
+}
+
+.clickable-icon {
+    cursor: pointer !important;
+}

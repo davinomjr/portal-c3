@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/assets/css/dashboard/dashboard-form.css" media="all">
 
 <div class="row">
+  <div class="col-xs-12">
 	<%= form_for([:dashboard, @user], :multipart => true, :html => { :class => "form-horizontal form-dashboard"})  do |f| %>
       <section class="widget">
       <%= render "shared/messages", :target => @user %>          
@@ -47,14 +48,14 @@
               </div>
           </div>
 
-          
           <div class="form-group">
-              <label class="control-label col-sm-2">Áreas de interesse</label>
+              <label class="control-label col-sm-2">Matrícula</label>
               <div class="col-md-10">
-                <%= text_area :user_profile, :interests, value: @user.profile.interests, rows: "4" ,:class => "form-control" %>
+                <%= text_field :user, :enrollment, :class => "form-control" %>
               </div>
           </div>
-
+          
+                    
       <div class="form-group">
        <label class="control-label col-sm-2">Nova senha</label>
         <div class="col-md-10">
@@ -62,69 +63,65 @@
          </div>
        </div>
 
-           <div class="form-group">
-              <label class="control-label col-sm-2">Matrícula</label>
+          <div class="form-group">
+              <label class="control-label col-sm-2">Áreas de interesse</label>
               <div class="col-md-10">
-                <%= text_field :user, :enrollment, :class => "form-control" %>
+                <%= text_area :user_profile, :interests, value: @user.profile.interests, rows: "4" ,:class => "form-control" %>
               </div>
           </div>
+
+ 
+
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
-              <label class="control-label col-sm-2">Cargo</label>
+              <label class="control-label col-sm-3">Cargo</label>
               <div class="col-sm-8">
                 <%= text_field :user_profile, :role, value: @user.profile.role, :class => "form-control" %>
               </div>
           </div>
 
             <div class="form-group">
-              <label class="control-label col-sm-2">Curriculum lattes</label>
-              <div class="col-sm-10">
+              <label class="control-label col-sm-3">Curriculum lattes</label>
+              <div class="col-sm-9">
                 <%= text_field :user_profile, :lattes, value: @user.profile.lattes,:class => "form-control" %>
               </div>
           </div>
 
                  
-        <div class="form-group">
-              <label class="control-label col-sm-2">Email</label>
-              <div class="col-md-10">
-                <%= text_field :user, :email, value: @user.email ,:class => "form-control" %>
-              </div>
-          </div>
-
+                
+    
 
          <div class="form-group">
-              <label class="control-label col-sm-2">Professor</label>
+              <label class="control-label col-sm-3">Professor</label>
               <div class="col-md-4">
                 <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control" } %>
               </div>
           </div>
 
-      
-         <div class="form-group">
-              <label class="control-label col-sm-2">Tipo de conta</label>
+
+        <div class="form-group">
+              <label class="control-label col-sm-3">Email</label>
               <div class="col-md-9">
-                <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+                <%= text_field :user, :email, value: @user.email ,:class => "form-control" %>
               </div>
           </div>
 
 
-
-                
-      <div class="form-group">
-       <label class="control-label col-sm-2">Confirmação</label>
-          <div class="col-md-10">
-            <%= password_field :user, :password_confirmation, value: @user.password_confirmation , :class => "form-control" %>
-          </div>
-       </div>
-
            <div class="form-group">
-       <label class="control-label col-sm-2">Confirmação</label>
-          <div class="col-md-10">
+       <label class="control-label col-sm-3">Confirmação</label>
+          <div class="col-md-9">
             <%= password_field :user, :password_confirmation, value: @user.password_confirmation , :class => "form-control" %>
           </div>
        </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-3">Tipo de conta</label>
+              <div class="col-md-5">
+                <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+              </div>
+          </div>
 
       </div>
           
@@ -139,4 +136,5 @@
         </div>
     </section>
   <% end %>
+  </div>
 </div>

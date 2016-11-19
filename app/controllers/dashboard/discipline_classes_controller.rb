@@ -25,7 +25,7 @@ class Dashboard::DisciplineClassesController < Dashboard::AuthenticatedControlle
     respond_to do |format|
       if @class.save
         @class.attachments_array = files
-        flash[:success] = "Turma criada com sucesso."
+        flash[:success] = "Turma cadastrada com sucesso."
         format.html { redirect_to dashboard_discipline_classes_url }
         format.json { render :show, status: :created, location: @dashboard_discipline }
       else

@@ -4,15 +4,15 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
   # GET /dashboard/materials.json
   def index
     if current_user.admin?
-    @dashboard_disciplines = Discipline.all
-                                          .joins(:materials)
-                                          .group("disciplines.id")
-                                          .having("COUNT(materials.discipline_id) >= ?", 1)
-                                          .order("COUNT(materials.discipline_id) desc") 
-                                          .paginate(:page => params[:page], :per_page => 10)  
+    @dashboard_disciplines = Discipline.includes("materials")
+                                       .paginate(:page => params[:page], :per_page => 10)  
+                                            
 #      @dashboard_disciplines = Discipline.paginate(:page => params[:page], :per_page => 10)
     else
-      @dashboard_disciplines = current_user.disciplines.paginate(:page => params[:page], :per_page => 10)
+         @dashboard_disciplines = current_user.disciplines    
+                                              .includes("materials")
+                                              .paginate(:page => params[:page], :per_page => 10)  
+      #@dashboard_disciplines = current_user.disciplines.paginate(:page => params[:page], :per_page => 10)
     end
   end
 
@@ -28,7 +28,7 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
 
     respond_to do |format|
       if @dashboard_material.save
-        flash[:success] = "Material criado com sucesso."
+        flash[:success] = "Material para disciplina " + @dashboard_material.discipline.name + " cadastrado com sucesso."
         format.html { redirect_to dashboard_materials_path }
         format.json { render :show, status: :created, location: @dashboard_material }
       else

@@ -14,7 +14,7 @@
         <div class="content timeline">
             <% @dashboard_disciplines.each do |discipline| %>
                 <div class="tl-post">
-                    <span class="icon">&#128213;</span>
+                    <span class="icon clickable-icon">&#128213;</span>
                     <p>
                       <%= link_to "#{discipline.noon? ? 'Tarde' : 'Noite'} - #{discipline.name}",  edit_dashboard_discipline_path(discipline)%>
                         <span><%= discipline.code %></span>

@@ -26,7 +26,7 @@ class Dashboard::OportunitiesController < Dashboard::AuthenticatedController
 
     respond_to do |format|
       if @oportunity.save
-        flash[:success] = "Oportunidade criada com sucesso."
+        flash[:success] = "Oportunidade cadastrada com sucesso."
         format.html { redirect_to dashboard_oportunities_url }
         format.json { render :show, status: :created, location: @oportunity }
       else

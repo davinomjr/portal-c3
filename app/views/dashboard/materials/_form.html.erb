@@ -46,7 +46,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-4">Professor</label>
                                                     <div class="col-sm-5">
-                                                    <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :seleted => !current_user.admin? ? current_user.id : ""  %>
+                                                    <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :selected => !current_user.admin? ? current_user.id : ""  %>
                                                     </div>
                                                 </div>
  
