@@ -12,12 +12,13 @@
         </header>
         
         <div class="content">
-                    <div class="col-md-push-4">
+                    <div class="col-sm-12 col-sm-push-5">
                         <img src="<%= @user.avatar.url %>" width="128" height="128"/>
                     </div>
+                    
                     <div class="form-group">
-                      <label class="control-label col-sm-4">Imagem do Perfil</label>
-                      <div class="col-sm-4">
+                      <label class="control-label col-sm-3">Imagem do Perfil</label>
+                      <div class="col-sm-6">
                         <%= file_field :user, :avatar, :class => "form-control" %>
                        </div>
                       </div>
@@ -41,7 +42,7 @@
 
             <div class="form-group">
               <label class="control-label col-sm-2">Página pessoal</label>
-              <div class="col-sm-10">
+              <div class="col-sm-9">
                 <%= text_field :user_profile, :link, value: @user.profile.link ,:class => "form-control" %>
               </div>
           </div>
@@ -127,11 +128,13 @@
 
       </div>
           
-      
+      <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-4">
+                <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
+                 <a href="<%= dashboard_materials_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+              </div>
+       </div>
 
-          <div class="field-wrap wysiwyg-wrap">
-            <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
-          </div>
 
         </div>
     </section>
