@@ -1,22 +1,33 @@
-<div class="col-lg-9 col-md-9">
-    <div class="col-padded2">
-        <div class=" gutter">
-            <div class="col-lg-12 col-md-12">
-                <h1 class="page-title3"><%= @article.title%></h1>
-                <figure>
-                    <br>
-                   <%= image_tag @article.image.url, class: 'img-news' %>
-                </figure>
-                <span class="news-meta-date"> Postado em <%= @article.updated_at.strftime("%d/%m/%Y")%> <%= @article.updated_at.strftime("%H:%M")%> por <%= @article.user.name%> </span>
-                <p><span class="news-meta-date"></span></p>
-                <div class="news-body2">
-                    <p class="call-out">
-                        <p align="justify">
-                            <%= @article.description.html_safe %>
-                        </p>
+<div class="col-xs-9" style="background-color: #fff;box-shadow: 0px 0px 2px 0px #adadad;border-radius:4px;padding-top:20px;position: relative;">
+    <div class="gutter">
+        <div class="col-lg-12 col-md-12">
+            <% if @article.image? %>
+            <h1 class="page-title3"><%= @article.title%></h1>
+            <figure style="text-align: center;margin-bottom: 30px;">
+                <br>
+                <%= image_tag @article.image.url, class: 'img-news' %>
+            </figure>
+            <span class="news-meta-date"> Publicado em <%= @article.updated_at.strftime("%d/%m/%Y")%> <%= @article.updated_at.strftime("%H:%M")%> por <%= @article.user.name%> </span>
+            <p><span class="news-meta-date"></span></p>
+            <div class="news-body2">
+                <p class="call-out">
+                    <p align="justify">
+                        <%= @article.description.html_safe %>
                     </p>
-                </div>
+                </p>
             </div>
+            <% else %>
+            <h1 class="page-title3"><%= @article.title%></h1>
+            <span class="news-meta-date"> Publicado em <%= @article.updated_at.strftime("%d/%m/%Y")%> <%= @article.updated_at.strftime("%H:%M")%> por <%= @article.user.name%> </span>
+            <p><span class="news-meta-date"></span></p>
+            <div class="news-body2">
+                <p class="call-out">
+                    <p align="justify">
+                        <%= @article.description.html_safe %>
+                    </p>
+                </p>
+            </div>
+            <% end %>
         </div>
     </div>
 </div>

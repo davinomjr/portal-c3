@@ -34,10 +34,10 @@
 
 	<section class="main-section" id="k-body" style="padding-left: 30px;padding-right: 30px;">
 		<div class="row">
-			<div class="col-lg-9 col-md-9">
-				<nav id="k-menu" class="navbar k-main-navig">
+			<div class="col-xs-9">
+				<nav id="k-menu" class="k-main-navig">
 					<!-- main navig -->
-					<ul id="main-menu" class="k-dropdown-menu navbar-left" style="width: 100%;padding: 0!important;font-size: 14px;">
+					<ul id="main-menu" class="k-dropdown-menu navbar-left" style="width: 100%;padding: 0!important;font-size: 15px;margin-top: 12px;margin-bottom: 7px;">
 						<li>
 							<strong><%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %></strong>
 						</li>
@@ -53,7 +53,7 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-lg-3 col-md-3 inner-addon right-addon sty-search-div">
+			<div class="col-xs-3 inner-addon right-addon sty-search-div">
 				<i class="glyphicon glyphicon-search"></i>
 				<input class="sty-search-input" type="text" class="form-control" placeholder="Buscar" />
 			</div>
@@ -72,7 +72,7 @@
 
 <%= render :partial => "layouts/footer.html.erb" %>
 
-<footer class="footer">
+<footer class="footer" style="background-color: #111;padding: 40px;">
 	<%= render :partial => "layouts/sub_footer.html.erb" %>
 
 </footer>

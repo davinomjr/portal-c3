@@ -1,20 +1,29 @@
-<div class="col-lg-8 col-md-8">
-    <div class="col-padded2">
-        <div class="row gutter">
-            <div class="col-lg-12 col-md-12">
-                <h1 class="page-title3"><%= @event.title %></h1>
-                <figure>
-                    <br><img src="<%= @event.image.url %>" alt="<%= @event.title %>" class="img-news">
-                </figure>
-                <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <p> <%= @event.place %></p></span>
-                <div class="news-body2">
-                    <p class="call-out">
-                        <p align="justify">
-                            <%= @event.description.html_safe %>
-                        </p>
+<div class="col-xs-9" style="background-color: #fff;box-shadow: 0px 0px 2px 0px #adadad;border-radius:4px;padding-top:20px;position: relative;">
+    <div class="row gutter">
+        <div class="col-lg-12 col-md-12">
+            <h1 class="page-title3"><%= @event.title %></h1>
+            <% if @event.image? %>
+            <figure style="text-align: center;margin-bottom: 30px;">
+                <br><img src="<%= @event.image.url %>" alt="<%= @event.title %>" class="img-news">
+            </figure>
+            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <p> <%= @event.place %></p></span>
+            <div class="news-body2">
+                <p class="call-out">
+                    <p align="justify">
+                        <%= @event.description.html_safe %>
                     </p>
-                </div>
+                </p>
             </div>
+            <% else %>
+            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <p> <%= @event.place %></p></span>
+            <div class="news-body2">
+                <p class="call-out">
+                    <p align="justify">
+                        <%= @event.description.html_safe %>
+                    </p>
+                </p>
+            </div>
+            <% end %>
         </div>
     </div>
 </div>

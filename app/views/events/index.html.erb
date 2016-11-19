@@ -1,34 +1,30 @@
-<div class="col-lg-8 col-md-8">
-    <div class="col-padded2">
-        <div class="gutter">
-            <div class="col-lg-12 col-md-12">
-                <h1 class="page-title">Eventos</h1>
-            </div>
-        </div>
-        <div class="gutter k-equal-height">
-                <% @events.each do |event| %>
-                <div class="news-mini-wrap3">
+<div class="col-xs-9" style="background-color: #fff;box-shadow: 0px 0px 2px 0px #adadad;border-radius: 4px;padding-top:20px;position: relative;">
+    <h1 class="page-title">Eventos</h1>
+    <ul class="list-unstyled">
+        <% @events.each do |event| %>
+        <a href="<%= event_path(event) %>" title="<%= event.title%>" style="height: 100%;">
 
-                    <div class="up-event-date2 col-lg-2 col-md-2">
-                        <%= event.date.strftime("%d/%m/%Y")%>
-                    </div>
+            <li class="news-mini-wrap">
+                <div class="up-event-date2 col-xs-2">
+                    <%= event.date.strftime("%d %b %Y")%>
+                </div>
 
-                    <div class="page-title-meta col-lg-10 col-md-10 ">
-                        <h1 class="title-median2">
-                        <a href="<%= event_path(event) %>" title="<%= event.title%>" style="color: #00636F;"><%= event.title%></a>
-                        <div class="news-summary3">
-                            <p>
-                                <%= sanitize event.description[0..20]%>
-                            </p>
-                        </div>
+                <div class="page-title-meta col-xs-10">
+                    <h1 class="title-median2"><%= event.title%></h1>
+                    <div class="news-summary3">
+                        <p>
+                            <%= sanitize event.description[0..20]%>
+                        </p>
                     </div>
-                </div>      
-          <% end %>
-        </div>
-        <div class="gutter">
+                </div>
+            </li>    
+        </a>
+        
+        <% end %>
+    </ul>
+        <!-- <div class="gutter">
             <div class="col-lg-12">
                 <%= will_paginate @articles, :previous_label => 'Anterior', :next_label => 'Próximo' %>
             </div>
-        </div>
+        </div> -->
     </div>
-</div>
