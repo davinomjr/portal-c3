@@ -1,14 +1,3 @@
-<script>
-$(document).ready(function(){
-  window.setTimeout(function(){
-$(".alert.alert-success").fadeTo(2000, 500).slideUp(500, function(){
-    $(".alert.alert-success").slideUp(500);
-});
-  },3000);
-})
-</script>
-
-
 <!-- Messages -->
 <% flash.each do |key, value| %>
     <% if key != "alert" && key != "danger" && key != "error" %>

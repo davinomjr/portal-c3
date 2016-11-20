@@ -38,7 +38,7 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @dashboard_article.update(dashboard_article_params)
-        flash[:success] = "Disciplina alterada com sucesso."
+        flash[:success] = "Notícia alterada com sucesso."
         format.html { redirect_to dashboard_articles_url }
         format.json { render :show, status: :ok, location: @dashboard_article }
       else
@@ -51,7 +51,7 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def destroy
     @dashboard_article.destroy
     respond_to do |format|
-      flash[:success] = "Disciplina removida com sucesso."
+      flash[:success] = "Notícia removida com sucesso."
       format.html { redirect_to dashboard_articles_url }
       format.json { head :no_content }
     end

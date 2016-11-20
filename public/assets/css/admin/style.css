@@ -93,7 +93,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /*font: inherit;*/
     vertical-align: baseline;
 }
 
@@ -586,37 +586,6 @@ button.ico-font {
     -moz-border-radius: 75px;
 }
 
-.button,
-button {
-    border: 1px solid #323537;
-    padding: 10px 15px;
-    color: #fff;
-    position: relative;
-    /*margin: 0 0 0 5px;*/
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
-    z-index: 500;
-    background: #4b4f51;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #4b4f51 0%, #414547 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b4f51), color-stop(100%, #414547));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #4b4f51 0%, #414547 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #4b4f51 0%, #414547 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #4b4f51 0%, #414547 100%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, #4b4f51 0%, #414547 100%);
-    /* W3C */
-    cursor: pointer;
-}
 
 .button a {
     color: #fff;
@@ -2490,6 +2459,8 @@ div.botao2 {
 }
 
 a.discipline-link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
     color: #0275d8;
 }
 
@@ -2499,4 +2470,8 @@ a.discipline-link:hover {
 
 .clickable-icon {
     cursor: pointer !important;
+}
+
+.note-color-btn{
+    background: none;
 }

@@ -5,7 +5,7 @@
         <a href="<%= oportunity_path(oportunity) %>" title="<%= oportunity.title%>">
             <li class="news-mini-wrap">
                     <% if oportunity.image? %>
-                    <figure class="news-featured-image2 col-xs-4">
+                    <figure class="news-featured-image2 col-xs-3">
                         <img src="<%= oportunity.image.url %>" class="attachment-thumbnail wp-post-image" height="123" width="264" />
                     </figure>
 
@@ -18,7 +18,7 @@
                         <p style="padding-top: 10px; margin-bottom: 0px; color: #333333;"><span class="news-meta-date"><b> <%= oportunity.employer%></span> </b> </p>
                         <div class="news-summary3">
                             <p>
-                                <%= sanitize oportunity.description[0..220]%>...
+                                <%= truncate_html oportunity.description %>    
                             </p>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <p style="padding-top: 10px; margin-bottom: 0px; color: #333333;"><span class="news-meta-date"><b> <%= oportunity.employer%></span> </b> </p>
                         <div class="news-summary3">
                             <p>
-                                <%= sanitize oportunity.description[0..220]%>...
+                                  <%= truncate_html oportunity.description %>    
                             </p>
                         </div>
                     </div>

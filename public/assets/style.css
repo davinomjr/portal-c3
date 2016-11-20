@@ -861,7 +861,7 @@ input:focus {
 }
 
 .widget-container {
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 }
 
 #main-menu li .active { border-bottom: 5px solid #3396a3;color: #3396a3; }
@@ -925,19 +925,21 @@ input:focus {
 	text-transform: uppercase;
 	font-weight: bold;
 }
-
+/*
 .sty-article-description,
-.sty-event-description {
+.sty-event-description,
+.sty-event-opportunity  {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+}*/
 
 
 .sty-spacing-articles,
-.sty-spacing-events {
+.sty-spacing-events,
+.sty-spacing-opportunities {
 	padding: 13px 0 10px 0;
 }
 

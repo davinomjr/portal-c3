@@ -20,7 +20,7 @@
                     <span class="news-date2"><%= article.created_at.strftime("%H:%M")%></span>
                     <div class="news-summary2">
                         <p>
-                            <%= sanitize article.description[0..30]%>
+                         <%= truncate_html article.description %>
                         </p>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <span class="news-date2"><%= article.created_at.strftime("%H:%M")%></span>
                     <div class="news-summary2">
                         <p>
-                            <%= sanitize article.description[0..30]%>
+                            <%= truncate_html article.description %>
                         </p>
                     </div>
                 </div>
