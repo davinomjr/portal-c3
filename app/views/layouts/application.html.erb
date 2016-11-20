@@ -14,7 +14,7 @@
 	<%= csrf_meta_tags %>
 
 
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800" rel="stylesheet" type="text/css">
+	<link href="/assets/css/@font-face/open-sans.css" rel="stylesheet" type="text/css">
 	<link href="/assets/js/dropdown-menu/dropdown-menu.css" rel="stylesheet" type="text/css">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,6 @@
 	<link href="/assets/style.css" rel="stylesheet" type="text/css">
 	<link href="/assets/dist/css/lightbox.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/font-awesome/css/font-awesome.min.css" media="all" />
-  	<link rel="stylesheet" href="/assets/css/summernote/summernote.css" media="all" />
 </head>
 
 <body role="document" onload="carregarSlides()">
@@ -86,34 +85,7 @@
 <script src="/assets/js/jquery.easy-pie-chart.js"></script>
 <script src="/assets/js/theme.js"></script>
 <script src="/assets/dist/js/lightbox-plus-jquery.js"></script>
-<script type="text/javascript">
-	function carregarSlides() {
-		$("#slide img:eq(0)").addClass("ativo").show();
-		var texto = $(".ativo").attr("data-description");
-		$("#slide").prepend("<span>"+texto+"</span>");
-		$("#slide span").hide().html(texto).delay(500).fadeIn();
-
-		setInterval(slide,4000);
-
-		function slide(){
-
-			if($(".ativo").next().size()){							
-				$(".ativo").fadeOut().removeClass("ativo").next().fadeIn().addClass("ativo");
-			}else{
-				$(".ativo").fadeOut().removeClass("ativo");
-				$("#slide img:eq(0)").fadeIn().addClass("ativo");
-			}
-
-			$('#slide span').remove();
-			texto = $(".ativo").attr("data-description");
-			$("#slide").prepend("<span>"+texto+"</span>");
-		}
-	}
-</script>
-
-<script src="/assets/js/summernote/summernote.min.js"></script>
-<script src="/assets/js/summernote/summernote-pt-BR.js"></script>
-
+<script src="/assets/js/home/main.js"></script>
 </body>
 
 </html>

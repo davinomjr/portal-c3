@@ -51,6 +51,7 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
       return redirect_to dashboard_users_path
     end
     profile = @user.user_profile
+    @user.materials.delete(@user.materials)
     @user.destroy
     profile.destroy
     respond_to do |format|

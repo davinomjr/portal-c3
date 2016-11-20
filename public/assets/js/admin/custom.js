@@ -128,7 +128,7 @@
 		        maxHeight: 200
 		    });
 
-			$('.descricao-html').summernote({
+			$('.html-editor').summernote({
 			height: 350,
 		 	lang: 'pt-BR', // default: 'en-US',
 			toolbar: [
@@ -143,5 +143,9 @@
 			]
 			});
 
+		// var descricao = $(".descricao-html");
+		// 	   if (descricao) {
+        // 			$('#summernote').summernote('code', descricao);
+    	// 		}
 	}
 		

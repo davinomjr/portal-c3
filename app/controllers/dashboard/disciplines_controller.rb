@@ -60,6 +60,7 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
   # DELETE /dashboard/disciplines/1.json
   def destroy
     DisciplineClass.destroy_all(:discipline_id => @dashboard_discipline.id)
+    Material.destroy_all(:discipline_id => @dashboard_discipline.id)
     @dashboard_discipline.destroy
     respond_to do |format|
         flash[:success] = "Disciplina removida com sucesso."

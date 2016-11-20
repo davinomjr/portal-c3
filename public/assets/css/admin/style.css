@@ -1405,16 +1405,40 @@ ul.settings-dd li label {
 
 
 /** TABLE STYLES **/
+table.dashboard_table{
+        border: 1px solid rgba(221, 221, 221, 0.78);
+}
+
+
+    table.dashboard_table thead {
+        background: #208ed3;
+        color: #ECF0F1;
+    }
+
+table.dashboard_table tbody tr:hover td {
+        background: rgba(38, 185, 154, 0.07);
+        border-top: 1px solid rgba(38, 185, 154, 0.11);
+        border-bottom: 1px solid rgba(38, 185, 154, 0.11);
+    }
+
+    table.dashboard_table tbody tr.selected {
+        background: rgba(38, 185, 154, 0.16);
+    }
+
+        table.dashboard_table tbody tr.selected td {
+            border-top: 1px solid rgba(38, 185, 154, 0.40);
+            border-bottom: 1px solid rgba(38, 185, 154, 0.40);
+        }
 
 table.sorteable-table input[type="checkbox"] {
-    width: k30px;
+    width: 30px;
     margin: 0;
 }
 
-table.sorteable-table th:first-child,
+/*table.sorteable-table th:first-child,
 table.sorteable-table td:first-child {
     padding-left: 50px;
-}
+}*/
 
 table.sorteable-table tr:nth-child(odd) {
     /*background: #f0f0f0;*/
@@ -1429,17 +1453,6 @@ table.sorteable-table {
     -o-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-}
-
-table.sorteable-table thead tr {
-    background: #ededee !important;
-    background: -moz-linear-gradient(top, #ededee 0%, #dddddd 100%) !important;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededee), color-stop(100%, #dddddd)) !important;
-    background: -webkit-linear-gradient(top, #ededee 0%, #dddddd 100%) !important;
-    background: -o-linear-gradient(top, #ededee 0%, #dddddd 100%) !important;
-    background: -ms-linear-gradient(top, #ededee 0%, #dddddd 100%) !important;
-    background: linear-gradient(to bottom, #ededee 0%, #dddddd 100%) !important;
-    border-bottom: 1px solid #fff;
 }
 
 
@@ -1485,32 +1498,32 @@ table.sorteable-table td {
 
 table.sorteable-table thead tr .header {
     /*background-image: url('../images/bg.gif');*/
-    background-repeat: no-repeat;
-    background-position: bottom 15px left 35px;
     padding-right: 15px;
     cursor: pointer;
     height: 2em;
 }
 
 table.sorteable-table thead tr .header:first-child {
-    background-position: bottom 15px left 80px;
+    /*background-position: bottom 15px left 80px;*/
 }
 
 .header.extended-sorteable {
-    background-position: bottom 15px left 55px !important;
+    
 }
 
 table.sorteable-table thead tr .headerSortUp {
-    background-image: url('/assets/img/admin/asc.gif');
+     background: url('/assets/img/admin/asc.gif') no-repeat center left;
+     padding-left: 15px;
 }
 
 table.sorteable-table thead tr .headerSortDown {
-    background-image: url('/assets/img/admin/desc.gif');
+    background: url('/assets/img/admin/desc.gif') no-repeat center left;
+    padding-left: 15px;
 }
 
 table.sorteable-table thead tr .headerSortDown,
 table.sorteable-table thead tr .headerSortUp {
-    color: #208ed3;
+    /*color: #208ed3;*/
 }
 
 table.sorteable-table thead tr th.avatar {

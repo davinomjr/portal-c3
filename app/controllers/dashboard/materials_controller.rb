@@ -28,7 +28,7 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
 
     respond_to do |format|
       if @dashboard_material.save
-        flash[:success] = "Material para disciplina " + @dashboard_material.discipline.name + " cadastrado com sucesso."
+        flash[:success] = "Material para " + @dashboard_material.discipline.name + " cadastrado com sucesso."
         format.html { redirect_to dashboard_materials_path }
         format.json { render :show, status: :created, location: @dashboard_material }
       else
