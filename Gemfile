@@ -23,12 +23,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'devise'
+
+gem "nokogiri"
 
 # fix on time-zone for Windows platform
 gem 'tzinfo-data', :platforms => [:mswin, :mingw, :x64_mingw]
 
+gem "truncate_html"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,72 +1,115 @@
-<div class="col-md-8">
-  <img class="mySlides" src="/assets/img/slide01.jpg" style="width:100%">
-  <!-- <img class="mySlides" src="img_ny.jpg" style="width:100%"> -->
-  <!-- <img class="mySlides" src="img_chicago.jpg" style="width:100%"> -->
-  <!-- </div> -->
+<div class="col-md-9" style="margin-bottom: 50px;">
+    <figure id="slide">
+      <img class="mySlides" src="/assets/img/slide-1.jpg" data-description="Meninas do curso de computação" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-2.jpg" data-description="Biblioteca da unicap" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-3.jpg" data-description="Alunos no laboratório Inácio Loyola" style="width:100%">
+      <img class="mySlides" src="/assets/img/slide-4.jpg" data-description="65 anos da Unicap" style="width:100%">
+  </figure>
 
-  <div class="col-lg-6 col-md-6">
-    <div class="col-padded col-shaded">
-        <% if not @latest_events.nil? and not @latest_events.empty? %>
-        <ul class="list-unstyled clear-margins">
-            <li class="widget-container widget_up_events">
-                <h1 class="title-widget">Próximos Eventos</h1>
-                <ul class="list-unstyled">
-                    <% @latest_events.each do |event| %>
-                    <li class="up-event-wrap">
-                        <h1 class="title-median"><%= link_to event.title, event_path(event) %></h1>
-                        <div class="up-event-meta clearfix">
-                            <div class="up-event-date">
-                                <%= event.date.strftime("%d/%m/%Y")%>
-                            </div>
-                            <div class="up-event-time">
-                                <%= event.date.strftime("%H:%M")%>
-                            </div>
-                        </div>
-                        <p>
-                            <%= sanitize(event.description[0..30]) %>
-                            <p><%= link_to 'Mais', event_path(event), class: 'moretag' %></p>
-                        </p>
-                    </li>
-                    <% end %>
-                </ul>
-            </li>
-        </ul>
-        <% end %>
-    </div>
-</div>
-<div class="col-lg-6 col-md-6">
-    <% if not @latest_articles.nil? and not @latest_articles.empty? %>
-    <div class="col-padded">
+
+  <div class="col-md-6 col-sm-12" style="padding-right: 25px;">
+    <div class="row sty-container-box">
         <ul class="list-unstyled clear-margins">
             <li class="widget-container widget_recent_news">
-                <h1 class="title-widget">Últimas Notícias</h1>
+                <span class="sty-title-box">Últimas Notícias</span>
                 <ul class="list-unstyled">
                     <% @latest_articles.each do |article| %>
-                    <li class="recent-news-wrap">
-                        <h1 class="title-median"><%= link_to article.title, article_path(article)%></h1>
-                        <div class="recent-news-meta">
-                            <div class="recent-news-date">
-                                <%= article.updated_at.strftime("%d/%m/%Y")%>
-                            </div>
-                        </div>
-                        <div class="recent-news-content clearfix">
-                            <figure class="recent-news-thumb">
-                                <a href="<%= article_path(article)%>" title="<%= article.title%>">
+                    <% if article.image? %>
+                    <a href="<%= article_path(article)%>" title="<%= article.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                        <li class="sty-spacing-articles news-mini-wrap2">
+
+                            <div class="recent-news-content clearfix">
+                                <figure class="col-xs-3 recent-news-thumb" width="80px">
+                                    <!-- <img> -->
                                     <%= image_tag article.image.url, class: 'attachment-thumbnail wp-post-image' %>
-                                </a>
-                            </figure>
-                            <div class="recent-news-text">
-                                <p>
-                                    <%= sanitize(article.description[0..20])%>
-                                </p>
+                                    <!-- </img> -->
+                                </figure>
+                                <div class="col-xs-9">
+                                   <h1 class="title-median"><%= article.title %></h1>
+                                   <div class="recent-news-text news-summary2">
+                                    <p class="sty-event-opportunity">
+                                        <%= truncate_html article.description %>                                        
+                                    </p>
+                                </div> 
+                            </div>
+
+                        </div>
+                    </li>
+                </a>
+                <% else %>
+                <a href="<%= article_path(article)%>" title="<%= article.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                    <li class="sty-spacing-articles news-mini-wrap2">
+                        <div class="recent-news-content clearfix">
+                            <div class="col-xs-12">
+                                <h1 class="title-median"><%= article.title %></h1>
+                                <div class="recent-news-text news-summary2">
+                                    <p class="sty-article-description">
+                                        <%= truncate_html article.description %>    
+                                    </p>
+                                </div> 
                             </div>
                         </div>
                     </li>
-                    <% end %>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <% end %>
+                </a>
+                <% end %>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+  </div>
 </div>
+
+
+            <div class="col-md-6 col-sm-12" style="padding-left: 25px;">
+    <div class="row sty-container-box">
+        <ul class="list-unstyled clear-margins">
+            <li class="widget-container widget_recent_news">
+                <span class="sty-title-box">Últimas Oportunidades</span>
+                <ul class="list-unstyled">
+                    <% @latest_opportunities.each do |opportunity| %>
+                    <% if opportunity.image? %>
+                    <a href="<%= oportunity_path(opportunity)%>" title="<%= opportunity.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                        <li class="sty-spacing-opportunities news-mini-wrap2">
+
+                            <div class="recent-news-content clearfix">
+                                <figure class="col-xs-3 recent-news-thumb" width="80px">
+                                    <!-- <img> -->
+                                    <%= image_tag opportunity.image.url, class: 'attachment-thumbnail wp-post-image' %>
+                                    <!-- </img> -->
+                                </figure>
+                                <div class="col-xs-9">
+                                   <h1 class="title-median"><%= opportunity.title %></h1>
+                                   <div class="recent-news-text news-summary2">
+                                    <p class="sty-event-opportunity">
+                                        <%= truncate_html opportunity.description %>                                        
+                                    </p>
+                                </div> 
+                            </div>
+
+                        </div>
+                    </li>
+                </a>
+                <% else %>
+                <a href="<%= oportunity_path(opportunity)%>" title="<%= opportunity.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                    <li class="sty-spacing-opportunities news-mini-wrap2">
+                        <div class="recent-news-content clearfix">
+                            <div class="col-xs-12">
+                                <h1 class="title-median"><%= opportunity.title %></h1>
+                                <div class="recent-news-text news-summary2">
+                                    <p class="sty-opportunity-description">
+                                     <%= truncate_html opportunity.description %>               
+                                    </p>
+                                </div> 
+                            </div>
+                        </div>
+                    </li>
+                </a>
+                <% end %>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>
+</div>
+
 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="pt-br">
 <head>
 	<meta charset="utf-8">
 	<title>Admin PORTAL C3</title>
@@ -8,36 +8,49 @@
 	<meta name="keywords" content="" />
 	<meta name="robots" content="" />
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" media="all">
   <link rel="stylesheet" href="/assets/css/admin/style.css" media="all" />
   <link rel="stylesheet" href="/assets/css/multi-select.css" media="all" />
+  <link rel="stylesheet" href="/assets/css/bootstrap-multiselect/bootstrap-multiselect.css" media="all">
+  <link rel="stylesheet" href="/assets/css/bootstrap-daterangepicker/daterangepicker.css" media="all">
+  <link rel="stylesheet" href="/assets/css/admin/buttons.css" media="all" />
+  <link rel="stylesheet" href="/assets/css/font-awesome/css/font-awesome.min.css" media="all" />
+  <link rel="stylesheet" href="/assets/css/summernote/summernote.css" media="all" />
+
   <%= csrf_meta_tags %>
 </head>
 
 <body data-no-turbolink="true">
-	<%= render :partial => 'layouts/admin_header.html.erb' %>
 
+
+<div class="col-xs-12 no-padding">
+	<%= render :partial => 'layouts/admin_header.html.erb' %>
+</div>
+
+
+<div class="col-xs-2 no-padding">
 	<%= render :partial => 'layouts/admin_sidebar.html.erb' %>
-	
+</div>
+	 <div class="col-xs-10">
 	<%= yield %>
+	</div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script src="/assets/js/admin/jquery.wysiwyg.js"></script>
+
+<script src="/assets/js/jQuery/jquery-2.2.4.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/jQuery/jquery.wysiwyg.js"></script>
+<script src="/assets/js/moment.min.js"></script>
+<script src="/assets/js/date-locale-pt-br.js"></script>
+<script src="/assets/js/jQuery/jquery.maskedinput.js"></script>
+<script src="/assets/js/jQuery/jquery.tablesorter.min.js"></script>
+<script src="/assets/js/datepicker.js"></script>
+<script src="/assets/js/summernote/summernote.min.js"></script>
+<script src="/assets/js/summernote/summernote-pt-BR.js"></script>
 <script src="/assets/js/admin/custom.js"></script>
-<script src="/assets/js/admin/cycle.js"></script>
-  <script src="/assets/js/admin/jquery.tablesorter.min.js"></script>
-  <script src="http://jquery-joshbush.googlecode.com/files/jquery.maskedinput-1.2.2.js"></script>
-
-<script type="text/javascript">
-    $('.cycle').cycle({
-        fx: "scrollHorz",
-        timeout: 0,
-        slideResize: 0,
-        prev: '.left-btn',
-        next: '.right-btn'
-    });
-
-    $('.datetime-local').mask('99/99/9999 99:99');
-</script>
+<script src="/assets/js/tinymce/tinymce.min.js"></script>
+<script src="/assets/js/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<script src="/assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/assets/js/jQuery/jquery.twbsPagination.js"></script>
 </body>
 </html>

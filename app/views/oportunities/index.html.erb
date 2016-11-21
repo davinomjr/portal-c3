@@ -1,37 +1,52 @@
-<div class="col-lg-8 col-md-8">
-    <div class="col-padded">
-        <div class="row gutter">
-            <div class="col-lg-12 col-md-12">
-                <h1 class="page-title">Oportunidades</h1>
-            </div>
-        </div>
-        <div class="row gutter">
-            <div class="col-lg-12 col-md-12">
-                <% @oportunities.each do |oportunity| %>
-                <div class="news-mini-wrap col-lg-6 col-md-6">
-                    <figure class="news-featured-image">
-                        <a href="<%= oportunity_path(oportunity) %>" title="<%= oportunity.title%>">
-                            <%= image_tag oportunity.image.url(:thumb), class: 'attachment-thumbnail wp-post-image' %>
-                        </a>
+<div class="col-xs-9" style="background-color: #fff;box-shadow: 0px 0px 2px 0px #adadad;border-radius: 4px;padding-top:20px;position: relative;">
+    <h1 class="page-title">Oportunidades</h1>
+    <ul class="list-unstyled">
+        <% @oportunities.each do |oportunity| %>
+        <a href="<%= oportunity_path(oportunity) %>" title="<%= oportunity.title%>">
+            <li class="news-mini-wrap">
+                    <% if oportunity.image? %>
+                    <figure class="news-featured-image2 col-xs-3">
+                        <img src="<%= oportunity.image.url %>" class="attachment-thumbnail wp-post-image" height="123" width="264" />
                     </figure>
+
+                <div class="col-xs-8">
                     <div class="page-title-meta">
-                        <h1 class="title-median"><%= link_to oportunity.title, oportunity_path(oportunity)%></h1>
-                        <span class="news-meta-date"><b>Publicado em:</b> <%= oportunity.created_at.strftime("%d/%m/%Y")%></span>
-                        <p><span class="news-meta-date"><b>Empresa:</b> <%= oportunity.employer%></span></p>
-                        <div class="news-summary">
+                    <h1 class="title-median2">
+                                <%= oportunity.title%>
+                        </h1>
+                        <span class="news-date2">Publicado em <%= oportunity.created_at.strftime("%d/%m/%Y")%></span>
+                        <p style="padding-top: 10px; margin-bottom: 0px; color: #333333;"><span class="news-meta-date"><b> <%= oportunity.employer%></span> </b> </p>
+                        <div class="news-summary3">
                             <p>
-                                <%= sanitize oportunity.description[0..30]%>...
+                                <%= truncate_html oportunity.description %>    
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <% else %>
+                <div class="col-xs-12">
+                    <div class="page-title-meta">
+                    <h1 class="title-median2">
+                                <%= oportunity.title%>
+                        </h1>
+                        <span class="news-date2">Publicado em <%= oportunity.created_at.strftime("%d/%m/%Y")%></span>
+                        <p style="padding-top: 10px; margin-bottom: 0px; color: #333333;"><span class="news-meta-date"><b> <%= oportunity.employer%></span> </b> </p>
+                        <div class="news-summary3">
+                            <p>
+                                  <%= truncate_html oportunity.description %>    
                             </p>
                         </div>
                     </div>
                 </div>
                 <% end %>
-            </div>
+            </li>
+        </a>
+
+        <% end %>
+    </ul>
+    <!-- <div class="gutter">
+        <div class="col-lg-12">
+            <%= will_paginate @oportunities, :previous_label => 'Anterior', :next_label => 'Próximo' %>
         </div>
-        <div class="row gutter">
-            <div class="col-lg-12">
-                <%= will_paginate @oportunities, :previous_label => 'Anterior', :next_label => 'Próximo' %>
-            </div>
-        </div>
-    </div>
+    </div> -->
 </div>

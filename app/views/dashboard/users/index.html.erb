@@ -1,24 +1,27 @@
-<section class="content">
+<div class="row">
+    <div class="col-xs-12">
     <section class="widget">
+    <%= render "shared/messages" %>     
         <header>
-            <span class="icon">&#59160;</span>
+       <span class="icon">&#59160;</span>
             <hgroup>
                 <h1>Usuários</h1>
+                <h2>Usuários cadastrados</h2>
             </hgroup>
 
         </header>
         <div class="content">
-            <table id="myTable" border="0" width="100">
+            <table class="table dashboard_table sorteable-table table-hover" border="0" width="100">
                 <thead>
-                <tr>
+                 <tr>
                     <th>Nome</th>
-                    <th>Matrícula</th>
+                    <th class="extended-sorteable">Matrícula</th>
                     <th>Email</th>
-                    <th>Opções</th>
+                    <th class="center-text">Opções</th>
                 </tr>
                 </thead>
                 <tbody>
-                <% @users.each do |user| %>
+                      <% @users.each do |user| %>
                 <tr>
                     <td>
                         <img src="<%= user.avatar.url%>" width="30" height="30"/>
@@ -30,14 +33,24 @@
                     <td>
                         <%= link_to user.email,  edit_dashboard_user_path(user) %>
                     </td>
-                    <td>
+                    <td class="td-action">
                         <%= link_to 'Remover', {:controller => :users,
-                        :action => 'destroy', :id => user.id }, :method => :delete %>
-                    </td>
-                </tr>
-                <% end %>
+                        :action => 'destroy', :id => user.id },:class => "button danger icon trash", :method => :delete %>  
+                     </td>
+                  </tr>
+                      <% end %>
                 </tbody>
             </table>
+
+              <div class="col-md-12" id="pagination-content" style="margin-top:15px;">
+                    <%= will_paginate(@users) %>
+                </div>
         </div>
     </section>
-</section>
+   </div>
+</div>   
+
+
+
+
+

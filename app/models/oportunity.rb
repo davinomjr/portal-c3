@@ -1,4 +1,5 @@
 class Oportunity < ActiveRecord::Base
+    validates :title, :employer, :description, presence: true
     belongs_to :user
     
         # Define o tipo de imagem que a notícia pode ter

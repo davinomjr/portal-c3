@@ -1,5 +1,6 @@
 # Classe de usuário
 class User < ActiveRecord::Base
+  validates_uniqueness_of :enrollment, :email
   # Funcoes do devise
   # - database_authenticatable: Indica que essa classe é autenticável
   # - registerable: Indica que essa classe é registrável
@@ -17,8 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :articles
   has_many :events
-  has_many :events
   has_many :discipline_classes
+  has_many :materials
   belongs_to :user_profile
   has_and_belongs_to_many :disciplines
 
@@ -34,7 +35,6 @@ class User < ActiveRecord::Base
 
   # Valida o tipo de arquivo a imagem da notícia pode ser
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-
 
   def self.reset_password(id, password)
     user = find id

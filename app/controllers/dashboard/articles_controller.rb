@@ -3,7 +3,7 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
 
   def index
     if current_user.admin?
-      @dashboard_articles = Article.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 30).eager_load(:user)
+      @dashboard_articles = Article.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 10)
     else
       @dashboard_articles = current_user.articles.order('articles.created_at desc').paginate(:page => params[:page], :per_page => 30).eager_load(:user)
     end
@@ -22,9 +22,11 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def create
     @dashboard_article = Article.new(dashboard_article_params)
     @dashboard_article.user_id = current_user.id
+    @dashboard_article.image = nil;
     respond_to do |format|
       if @dashboard_article.save
-        format.html { redirect_to dashboard_articles_url, notice: 'Notícias criada com sucesso.' }
+        flash[:success] = "Notícia criada com sucesso."
+        format.html { redirect_to dashboard_articles_url }
         format.json { render :index, status: :created, location: @dashboard_article }
       else
         format.html { render :new }
@@ -36,7 +38,8 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @dashboard_article.update(dashboard_article_params)
-        format.html { redirect_to dashboard_articles_url, notice: 'Notícia atualizada com sucesso.' }
+        flash[:success] = "Notícia alterada com sucesso."
+        format.html { redirect_to dashboard_articles_url }
         format.json { render :show, status: :ok, location: @dashboard_article }
       else
         format.html { render :edit }
@@ -48,7 +51,8 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   def destroy
     @dashboard_article.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_articles_url, notice: 'Article was successfully destroyed.' }
+      flash[:success] = "Notícia removida com sucesso."
+      format.html { redirect_to dashboard_articles_url }
       format.json { head :no_content }
     end
   end

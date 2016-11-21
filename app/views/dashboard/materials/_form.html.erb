@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/assets/css/dashboard/dashboard-form.css" media="all">
+
+ <% if not @dashboard_material.new_record? %>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-xs-12">
+            <%= link_to 'Remover', {:controller => :materials  ,
+                                    :action => 'destroy', :type => "button", :id => @dashboard_material.id},:class => "btn btn-danger", :method => :delete %>
+            </div>
+        </div>
+    <% end %>
+
+<div class="row">
+    <div class="col-xs-12">
+				<%= form_for([:dashboard, @dashboard_material], :multipart => true, :html => { :class => "form-horizontal form-dashboard"})  do |f| %>
+					<section class="widget">
+						<%= render "shared/messages", :target => @dashboard_material %>
+ 										<header>
+                                <span class="icon">&#59160;</span>
+                                <hgroup>
+                                    <h1>Materiais</h1>
+                                    <h2><%= @dashboard_material.new_record? ? 'Cadastrar novo material' : 'Modificar material' %></h2>
+                                </hgroup>																
+                                </header>
+										<div class="content">                
+												<div class="form-group">
+													  <label class="control-label col-sm-4">Nome</label>
+                                                        <div class="col-sm-6">
+                                                            <%=f.text_field :name, :class => "form-control" %>
+                                                        </div>
+											    	</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Material</label>
+													<div class="col-sm-5">
+												        <%= f.file_field :attachment, :class => "form-control"%>
+													</div>								
+												</div>
+
+                                            	<div class="form-group">
+													<label class="control-label col-sm-4">Disciplina</label>
+													<div class="col-sm-5">
+                                                          <%= f.collection_select :discipline_id, Discipline.all, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+													</div>								
+												</div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4">Professor</label>
+                                                    <div class="col-sm-5">
+                                                    <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :selected => !current_user.admin? ? current_user.id : ""  %>
+                                                    </div>
+                                                </div>
+ 
+                                                            
+                                    <div class="form-group">
+                                        <div class="col-sm-6 col-sm-offset-4">
+                                            <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
+                                            <a href="<%= dashboard_materials_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                                        </div>
+                                    </div>
+								</div>
+						</section>
+				<% end %>
+		</div>
+</div>
+
+
+
+

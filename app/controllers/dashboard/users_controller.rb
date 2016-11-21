@@ -2,7 +2,7 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
@@ -19,7 +19,8 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     respond_to do |format|
       if @user.save
         @user.user_profile.save
-        format.html { redirect_to dashboard_users_path, notice: 'Usuário criado com sucesso.' }
+        flash[:success] = "Usuário cadastrado com sucesso."
+        format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -35,7 +36,8 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
     respond_to do |format|
       if @user.update(user_params)
         @user.user_profile.update profile_params
-        format.html { redirect_to dashboard_users_path, notice: 'Usuário atualizado com sucesso.' }
+        flash[:success] = "Usuário alterado com sucesso."
+        format.html { redirect_to dashboard_users_path }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -49,10 +51,12 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
       return redirect_to dashboard_users_path
     end
     profile = @user.user_profile
+    @user.materials.delete(@user.materials)
     @user.destroy
     profile.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_users_path, notice: 'Usuário removido com sucesso.' }
+      flash[:success] = "Usuário removido com sucesso."
+      format.html { redirect_to dashboard_users_path }
       format.json { head :no_content }
     end
   end

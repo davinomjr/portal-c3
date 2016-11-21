@@ -15,12 +15,13 @@ class Dashboard::EventsController < Dashboard::AuthenticatedController
   def edit
   end
 
-  def create
+def create
     @event = Event.new(event_params)
     @event.user = current_user
     respond_to do |format|
       if @event.save
-        format.html { redirect_to dashboard_events_url, notice: 'Evento criado com sucesso.' }
+        flash[:success] = "Evento cadastrado com sucesso."
+        format.html { redirect_to dashboard_events_url }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -32,7 +33,8 @@ class Dashboard::EventsController < Dashboard::AuthenticatedController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to dashboard_events_url, notice: 'Evento atualizado com sucesso.' }
+        flash[:success] = "Evento alterado com sucesso."
+        format.html { redirect_to dashboard_events_url }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -44,7 +46,8 @@ class Dashboard::EventsController < Dashboard::AuthenticatedController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_events_url, notice: 'Evento removido com sucesso.' }
+      flash[:success] = "Evento removido com sucesso."
+      format.html { redirect_to dashboard_events_url }
       format.json { head :no_content }
     end
   end

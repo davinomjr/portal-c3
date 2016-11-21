@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
   def index
     @latest_articles = Article.last(5).reverse
     @latest_events = Event.last(5).reverse
-    
+    @latest_opportunities = Oportunity.last(5).reverse
   end
   
   # Link para página de "Sobre"

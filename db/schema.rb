@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510191744) do
+ActiveRecord::Schema.define(version: 20161105220549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,15 +53,15 @@ ActiveRecord::Schema.define(version: 20160510191744) do
   add_index "discipline_classes", ["user_id"], name: "index_discipline_classes_on_user_id", using: :btree
 
   create_table "disciplines", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
+    t.string   "name",       default: "", null: false
+    t.string   "code",       default: "", null: false
     t.string   "link"
-    t.integer  "credit"
+    t.integer  "credit",                  null: false
     t.integer  "hours"
-    t.integer  "semester"
-    t.integer  "shift"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "semester",                null: false
+    t.integer  "shift",                   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "disciplines_users", id: false, force: :cascade do |t|
@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160510191744) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.integer  "discipline_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+  end
+
+  add_index "materials", ["discipline_id"], name: "index_materials_on_discipline_id", using: :btree
+  add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
 
   create_table "oportunities", force: :cascade do |t|
     t.string   "title"
@@ -145,6 +157,8 @@ ActiveRecord::Schema.define(version: 20160510191744) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "materials", "disciplines"
+  add_foreign_key "materials", "users"
   add_foreign_key "oportunities", "users"
   add_foreign_key "users", "user_profiles"
 end

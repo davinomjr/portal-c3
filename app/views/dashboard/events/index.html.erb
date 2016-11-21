@@ -1,54 +1,60 @@
-<section class="content">
-  <section class="widget">
-    <header>
-      <span class="icon">&#59160;</span>
-      <hgroup>
-        <h1>Eventos</h1>
-        <h2>Eventos recentes</h2>
-      </hgroup>
+<div class="row">
+    <div class="col-xs-12">
+    <section class="widget">
+    <%= render "shared/messages" %>     
+        <header>
+       <span class="icon">&#59160;</span>
+            <hgroup>
+                <h1>Eventos</h1>
+                <h2>Eventos recentes</h2>
+            </hgroup>
 
-    </header>
-    <div class="content">
-      <div class="row gutter">
-        <div class="col-lg-12">
-          <div class="portal_pagination">
-            <%= will_paginate @events, :previous_label => 'Anterior', :next_label => 'Próximo'%>
-          </div>
+        </header>
+        <div class="content">
+            <table class="table dashboard_table sorteable-table table-hover" border="0" width="100">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Data</th>
+                        <th>Local</th>
+                        <% if current_user.admin? %>
+                            <th>Autor</th>
+                        <% end %>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                      <% @events.each do |event| %>
+                       <tr>
+                            <td>
+                              <%= link_to event.title,  edit_dashboard_event_path(event) %>
+                            </td>
+                            <td>
+                              <%= link_to event.created_at,  edit_dashboard_event_path(event) %>
+                            </td>
+                            <td>
+                              <%= link_to event.place,  edit_dashboard_event_path(event) %>
+                            </td>
+                            <% if current_user.admin? %>
+                                <td>
+                                  <%= link_to event.user_id == current_user.id ? 'Você' : event.user.name,  edit_dashboard_event_path(event) %>
+                                </td>
+                            <% end %>
+                            <td class="td-action">
+                              <%= link_to 'Remover', {:controller => :events,
+                              :action => 'destroy', :id => event.id },:class => "button danger icon trash", :method => :delete %>  
+                            </td>
+                        </tr>
+                      <% end %>
+                </tbody>
+            </table>
+
+              <div class="col-md-12" id="pagination-content" style="margin-top:15px;">
+                    <%= will_paginate(@events) %>
+                </div>
         </div>
-      </div>
-      <table id="myTable" border="0" width="100">
-        <thead>
-        <tr>
-          <th>Titulo</th>
-          <th>Data</th>
-          <% if current_user.admin? %>
-              <th>Autor</th>
-          <% end %>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @events.each do |article| %>
-            <tr>
-              <td>
-                <%= link_to article.title,  edit_dashboard_event_path(article) %>
-              </td>
-              <td>
-                <%= link_to article.created_at,  edit_dashboard_event_path(article) %>
-              </td>
-              <% if current_user.admin? %>
-                  <td>
-                    <%= link_to article.user_id == current_user.id ? 'Você' : article.user.name,  edit_dashboard_event_path(article) %>
-                  </td>
-              <% end %>
-              <td>
-                <%= link_to 'Remover', {:controller => :events,
-                                        :action => 'destroy', :id => article.id }, :method => :delete %>
-              </td>
-            </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </section>
-</section>
+    </section>
+   </div>
+</div>   
+
+

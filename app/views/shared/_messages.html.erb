@@ -1,0 +1,23 @@
+<!-- Messages -->
+<% flash.each do |key, value| %>
+    <% if key != "alert" && key != "danger" && key != "error" %>
+        <div class="alert alert-<%= key %>" style="margin-bottom: 15px;">
+           <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= value %>
+        </div>
+        <% end %>
+<% end %>
+
+<!-- Error messages -->
+<% if defined?(target) && (target.errors.any?) %>
+<div class="alert alert-danger" id="alert-error" style="margin-bottom: 15px;">
+   <a href="#" data-dismiss="alert" class="close">×</a>
+ <ul style="list-style-type: circle;">
+  <% target.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+
