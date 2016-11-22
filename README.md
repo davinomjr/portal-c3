@@ -17,4 +17,5 @@ O guia de commits afim de manter uma boa organização e caso algo saia errado u
 
 1. Criar sua branch local/remota
 2. Fazer os commits necessários nessa branch
-3. Realizar um pull request para fazer o merge com a branch master
+3. Realizar um pull request para fazer o merge com a branch de desenvolvimento!!!!!!!
+4. Só depois que faremos merge com a master
