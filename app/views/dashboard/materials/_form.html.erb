@@ -40,9 +40,9 @@
 													<label class="control-label col-sm-4">Disciplina</label>
 													<div class="col-sm-5">
                                                          <% if current_user.admin? %>
-                                                            <%= f.collection_select :discipline_id, Discipline.all, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+                                                            <%= f.collection_select :discipline_id, Discipline.all, :id, :name, {:selected => @selected_discipline || ""}, {class: "form-control" } %>
                                                         <% else %>
-                                                            <%= f.collection_select :discipline_id, current_user.disciplines, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+                                                            <%= f.collection_select :discipline_id, current_user.disciplines, :id, :name, {:selected => @selected_discipline || ""}, {class: "form-control" } %>
                                                         <% end%>
 													</div>								
 												</div>
@@ -51,7 +51,7 @@
                                                     <label class="control-label col-sm-4">Professor</label>
                                                     <div class="col-sm-5">
                                                     <% if current_user.admin? %>
-                                                        <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :selected => !current_user.admin? ? current_user.id : ""  %>
+                                                        <%= f.collection_select :user_id, User.all, :id, :name,{:selected => !current_user.admin? ? current_user.id : ""}, {class: "form-control" } %>
                                                     <% else %>
                                                         <div style="margin-top: 7px;">
                                                           <% hidden_field(@dashboard_material, :user_id, :value => current_user.id) %>

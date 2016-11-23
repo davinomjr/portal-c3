@@ -145,7 +145,7 @@
 
 		function enableTableSorter() {
 		    var $sorterTable = $(".sorteable-table");
-		    var tablesorterConfig = { widgets: ['zebra'], headers: { 0: { sorter: false } } };
+		    var tablesorterConfig = { headers: { 0: { sorter: false } } };
 		    tablesorterConfig.headers[$sorterTable.find("thead th").length - 1] = { sorter: false };
 		    tablesorterConfig.headers[0] = "";
 		    $sorterTable
