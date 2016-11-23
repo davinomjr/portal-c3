@@ -51,7 +51,7 @@
                                                     <label class="control-label col-sm-4">Professor</label>
                                                     <div class="col-sm-5">
                                                     <% if current_user.admin? %>
-                                                        <%= f.collection_select :user_id, User.all, :id, :name,{:selected => !current_user.admin? ? current_user.id : ""}, {class: "form-control" } %>
+                                                        <%= f.collection_select :user_id, User.all, :id, :name,{ :selected =>current_user.id }, {class: "form-control" } %>
                                                     <% else %>
                                                         <div style="margin-top: 7px;">
                                                           <% hidden_field(@dashboard_material, :user_id, :value => current_user.id) %>
