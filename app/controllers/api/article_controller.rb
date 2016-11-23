@@ -1,5 +1,4 @@
 class Api::ArticleController < ApplicationController
-
     def index
         @articles = Article.all
         @json_articles = []

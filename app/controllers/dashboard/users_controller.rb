@@ -30,9 +30,6 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   end
 
   def update
-    if @user.id == current_user.id
-      return redirect_to dashboard_users_path
-    end
     respond_to do |format|
       if @user.update(user_params)
         @user.user_profile.update profile_params
@@ -47,9 +44,6 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   end
 
   def destroy
-    if @user.id == current_user.id
-      return redirect_to dashboard_users_path
-    end
     profile = @user.user_profile
     @user.materials.delete(@user.materials)
     @user.destroy

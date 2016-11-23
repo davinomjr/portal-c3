@@ -586,7 +586,6 @@ button.ico-font {
     -moz-border-radius: 75px;
 }
 
-
 .button a {
     color: #fff;
 }
@@ -1405,44 +1404,41 @@ ul.settings-dd li label {
 
 
 /** TABLE STYLES **/
-table.dashboard_table{
-        border: 1px solid rgba(221, 221, 221, 0.78);
+
+table.dashboard_table {
+    border: 1px solid rgba(221, 221, 221, 0.78);
 }
 
-
-    table.dashboard_table thead {
-        background: #208ed3;
-        color: #ECF0F1;
-    }
+table.dashboard_table thead {
+    background: #208ed3;
+    color: #ECF0F1;
+}
 
 table.dashboard_table tbody tr:hover td {
-        background: rgba(38, 185, 154, 0.07);
-        border-top: 1px solid rgba(38, 185, 154, 0.11);
-        border-bottom: 1px solid rgba(38, 185, 154, 0.11);
-    }
+    background: #f2f2f2;
+    border-top: 1px solid rgba(38, 185, 154, 0.11);
+    border-bottom: 1px solid rgba(38, 185, 154, 0.11);
+}
 
-    table.dashboard_table tbody tr.selected {
-        background: rgba(38, 185, 154, 0.16);
-    }
+table.dashboard_table tbody tr.selected {
+    background: rgba(38, 185, 154, 0.16);
+}
 
-        table.dashboard_table tbody tr.selected td {
-            border-top: 1px solid rgba(38, 185, 154, 0.40);
-            border-bottom: 1px solid rgba(38, 185, 154, 0.40);
-        }
+table.dashboard_table tbody tr.selected td {
+    border-top: 1px solid rgba(38, 185, 154, 0.40);
+    border-bottom: 1px solid rgba(38, 185, 154, 0.40);
+}
 
 table.sorteable-table input[type="checkbox"] {
     width: 30px;
     margin: 0;
 }
 
+
 /*table.sorteable-table th:first-child,
 table.sorteable-table td:first-child {
     padding-left: 50px;
 }*/
-
-table.sorteable-table tr:nth-child(odd) {
-    /*background: #f0f0f0;*/
-}
 
 table.sorteable-table {
     border: 1px solid #e9e9e9;
@@ -1459,11 +1455,6 @@ table.sorteable-table {
 /*table.sorteable-table thead tr:hover {
     color: #000;
 }*/
-
-table.sorteable-table tr {
-    border: 1px solid #e9e9e9;
-    /*background: #fff;*/
-}
 
 table.sorteable-table tr:hover {
     /*background: #208ed3;*/
@@ -1507,13 +1498,11 @@ table.sorteable-table thead tr .header:first-child {
     /*background-position: bottom 15px left 80px;*/
 }
 
-.header.extended-sorteable {
-    
-}
+.header.extended-sorteable {}
 
 table.sorteable-table thead tr .headerSortUp {
-     background: url('/assets/img/admin/asc.gif') no-repeat center left;
-     padding-left: 15px;
+    background: url('/assets/img/admin/asc.gif') no-repeat center left;
+    padding-left: 15px;
 }
 
 table.sorteable-table thead tr .headerSortDown {
@@ -2485,6 +2474,6 @@ a.discipline-link:hover {
     cursor: pointer !important;
 }
 
-.note-color-btn{
+.note-color-btn {
     background: none;
 }

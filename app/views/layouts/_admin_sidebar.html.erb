@@ -1,42 +1,37 @@
 <nav>
   <ul>
+  <% if current_user.admin? %>
     <li>
-      <a href="#"><span class="icon">&#128213;</span> Disciplinas </a>
+      <a href="<%= dashboard_disciplines_path %>"><span class="icon">&#128213;</span> Disciplinas </a>
       <ul class="submenu">
         <li><a href="<%= new_dashboard_discipline_path %>">Nova disciplina</a></li>
         <li><a href="<%= dashboard_disciplines_path %>">Todas as disciplinas</a></li>
       </ul>
     </li>
+    <% end %>
     <li>
-      <a href="#"><span class="icon">&#128213;</span> Material </a>
+      <a href="<%= dashboard_materials_path %>"><span class="icon">&#128213;</span> Material </a>
       <ul class="submenu">
         <li><a href="<%= new_dashboard_material_path %>">Novo material</a></li>
         <li><a href="<%= dashboard_materials_path %>">Todos os materiais</a></li>
       </ul>
     </li>
     <li>
-      <a href="#"><span class="icon">&#128213;</span> Turmas </a>
-      <ul class="submenu">
-        <li><a href="<%= new_dashboard_discipline_class_path %>">Nova turma</a></li>
-        <li><a href="<%= dashboard_discipline_classes_path %>">Todas as turmas</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#"><span class="icon">&#59160;</span> Notícias </a>
+      <a href="<%= dashboard_articles_path %>"><span class="icon">&#59160;</span> Notícias </a>
       <ul class="submenu">
         <li><a href="<%= new_dashboard_article_path %>">Nova notícias</a></li>
         <li><a href="<%= dashboard_articles_path %>">Todas as notícias</a></li>
       </ul>
     </li>
     <li>
-      <a href="#"><span class="icon">&#128227;</span> Eventos </a>
+      <a href="<%= dashboard_events_path %>"><span class="icon">&#128227;</span> Eventos </a>
       <ul class="submenu">
         <li><a href="<%= new_dashboard_event_path %>">Novo evento</a></li>
         <li><a href="<%= dashboard_events_path %>">Todos os eventos</a></li>
       </ul>
     </li>
     <li>
-      <a href="#"><span class="icon">&#128227;</span> Oportunidades </a>
+      <a href="<%= dashboard_oportunities_path %>"><span class="icon">&#128227;</span> Oportunidades </a>
       <ul class="submenu">
         <li><a href="<%= new_dashboard_oportunity_path %>">Nova oportunidade</a></li>
         <li><a href="<%= dashboard_oportunities_path %>">Todas as oportunidades</a></li>
@@ -50,6 +45,5 @@
           </ul>
         </li>
     <% end %>
-
   </ul>
 </nav>

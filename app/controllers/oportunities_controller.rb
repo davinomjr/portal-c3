@@ -1,6 +1,6 @@
 class OportunitiesController < ApplicationController
   def index
-    @oportunities = Oportunity.order('created_at desc').paginate(:page => params[:page], :per_page => 30)
+    @oportunities = Oportunity.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

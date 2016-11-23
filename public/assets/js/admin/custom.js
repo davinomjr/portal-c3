@@ -1,10 +1,10 @@
 		$(document).ready(function() {
 
-		 window.setTimeout(function(){
-				$(".alert.alert-success").fadeTo(2000, 500).slideUp(500, function(){
-    				$(".alert.alert-success").slideUp(500);
-				});
-  			},3000);
+		    window.setTimeout(function() {
+		        $(".alert.alert-success").fadeTo(2000, 500).slideUp(500, function() {
+		            $(".alert.alert-success").slideUp(500);
+		        });
+		    }, 3000);
 
 		    // Adds title attributes and classnames to list items	 
 		    $("ul li a:contains('Dashboard')").addClass("dashboard").attr('title', 'Dashboard');
@@ -15,7 +15,7 @@
 		    $("ul li a:contains('Settings')").addClass("settings").attr('title', 'Settings');
 
 		    $("nav").height($(document).height());
-			loadComponents();
+		    loadComponents();
 
 		    // Add class to last list item of submenu	
 		    $("ul.submenu li:last-child").addClass("last");
@@ -41,9 +41,8 @@
 		    })
 
 		    // Table sorter
-		    $("#myTable").tablesorter();
 		    $("tr:not(.table-head):odd").addClass("odd");
-		    $(".sorteable-table").tablesorter();
+		    enableTableSorter();
 
 		    // Equal height divs - www.broken-links.com
 		    var highestCol = Math.max($('.widget-container > .widget').height(), $('.widget-container > .widget').height());
@@ -117,35 +116,38 @@
 		    //         }
 		    //     });
 		    // });
-	});
-	
-	function loadComponents(){
-		 $('.datetime-local').mask('99/99/9999 99:99');
-		   $(".datarangepicker").loadDate();
+		});
 
-		     $('.multiselect').multiselect({
+		function loadComponents() {
+		    $('.datetime-local').mask('99/99/9999 99:99');
+		    $(".datarangepicker").loadDate();
+
+		    $('.multiselect').multiselect({
 		        includeSelectAllOption: true,
 		        maxHeight: 200
 		    });
 
-			$('.html-editor').summernote({
-			height: 350,
-		 	lang: 'pt-BR', // default: 'en-US',
-			toolbar: [
-			    ['style', ['bold', 'italic', 'underline', 'clear']],
-    			['font', ['strikethrough', 'superscript', 'subscript']],
-    			['fontsize', ['fontsize']],
-				['fontNames', ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather']],
-				['fontsize', ['fontsize']],
-				['color', ['color']],
-				['para', ['ul', 'ol', 'paragraph']],
-				['misc', ['fullscreen']]
-			]
-			});
+		    $('.html-editor').summernote({
+		        height: 350,
+		        lang: 'pt-BR', // default: 'en-US',
+		        toolbar: [
+		            ['style', ['bold', 'italic', 'underline', 'clear']],
+		            ['font', ['strikethrough', 'superscript', 'subscript']],
+		            ['fontsize', ['fontsize']],
+		            ['fontNames', ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather']],
+		            ['fontsize', ['fontsize']],
+		            ['color', ['color']],
+		            ['para', ['ul', 'ol', 'paragraph']],
+		            ['misc', ['fullscreen']]
+		        ]
+		    });
+		}
 
-		// var descricao = $(".descricao-html");
-		// 	   if (descricao) {
-        // 			$('#summernote').summernote('code', descricao);
-    	// 		}
-	}
-		
+		function enableTableSorter() {
+		    var $sorterTable = $(".sorteable-table");
+		    var tablesorterConfig = { widgets: ['zebra'], headers: { 0: { sorter: false } } };
+		    tablesorterConfig.headers[$sorterTable.find("thead th").length - 1] = { sorter: false };
+		    tablesorterConfig.headers[0] = "";
+		    $sorterTable
+		        .tablesorter(tablesorterConfig)
+		}

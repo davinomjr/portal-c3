@@ -39,14 +39,25 @@
                                             	<div class="form-group">
 													<label class="control-label col-sm-4">Disciplina</label>
 													<div class="col-sm-5">
-                                                          <%= f.collection_select :discipline_id, Discipline.all, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+                                                         <% if current_user.admin? %>
+                                                            <%= f.collection_select :discipline_id, Discipline.all, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+                                                        <% else %>
+                                                            <%= f.collection_select :discipline_id, current_user.disciplines, :id, :name, :class => "form-control", :selected => @selected_discipline || "" %>
+                                                        <% end%>
 													</div>								
 												</div>
 
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-4">Professor</label>
                                                     <div class="col-sm-5">
-                                                    <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :selected => !current_user.admin? ? current_user.id : ""  %>
+                                                    <% if current_user.admin? %>
+                                                        <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control", :selected => !current_user.admin? ? current_user.id : ""  %>
+                                                    <% else %>
+                                                        <div style="margin-top: 7px;">
+                                                          <% hidden_field(@dashboard_material, :user_id, :value => current_user.id) %>
+                                                            <span><%= current_user.name %></span>
+                                                        </div>                                                    
+                                                    <% end %>
                                                     </div>
                                                 </div>
  
