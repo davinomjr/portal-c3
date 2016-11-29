@@ -64,24 +64,24 @@
        
         <ul class="list-unstyled clear-margins">
                <li class="widget-container widget_recent_news">
-                <span class="sty-title-box">Últimas Oportunidades</span>
+                <span class="sty-title-box">Últimos Eventos</span>
                    <ul class="list-unstyled">
-                    <% @latest_opportunities.each do |opportunity| %>
-                    <% if opportunity.image? %>
-                    <a href="<%= oportunity_path(opportunity)%>" title="<%= opportunity.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                    <% @latest_events.each do |event| %>
+                    <% if event.image? %>
+                    <a href="<%= event_path(event)%>" title="<%= event.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
                         <li class="sty-spacing-articles news-mini-wrap2">
 
                             <div class="recent-news-content clearfix">
                                 <figure class="col-xs-3 recent-news-thumb" width="80px">
                                     <!-- <img> -->
-                                    <%= image_tag opportunity.image.url, class: 'attachment-thumbnail wp-post-image' %>
+                                    <%= image_tag event.image.url, class: 'attachment-thumbnail wp-post-image' %>
                                     <!-- </img> -->
                                 </figure>
                                 <div class="col-xs-9">
-                                   <h1 class="title-median"><%= opportunity.title %></h1>
+                                   <h1 class="title-median"><%= event.title %></h1>
                                    <div class="recent-news-text news-summary2">
                                     <p class="sty-event-opportunity">
-                                        <%= truncate_html opportunity.description %>                                        
+                                        <%= truncate_html event.description %>                                        
                                     </p>
                                 </div> 
                             </div>
@@ -90,14 +90,14 @@
                     </li>
                 </a>
                 <% else %>
-                <a href="<%= oportunity_path(opportunity)%>" title="<%= opportunity.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
+                <a href="<%= event_path(event)%>" title="<%= event.title%>" style="width: 100%;height: 100%;display: block;margin:0;" >
                     <li class="sty-spacing-articles news-mini-wrap2">
                         <div class="recent-news-content clearfix">
                             <div class="col-xs-12">
-                                <h1 class="title-median"><%= opportunity.title %></h1>
+                                <h1 class="title-median"><%= event.title %></h1>
                                 <div class="recent-news-text news-summary2">
                                     <p class="sty-article-description">
-                                        <%= truncate_html opportunity.description %>    
+                                        <%= truncate_html event.description %>    
                                     </p>
                                 </div> 
                             </div>

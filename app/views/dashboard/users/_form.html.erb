@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-	<%= form_for([:dashboard, @user], :multipart => true, :html => { :class => "form-horizontal form-dashboard"})  do |f| %>
+	<%= form_for([:dashboard, @user], :html => {:multipart => true, :class => "form-horizontal form-dashboard"})  do |f| %>
       <section class="widget">
       <%= render "shared/messages", :target => @user %>          
         <header>
@@ -78,7 +78,11 @@
         <div class="form-group">
               <label class="control-label col-sm-3">Cargo</label>
               <div class="col-sm-8">
-                <%= text_field :user_profile, :role, value: @user.profile.role, :class => "form-control" %>
+                <%if current_user.admin? %>
+                  <%= text_field :user_profile, :role, value: @user.profile.role, :class => "form-control" %>
+                <% else %>
+                   <%= text_field :user_profile, :role, value: @user.profile.role, :class => "form-control", :disabled => "true" %>
+                <% end %>
               </div>
           </div>
 
@@ -96,7 +100,11 @@
          <div class="form-group">
               <label class="control-label col-sm-3">Professor</label>
               <div class="col-md-4">
-                <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control" } %>
+                <% if current_user.admin? %>
+                  <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control" } %>
+                <% else %>
+               <%= select :user_profile, :is_teacher, options_for_select([['Sim','1'], ['Não','0']], selected: @user.user_profile.is_teacher ? '1' : '0'), {}, { :class => "form-control",:disabled => "true" } %>
+                <% end %>
               </div>
           </div>
 

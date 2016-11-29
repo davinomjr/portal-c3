@@ -2477,3 +2477,11 @@ a.discipline-link:hover {
 .note-color-btn {
     background: none;
 }
+
+.text-padding-8 {
+    padding-top: 8px;
+}
+
+.text-padding-7 {
+    padding-top: 7px;
+}

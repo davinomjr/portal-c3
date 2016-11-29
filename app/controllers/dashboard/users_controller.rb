@@ -20,7 +20,11 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
       if @user.save
         @user.user_profile.save
         flash[:success] = "Usuário cadastrado com sucesso."
-        format.html { redirect_to dashboard_users_path }
+        if current_user.admin?
+          format.html { redirect_to dashboard_users_path }
+        else
+          format.html { redirect_to dashboard_root_path }
+        end
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -34,7 +38,11 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
       if @user.update(user_params)
         @user.user_profile.update profile_params
         flash[:success] = "Usuário alterado com sucesso."
-        format.html { redirect_to dashboard_users_path }
+          if current_user.admin?
+          format.html { redirect_to dashboard_users_path }
+        else
+          format.html { redirect_to dashboard_root_path }
+        end
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
