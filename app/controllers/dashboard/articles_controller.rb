@@ -14,9 +14,6 @@ class Dashboard::ArticlesController < Dashboard::AuthenticatedController
   end
 
   def edit
-    if @dashboard_article.user_id != current_user.id
-      redirect_to dashboard_article_path
-    end
   end
 
   def create
