@@ -120,7 +120,7 @@
 
 		function loadComponents() {
 		    $('.datetime-local').mask('99/99/9999 99:99');
-		    $(".datarangepicker").loadDate();
+		    $(".daterange").loadDate();
 
 		    $('.multiselect').multiselect({
 		        includeSelectAllOption: true,

@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-    validates :title, :place, :date, presence: true
+    validates :title, :place, :description, :date, presence: true
     belongs_to :user
 
         # Define o tipo de imagem que a notícia pode ter

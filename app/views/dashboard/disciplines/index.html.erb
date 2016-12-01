@@ -1,3 +1,13 @@
+<script>
+document.addEventListener("DOMContentLoaded", function(event) { 
+     if(<%= @noon %>){
+        $("#tarde").collapse();
+    }
+    if(<%= @night %>){
+        $("#noite").collapse();
+    }
+});
+</script>
 
 <div class="row">
     <div class="col-xs-12">
@@ -7,25 +17,63 @@
             <span class="icon">&#128213;</span>
             <hgroup>
                 <h1>Disciplinas</h1>
-                <h2>Disciplinas cadastradas</h2>
+                <h2>Disciplinas por Turno</h2>
             </hgroup>
 
         </header>
         <div class="content timeline">
-            <% @dashboard_disciplines.each do |discipline| %>
-                <div class="tl-post">
-                    <span class="icon clickable-icon">&#128213;</span>
-                    <p>
-                      <%= link_to "#{discipline.noon? ? 'Tarde' : 'Noite'} - #{discipline.name}",  edit_dashboard_discipline_path(discipline)%>
-                        <span><%= discipline.code %></span>
+<div class="panel-group">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">                
+                <a data-toggle="collapse" class="discipline-link" href="#tarde">Tarde</a>
+            </h4>
+        </div>
+        <div id="tarde" class="panel-collapse collapse">
+            <div class="panel-body">
+            <% @dashboard_disciplines_noon.each do |discipline| %>
+                <div class="tl-post" style="margin-left: 10px;">
+                    <span class="icon">&#128213;</span>
+                      <p>
+                     <%= link_to "#{discipline.code + " - " + discipline.name}",  edit_dashboard_discipline_path(discipline)%>
                     </p>
                 </div>
-                <% end %>
-        </div>
-                <div class="col-md-12" id="pagination-content">
-                    <%= will_paginate(@dashboard_disciplines) %>
+            <% end %>
+
+                 <div class="col-md-12" id="pagination-content">
+                    <%= will_paginate @dashboard_disciplines_noon, :param_name => "pagenoon", :params => { :noon => "true" }  %>
                 </div>
+            </div>
+        </div>
+    </div>
+
+ <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">                
+                <a data-toggle="collapse" class="discipline-link" href="#noite">Noite</a>
+            </h4>
+        </div>
+        <div id="noite" class="panel-collapse collapse">
+            <div class="panel-body">
+            <% @dashboard_disciplines_night.each do |discipline| %>
+                <div class="tl-post" style="margin-left: 10px;">
+                    <span class="icon">&#128213;</span>
+                      <p>
+                     <%= link_to "#{discipline.code + " - " + discipline.name}",  edit_dashboard_discipline_path(discipline)%>
+                    </p>
+                </div>
+            <% end %>
+
+                <div class="col-md-12" id="pagination-content">
+                    <%= will_paginate @dashboard_disciplines_night, :param_name => "pagenight", :params => { :night => "true" }  %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+        </div>
+           
     </section>
    </div>
 </div>   
-

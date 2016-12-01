@@ -5,9 +5,12 @@ class Dashboard::DisciplinesController < Dashboard::AuthenticatedController
   # GET /dashboard/disciplines.json
   def index
     if current_user.admin?
-      @dashboard_disciplines = Discipline.paginate(:page => params[:page], :per_page => 10)
+      @dashboard_disciplines_noon = Discipline.order('name').where(shift:Discipline.shifts[:noon]).paginate(:page => params[:pagenoon], :per_page => 10)
+      @dashboard_disciplines_night = Discipline.order('name').where(shift:Discipline.shifts[:night]).paginate(:page => params[:pagenight], :per_page => 10)
+      @noon = params[:noon] == "true"
+      @night = params[:night] == "true"    
     else
-      @dashboard_disciplines = current_user.disciplines.paginate(:page => params[:page], :per_page => 10)
+     # @dashboard_disciplines = current_user.disciplines.paginate(:page => params[:page], :per_page => 10)
     end
   end
 

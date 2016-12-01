@@ -19,11 +19,8 @@ Rails.application.configure do
 
   # config.action_mailer.default_url_options = {:host => 'http://sm.c3.unicap.br'}
 
-     config.action_mailer.default_url_options = { 
-        host: 'localhost', 
-        port: 3000 
-     }
 
+  config.action_mailer.default_url_options = {:host => 'http://sm.c3.unicap.br'}
 
   config.action_mailer.delivery_method = :smtp
 
@@ -35,9 +32,7 @@ Rails.application.configure do
       :port => 587,
       :authentication => :plain,
       :enable_starttls_auto => true
-  }
-
-  # Print deprecation notices to the Rails logger.
+  }  # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.

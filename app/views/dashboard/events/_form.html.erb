@@ -1,5 +1,17 @@
 <link rel="stylesheet" href="/assets/css/dashboard/dashboard-form.css" media="all">
 
+<style>
+
+.hourselect{
+   width: 70px !important;
+}
+.minuteselect{
+   width: 70px !important;
+} 
+.ampmselect {
+    width: 70px !important;
+}
+</style>
 
 <div class="row">
     <div class="col-xs-12">
@@ -37,8 +49,8 @@
 
                    	<div class="form-group">
                         <label class="control-label col-sm-4">Data</label>
-                       	<div class="col-sm-5">
-                          <%= f.text_field :date, :class => "form-control datarangepicker", :start_year => Date.current.year,:end_year => Date.current.year+2, :order => [:day, :month, :year]%>
+                       	<div class="col-sm-6">
+							<%= f.text_field :date, :class => "form-control daterange", :start_year => Date.current.year,:end_year => Date.current.year+2  %>  
                         </div>
                       </div>
 

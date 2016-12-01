@@ -20,4 +20,7 @@ class Discipline < ActiveRecord::Base
         Discipline.where shift: shift, semester: semester
     end
     
+    def self.from_shift(shift)
+        Discipline.where shift: shift
+    end
 end

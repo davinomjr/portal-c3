@@ -35,3 +35,8 @@
      margin-right: 0;
      margin-left: 0;
  }
+ 
+ .hourselect,
+ .minuteselect .ampmselect {
+     width: 50px !important;
+ }
