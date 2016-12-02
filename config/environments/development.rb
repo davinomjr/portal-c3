@@ -24,8 +24,8 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      :user_name => 'davinomaurojr@hotmail.com',
-      :password => 'M52javdh1ch2hmx144',
+      :user_name => 'portalC3',
+      :password => '123abc123',
       :address => 'smtp.live.com',
       :domain => 'sm.c3.unicap.br',
       :port => 587,
