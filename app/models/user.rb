@@ -42,4 +42,9 @@ class User < ActiveRecord::Base
     user.save
   end
 
+  def self.starts_with(column_name, prefix)
+    where("lower(#{column_name}) like ?", "#{prefix.downcase}%")
+  end
+
+
 end

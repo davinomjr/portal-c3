@@ -83,6 +83,7 @@ Rails.application.routes.draw do
 
       get 'materiais' => 'material#index'
       get 'materiais/:id' => 'material#show'
+      get 'materiais/query/:name' => 'material#getbyname'
     end
   end
 

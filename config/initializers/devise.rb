@@ -13,7 +13,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'portal@c3.unicap.br'
-  config.secret_key = '56923411f97d6aa39c0d11aeee184c4291a24a0c6a958733df9075024d88072ff8f1f439cabd2fbdb8832da521da64e7758012fe84106c41b3a00844d908da68'
+  config.secret_key = '37511da32fb5d84ce8cc993264c360f2fecb68eeae570750003a5d5633f93ac2ee58db11156695684e51ee7e60f638f66faced7dafd4ab2702f3a40089676bac'
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -214,7 +214,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
