@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   get 'oportunities/:id' => 'oportunities#show', as: 'oportunity'
   get 'oportunities' => 'oportunities#index', as: 'oportunities'  
   get 'disciplines' => 'discipline#index', as: 'disciplines'
+
+  get 'search' => 'search#index', as: 'search'
   
   namespace :dashboard do
     root 'articles#index', as: 'root'

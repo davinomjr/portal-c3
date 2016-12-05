@@ -1,4 +1,5 @@
 log
 tmp
+.lock
 .byebug_history
 /public/uploads
