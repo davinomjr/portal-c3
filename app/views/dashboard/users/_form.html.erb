@@ -18,10 +18,19 @@
                     </div>
                     
                     <div class="form-group">
-                      <label class="control-label col-sm-4">Imagem do Perfil</label>
-                      <div class="col-sm-6">
-                        <%= file_field :user, :avatar, :class => "form-control" %>
+                      <label class="control-label col-sm-3">Imagem do Perfil</label>
+                      <div class="col-sm-9">
+                      <div class="col-sm-9">
+                        <%= f.file_field :avatar, :class => "form-control" %>
                        </div>
+     
+                        <div class="col-sm-3">   
+                             <label class="control-label col-sm-3">Remover Imagem</label>       
+                             <div class="col-sm-8" id="checkbox-image" style="padding-top: 10px;margin-left:10px;">
+                                <%= f.check_box(:delete_avatar) %>
+                                </div>
+                         </div>
+                     </div>
                       </div>
 
 											    	
@@ -140,7 +149,11 @@
       <div class="form-group">
             <div class="col-sm-6 col-sm-offset-6">
                 <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
-                 <a href="<%= dashboard_materials_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% if current_user.admin? %>
+                  <a href="<%= dashboard_users_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% else %>
+                <a href="<%= dashboard_root_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% end %>
               </div>
        </div>
 

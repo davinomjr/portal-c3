@@ -119,9 +119,9 @@
 		});
 
 		function loadComponents() {
-		    $('.datetime-local').mask('99/99/9999 99:99');
+		    // $('.datetime-local').mask('99/99/9999 99:99');
 		    $(".daterange").loadDate();
-
+		    $(".daterange").val(moment($(".daterange").attr("value")).format("L LT"));
 		    $('.multiselect').multiselect({
 		        includeSelectAllOption: true,
 		        maxHeight: 200
@@ -141,6 +141,8 @@
 		            ['misc', ['fullscreen']]
 		        ]
 		    });
+
+		    $(".daterange").trigger("keyup");
 		}
 
 		function enableTableSorter() {

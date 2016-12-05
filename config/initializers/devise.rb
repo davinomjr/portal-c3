@@ -13,7 +13,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'portal@c3.unicap.br'
-  config.secret_key = '37511da32fb5d84ce8cc993264c360f2fecb68eeae570750003a5d5633f93ac2ee58db11156695684e51ee7e60f638f66faced7dafd4ab2702f3a40089676bac'
+  # config.secret_key = '37511da32fb5d84ce8cc993264c360f2fecb68eeae570750003a5d5633f93ac2ee58db11156695684e51ee7e60f638f66faced7dafd4ab2702f3a40089676bac'
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

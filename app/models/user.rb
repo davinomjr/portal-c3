@@ -1,6 +1,7 @@
 # Classe de usuário
 class User < ActiveRecord::Base
   validates_uniqueness_of :enrollment, :email
+  before_validation { avatar.clear if delete_avatar == '1' }
   # Funcoes do devise
   # - database_authenticatable: Indica que essa classe é autenticável
   # - registerable: Indica que essa classe é registrável
@@ -32,6 +33,8 @@ class User < ActiveRecord::Base
       :medium => ["300x300>", :jpg],
       :thumb => ["100x100>", :jpg]
   }
+ 
+
 
   # Valida o tipo de arquivo a imagem da notícia pode ser
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -45,6 +48,8 @@ class User < ActiveRecord::Base
   def self.starts_with(column_name, prefix)
     where("lower(#{column_name}) like ?", "#{prefix.downcase}%")
   end
+
+     attr_accessor :delete_avatar
 
 
 end
