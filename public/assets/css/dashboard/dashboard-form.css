@@ -1,59 +1,60 @@
- .field-wrap>select {
-     max-width: 150px;
-     margin-bottom: 15px;
- }
- 
- textarea {
-     resize: none;
- }
- 
- section.widget>div.content {
-     margin: auto;
-     width: 75%;
- }
- 
- .btn-form {
-     margin-top: 15px !important;
- }
- 
- .multiselect-container input {
-     display: none
- }
- 
- label {
-     display: inline-block;
-     max-width: 100%;
-     margin-bottom: 5px;
-     font-weight: 750;
- }
- 
- .control-label {
-     padding-top: 7px !important;
- }
- 
- .form-group {
-     margin-right: 0;
-     margin-left: 0;
- }
- 
- .hourselect,
- .minuteselect .ampmselect {
-     width: 50px !important;
- }
- 
- input[type='checkbox'] {
-     /* Double-sized Checkboxes */
-     -ms-transform: scale(1.5);
-     /* IE */
-     -moz-transform: scale(1.5);
-     /* FF */
-     -webkit-transform: scale(1.5);
-     /* Safari and Chrome */
-     -o-transform: scale(1.5);
-     /* Opera */
-     padding: 10px;
- }
+.field-wrap>select {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
 
- #checkbox-image{
-     
- }
+textarea {
+    resize: none;
+}
+
+section.widget>div.content {
+    margin: auto;
+    width: 75%;
+}
+
+.btn-form {
+    margin-top: 15px !important;
+}
+
+.multiselect-container input {
+    display: none
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 750;
+}
+
+.control-label {
+    padding-top: 7px !important;
+}
+
+.form-group {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.hourselect,
+.minuteselect .ampmselect {
+    width: 50px !important;
+}
+
+input[type="checkbox"] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5);
+    /* IE */
+    -moz-transform: scale(1.5);
+    /* FF */
+    -webkit-transform: scale(1.5);
+    /* Safari and Chrome */
+    -o-transform: scale(1.5);
+    /* Opera */
+    padding: 10px;
+}
+
+#checkbox-image > input[type='checkbox']{
+    width: 50px !important;
+    height: 15px !important;
+}

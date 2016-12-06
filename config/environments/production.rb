@@ -62,17 +62,15 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.consider_all_requests_local = false
+
   config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+  config.action_mailer.default_url_options = { :host => 'http://sm.c3.unicap.br' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => "smtp.live.com",
-      :port => 587,
-      :domain => 'sm.c3.unicap.br',
-      :user_name => 'portalc3@outlook.com',
-      :password => 'Smc3unicap2016',
+      :address => "smtp.c3.unicap.br",
+      :port => 25,
+      :domain => "sm.c3.unicap.br",
       :authentication => :plain,
       :enable_starttls_auto => true
   }  
