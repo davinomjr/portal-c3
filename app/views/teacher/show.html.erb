@@ -2,44 +2,28 @@
     <div class="gutter">
       <div class="col-lg-12 col-md-12">
         <div class="course-title-meta clearfix">
-          <h1 class="page-title" style="text-transform:uppercase"><%= @teacher.name %></h1>
-          <dl class="dl-horizontal course-meta">
-            <img src="<%=@teacher.avatar.url %>" alt="<%= @teacher.name %>" width="150" height="150" />
-            <dt>Cargo: </dt>
-            <dd>
-              <%= @teacher.profile.role.nil? ? 'Professor' : @teacher.profile.role %>
-            </dd>
-            <dt>Titulação:</dt>
-            <dd>
-              <%= @teacher.profile.degree %>
-            </dd>
-            <dt>Currículo Lattes:</dt>
-            <dd>
-              <a href="<%= @teacher.profile.lattes %>" target="_blank">Clique Aqui</a>
-            </dd>
-
-          </dl>
+            <div class="col-xs-3">
+                <img src="<%=@teacher.avatar.url %>" alt="<%= @teacher.name %>" width="180" height="180" />
+            </div>
+            <div class="col-xs-9 sty-line-height">
+              <h4 class="sty-color-default sty-margin-teacher" ><%= @teacher.name %></h4>
+              <span><strong>Cargo:</strong> <%= @teacher.profile.role.nil? ? 'Professor' : @teacher.profile.role %></span><br>
+              <span><strong>Titulação:</strong> <%= @teacher.profile.degree %></span><br>
+              <span><strong>E-mail:</strong> <%= @teacher.email %></span><br>
+              <span><strong>Fone:</strong> <%= @teacher.profile.phone %></span><br>
+              <span class="sty-layout-interests"><strong>Áreas de Interesse:</strong>
+                <p align="justify">
+                    <%= @teacher.profile.interests %>
+                </p>
+              </span>
+              <% unless @teacher.profile.link.empty? %> 
+                <a class="sty-link-style" href="<%= @teacher.profile.link %>" target="_blank">Acessar Página Pessoal</a><br>
+              <% end %>
+              <a class="sty-link-style" href="<%= @teacher.profile.lattes %>" target="_blank">Currículo Lattes</a>
+            </div>
         </div>
-        <div class="news-body clearfix">
-          <dt>Areas de Interesse:</dt>
-          <p align="justify">
-            <%= @teacher.profile.interests %>
-          </p>
-          <dt><font size=2.8>E-mail:</font></dt>
-          <dd>
-            <%= @teacher.email %>
-            </font>
-          </dd>
-          <dt><font size=2.8>Fone:</dt>
-          <dd>
-            <%= @teacher.profile.phone %>
-            </font>
-          </dd>
-          <% unless @teacher.profile.link.empty? %>
-              <dt><font size=2.8>Página Pessoal:</font></dt>
-              <dd><a href="<%= @teacher.profile.link %>" target="_blank"><%= @teacher.profile.link %></a></font>
-              </dd>
-          <% end %>
+        <div class="clearfix">
+          <hr/>
           <% if not @teacher.discipline_ids.nil? and @teacher.discipline_ids.size > 0 %>
               <h6>Material de aula:</h6>
               <% @teacher.disciplines.each do |discipline| %>
@@ -64,8 +48,9 @@
                 </li>
               </ul>
               <% end %>
+          <% else %>
+            <h6>Nenhum material de aula disponível</h6>
           <% end %>
-          <hr/>
         </div>
       </div>
     </div>
