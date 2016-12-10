@@ -2990,3 +2990,51 @@ input:focus {
     line-height: 1.4em;
     color: #636363;
 }
+
+.list-unstyled {
+    margin-top: 4px;
+}
+
+.tab-content {
+    background-color: #ccc;
+    padding-top: 1px;
+    margin-bottom: 20px;
+}
+
+.sty-layout-table {
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.nav-tabs>li>a {
+    background-color: #a6a6a6;
+    color: #555;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #ccc;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    background: rgba( 0, 0, 0, 0.5);
+}
+
+.sty-box-disciplinas {
+    margin-top: 20px;
+}
+
+.tab-pane {
+    padding: 0 20px 0 20px;
+}
+
+.table > tbody > tr:first-child > th {
+    border: none;
+}
+
+.sty-align-theader {
+    text-align: center;
+}
