@@ -2918,7 +2918,7 @@ input:focus {
 .sty-container-box {
     background-color: #fdfdfd;
     color: #000;
-    padding: 10px 0 0 0;
+    padding: 6px 0 0 0;
     box-shadow: 0 0 2px 0 #adadad;
     border-radius: 4px;
     /*border: 10px solid #fdfdfd;*/
@@ -3030,6 +3030,10 @@ input:focus {
 
 .tab-pane {
     padding: 0 20px 0 20px;
+}
+
+.table {
+    table-layout: fixed;
 }
 
 .table > tbody > tr:first-child > th {
