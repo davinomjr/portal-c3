@@ -5,11 +5,11 @@
         <a href="<%= event_path(event) %>" title="<%= event.title%>" style="height: 100%;">
 
             <li class="news-mini-wrap">
-                <div class="up-event-date2 col-xs-2">
+                <div class="up-event-date2 col-sm-2">
                     <%= event.date.strftime("%d %b %Y")%>
                 </div>
 
-                <div class="page-title-meta col-xs-10">
+                <div class="page-title-meta col-sm-10">
                     <h1 class="title-median2"><%= event.title%></h1>
                     <div class="news-summary3">
                         <p>
@@ -26,4 +26,5 @@
         <div class="col-sm-12" id="pagination-content" style="margin-top:15px;">
                     <%= will_paginate(@events) %>
         </div>
+        <div class="clear"></div>
 </div>
