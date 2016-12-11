@@ -33,10 +33,21 @@
 
 	<section class="main-section" id="k-body" style="padding-left: 30px;padding-right: 30px;">
 		<div class="row">
-			<div class="col-xs-9">
-				<nav id="k-menu" class="k-main-navig">
+			<div class="col-sm-9 col-md-9 col-lg-9">
+				<nav id="k-menu" class="k-main-navig navbar navbar-default" role="navigation">
+				<div class="">
+					<div class="navbar-header">
+						<button type = "button" class = "navbar-toggle" 
+							data-toggle = "collapse" data-target = "#navbar-collapse">
+							<span class = "sr-only">Toggle navigation</span>
+							<span class = "icon-bar"></span>
+							<span class = "icon-bar"></span>
+							<span class = "icon-bar"></span>
+      					</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
 					<!-- main navig -->
-					<ul id="main-menu" class="k-dropdown-menu navbar-left" style="width: 100%;padding: 0!important;font-size: 15px;margin-top: 12px;margin-bottom: 7px;">
+					<ul id="main-menu" class="k-dropdown-menu navbar-left nav navbar-nav" style="width: 100%;padding: 0!important;font-size: 15px;margin-top: 12px;margin-bottom: 7px;">
 						<li>
 							<strong><%= link_to 'Home', home_path(), class: (controller_name == 'welcome' ? 'active':'') %></strong>
 						</li>
@@ -50,6 +61,8 @@
 							<strong><%= link_to 'Oportunidades', oportunities_path(), class: (controller_name=='oportunities' ? 'active':'') %></strong>
 						</li>
 					</ul>
+					</div>
+					</div>
 				</nav>
 			</div>
 			<div class="col-lg-3 col-md-3 inner-addon right-addon sty-search-div">

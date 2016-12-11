@@ -401,13 +401,6 @@ img {
     float: left;
 }
 
-@media (max-width: 992px) {
-    li.widget-container.widget_text img {
-        margin-left: 30px;
-    }
-}
-
-
 /* image hover effect */
 
 figure {
@@ -2782,6 +2775,105 @@ a.list-group-item.active>.badge,
     }
 }
 
+/*nova media queries para corrigir responsividade quebrada*/
+@media only screen and (min-width: 360px) {
+    #k-head {
+        margin-bottom: 0;  
+
+    }
+
+    .sty-margin-logo {
+        margin-right: 0!important;
+    }
+
+    .sty-last-events {
+        padding-left: 15px!important;
+        padding-top: 30px;
+    }
+
+    #k-sidebar {
+        margin-left: 14px;
+    }
+
+    .sty-links-home {
+        background-color: #3396a3;
+        color: #fff;
+    }
+
+    .sty-background-footer {
+        padding: 20px 0 20px 0px!important;
+    }
+
+    .carousel-caption,
+    .carousel-indicators,
+    .sty-title-site,
+    .k-functional-navig {
+        display: none;
+    }
+
+    .carousel-control.left, 
+    .carousel-control.right {
+        opacity: 0.5;
+    }
+
+    .carousel-control.left {
+        left: 15px;
+    }
+
+    .carousel-control.right {
+        right: 15px;
+    }
+
+    .navbar-default {
+        background-color: #999;
+        border-radius: 6px;
+    }
+
+    .navbar-toggle {
+        background-color:#ddd; 
+    }    
+
+    #main-menu li .active {
+        border-bottom: none!important;
+        background-color: #3396a3;
+        color: #fff!important;
+    }
+
+    #main-menu li:hover, 
+    #main-menu li:focus {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .k-dropdown-menu>li {
+        width: auto;
+    }
+
+    .navbar-nav {
+        margin: 7.5px -6px;
+    }
+
+    .sty-search-input {
+        margin-top: 0!important;
+        margin-bottom: 15px;
+    }
+
+ }
+@media only screen and (min-width: 480px) {
+
+ }
+@media only screen and (min-width: 600px) {
+
+ }
+@media only screen and (min-width: 768px) {
+
+ }
+@media only screen and (min-width: 992px) {
+
+ }
+@media only screen and (min-width: 1382px) {
+
+ }
+
 /* == END media queries == */
 
 /* NOVO CSS */
@@ -3050,4 +3142,28 @@ input:focus {
 }
 .sty-line-height {
     line-height: 1.5;
+}
+
+.sty-margin-logo {
+    margin-right: 50px;
+}
+
+.sty-last-news {
+    padding-right: 25px;
+}
+
+.sty-last-events {
+    padding-left: 25px;
+}
+
+.sty-background-footer {
+    padding: 20px 0 20px 55px;
+    margin-top: 40px;
+    background-color: #ccc;
+    color: #616161; 
+    text-align: center;
+}
+
+.sty-margin-box {
+    margin-bottom: 50px;
 }
