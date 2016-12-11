@@ -1,6 +1,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", function(event) { 
-     if(<%= @noon %>){
+    if(<%= @noon %>){
         $("#tarde").collapse();
     }
     if(<%= @night %>){
@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             <span class="icon">&#128213;</span>
             <hgroup>
                 <h1>Disciplinas</h1>
-                <h2>Disciplinas por Turno</h2>
+                <h2>Disciplinas por turno</h2>
             </hgroup>
 
         </header>
         <div class="content timeline">
 <div class="panel-group">
+    <input type="hidden" id="noon" value="true">
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             <% end %>
 
                  <div class="col-md-12" id="pagination-content">
-                    <%= will_paginate @dashboard_disciplines_noon, :param_name => "pagenoon", :params => { :noon => "true" }  %>
+                    <%= will_paginate @dashboard_disciplines_noon, :param_name => "pagenoon", :params => { :noon => "true", :night => "false" }  %>
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             <% end %>
 
                 <div class="col-md-12" id="pagination-content">
-                    <%= will_paginate @dashboard_disciplines_night, :param_name => "pagenight", :params => { :night => "true" }  %>
+                    <%= will_paginate @dashboard_disciplines_night, :param_name => "pagenight", :params => { :night => "true", :noon => "false" }  %>
                 </div>
             </div>
         </div>

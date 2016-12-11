@@ -31,7 +31,12 @@
 
 												<div class="form-group">
 													<label class="control-label col-sm-4">Material de Aula</label>
-													<div class="col-sm-5">
+													<div class="col-sm-7">
+                                                        <% if not @dashboard_material.new_record? %>
+                                                            <div>
+                                                                <i>Cadastrado previamente</i>: <a href="<%= @dashboard_material.attachment.url %>" target="_blank"><%=Pathname.new(@dashboard_material.attachment.to_s).basename %></a>
+                                                            </div>
+                                                        <% end %>
 												        <%= f.file_field :attachment, :class => "form-control"%>
 													</div>								
 												</div>
@@ -54,7 +59,7 @@
                                                         <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "form-control" } %>
                                                     <% else %>
                                                         <div style="margin-top: 7px;">
-                                                          <% hidden_field(@dashboard_material, :user_id, :value => current_user.id) %>
+                                                          <%= f.hidden_field(:user_id, :value => current_user.id) %>
                                                             <span><%= current_user.name %></span>
                                                         </div>                                                    
                                                     <% end %>

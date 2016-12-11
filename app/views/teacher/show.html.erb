@@ -28,24 +28,23 @@
               <h6>Material de aula:</h6>
               <% @teacher.disciplines.each do |discipline| %>
               <br/>
-              <p onclick="$('.classes').hide(); $('.classes[data-discipline-id=<%=discipline.id%>]').show();"><font size='2.5'><%= discipline.code %> - <%= discipline.name %></font></p>
+              <p onclick="$('.classes').hide(); $('.classes[data-discipline-id=<%=discipline.id%>]').show();" style="cursor:pointer;"><font size='2.5'><%= discipline.code %> - <%= discipline.name %></font></p>
               <ul class="list-unstyled classes list-downloads" data-discipline-id="<%= discipline.id %>" style="display: none;">
-                <li>
-                  <% @teacher.classes.where(discipline_id: discipline.id).each do |classe| %>
-                    <p onclick="$('.class').hide(); $('.class[data-class-id=<%=classe.id%>]').show();"><%= classe.name %></p>
-                    <ul class="list-unstyled class list-downloads" data-class-id="<%= classe.id %>" style="display: none;">
-                      <% classe.attachments.each do |attachment| %>
-                        <li>
+                <% if discipline.materials.where(user_id: @teacher.id).any? %>
+                  <% discipline.materials.where(user_id: @teacher.id).each do |material| %>
+                   <li style="margin-left:10px;">
                           <i class="fa fa-cloud-download"></i>
-                          <a href="<%= attachment.url%>" target="_blank" title="<%= attachment.original_filename %>" class="download-link">
+                          <a href="<%= material.attachment %>" target="_blank" title="<%= material.name %>" class="download-link">
                             <span class="dwnld-title"></span>
-                            <span class="help-block"><%= attachment.original_filename %></span>
+                            <span class="help-block"><%= material.name %></span>
                           </a>
-                        </li>
-                      <% end %>
-                    </ul>
+                   </li>                   
                   <% end %>
-                </li>
+                <% else %>
+                  <li style="margin-left:10px;">
+                     <text>Nenhum material cadastrado para esta disciplina</text>
+                   </li>       
+                <% end %>
               </ul>
               <% end %>
           <% else %>

@@ -14,8 +14,7 @@ class WelcomeController < ApplicationController
   end
   
   # Link para página de "Sobre"
-  def about
-  
+  def about  
   end
   
   # Link para página de "404 not found"

@@ -54,7 +54,7 @@ input[type="checkbox"] {
     padding: 10px;
 }
 
-#checkbox-image > input[type='checkbox']{
-    width: 50px !important;
-    height: 15px !important;
+#checkbox-image>input[type='checkbox'] {
+    width: 40px !important;
+    margin-left: 5px !important;
 }
