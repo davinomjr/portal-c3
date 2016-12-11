@@ -24,9 +24,9 @@
 												<div class="form-group">
 													<label class="control-label col-sm-4">Imagem da Empresa</label>
 													<div class="col-sm-7">
-                                                        <% if not @oportunity.new_record? %>
+                                                        <% if @oportunity.image? %>
                                                             <div>
-                                                                <i>Cadastrado previamente</i>: <a href="<%= @oportunity.image.url %>" target="_blank"><%=Pathname.new(@oportunity.image.to_s).basename %></a>
+                                                                <i>Cadastrado previamente</i>: <a href="<%= @oportunity.image.url %>" target="_blank"><%=Pathname.new(@oportunity.image.to_s).basename.to_s.split("?").first %></a>
                                                             </div>
                                                         <% end %>
 												        <%= f.file_field :image, :class => "form-control"%>

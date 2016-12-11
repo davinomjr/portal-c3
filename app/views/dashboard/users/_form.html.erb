@@ -22,7 +22,7 @@
                       <label class="control-label col-sm-3" style="margin-top:9px;">Imagem do Perfil</label>
                       <div class="col-sm-9">
                               <div class="col-sm-12">
-                                  <i>Cadastrado previamente</i>: <a href="<%= @user.avatar.url %>" target="_blank"><%=Pathname.new(@user.avatar.url).basename %></a>
+                                  <i>Cadastrado previamente</i>: <a href="<%= @user.avatar.url %>" target="_blank"><%=Pathname.new(@user.avatar.url).basename.to_s.split("?").first %></a>
                               </div>
                           
                           <div class="col-sm-9">

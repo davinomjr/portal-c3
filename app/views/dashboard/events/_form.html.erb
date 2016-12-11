@@ -38,9 +38,9 @@
 												<div class="form-group">
 													<label class="control-label col-sm-4">Imagem</label>
 													<div class="col-sm-7">
-                                                        <% if not @event.new_record? %>
+                                                        <% if @event.image? %>
                                                             <div>
-                                                                <i>Cadastrado previamente</i>: <a href="<%= @event.image.url %>" target="_blank"><%=Pathname.new(@event.image.to_s).basename %></a>
+                                                                <i>Cadastrado previamente</i>: <a href="<%= @event.image.url %>" target="_blank"><%=Pathname.new(@event.image.to_s).basename.to_s.split("?").first %></a>
                                                             </div>
                                                         <% end %>
 												        <%= f.file_field :image, :class => "form-control"%>

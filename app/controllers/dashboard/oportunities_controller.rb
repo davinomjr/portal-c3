@@ -9,7 +9,6 @@ class Dashboard::OportunitiesController < Dashboard::AuthenticatedController
     end
   end
 
-
   def show
   end
 
