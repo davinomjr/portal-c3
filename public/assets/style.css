@@ -2776,7 +2776,7 @@ a.list-group-item.active>.badge,
 }
 
 /*nova media queries para corrigir responsividade quebrada*/
-@media only screen and (min-width: 360px) {
+@media only screen and (max-width: 320px) {
     #k-head {
         margin-bottom: 0;  
 
@@ -2857,20 +2857,151 @@ a.list-group-item.active>.badge,
         margin-bottom: 15px;
     }
 
- }
-@media only screen and (min-width: 480px) {
+    .sty-padding-logo {
+        padding-right: 0!important;
+        padding-left: 2px!important;
+    }
+
+    .sty-margin-logo1 {
+        margin-right: 15px!important;
+    }
+
+    .sty-margin-divisor {
+        left: 85px!important;
+    }
+
+    .sty-teacher-img {
+        display: none;
+    }
 
  }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    #k-head {
+        margin-bottom: 0;  
+
+    }
+
+    .sty-margin-logo {
+        margin-right: 0!important;
+    }
+
+    .sty-last-events {
+        padding-left: 15px!important;
+        padding-top: 30px;
+    }
+
+    #k-sidebar {
+        margin-left: 14px;
+    }
+
+    .sty-links-home {
+        background-color: #3396a3;
+        color: #fff;
+    }
+
+    .sty-background-footer {
+        padding: 20px 0 20px 0px!important;
+    }
+
+    .carousel-caption,
+    .carousel-indicators,
+    .sty-title-site,
+    .k-functional-navig {
+        display: none;
+    }
+
+    .carousel-control.left, 
+    .carousel-control.right {
+        opacity: 0.5;
+    }
+
+    .carousel-control.left {
+        left: 15px;
+    }
+
+    .carousel-control.right {
+        right: 15px;
+    }
+
+    .navbar-default {
+        background-color: #999;
+        border-radius: 6px;
+    }
+
+    .navbar-toggle {
+        background-color:#ddd; 
+    }    
+
+    #main-menu li .active {
+        border-bottom: none!important;
+        background-color: #3396a3;
+        color: #fff!important;
+    }
+
+    #main-menu li:hover, 
+    #main-menu li:focus {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .k-dropdown-menu>li {
+        width: auto;
+    }
+
+    .navbar-nav {
+        margin: 7.5px -6px;
+    }
+
+    .sty-search-input {
+        margin-top: 0!important;
+        margin-bottom: 15px;
+    }
+
+    .sty-padding-logo {
+        padding-right: 0!important;
+        padding-left: 2px!important;
+    }
+
+    .sty-teacher-img {
+        display: none;
+    }
 
  }
-@media only screen and (min-width: 768px) {
+
+@media only screen and (max-width: 600px) {
 
  }
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 768px) {
+    .carousel-caption {
+        height: 60px!important;
+        padding-top: 0!important;
+    }
+
+    .carousel-control.left, 
+    .carousel-control.right {
+        opacity: 0.5;
+    }
+
+    .carousel-control.left {
+        left: 15px;
+    }
+
+    .carousel-control.right {
+        right: 15px;
+    }
+
+    .sty-title-img {
+        margin: 4px auto!important;
+    }
+
+    .sty-title-site {
+        font-size: 17px;
+        padding-top: 7px;
+    }
+ }
+@media only screen and (max-width: 992px) {
 
  }
-@media only screen and (min-width: 1382px) {
+@media only screen and (max-width: 1382px) {
 
  }
 
@@ -3166,4 +3297,28 @@ input:focus {
 
 .sty-margin-box {
     margin-bottom: 50px;
+}
+
+.sty-padding-logo {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.sty-margin-logo1 {
+    margin-right: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sty-margin-divisor {
+    width: 2px;
+    height: 65px;
+    position: absolute;
+    background-color: #bdc3c7;
+    left: 100px;
+    top: 18px;
+}
+
+.navbar {
+    border: none;
 }
