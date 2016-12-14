@@ -6,7 +6,7 @@
             <figure style="text-align: center;margin-bottom: 30px;">
                 <br><img src="<%= @event.image.url %>" alt="<%= @event.title %>" class="img-news">
             </figure>
-            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <p> <%= @event.place %></p></span>
+            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b><%= @event.place %></span>
             <div class="news-body2">
                 <p class="call-out">
                     <p align="justify">
@@ -15,7 +15,7 @@
                 </p>
             </div>
             <% else %>
-            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <p> <%= @event.place %></p></span>
+            <span class="news-meta-date"><b>Data: </b><%= @event.date.strftime("%d/%m/%Y")%> - <%= @event.date.strftime("%H:%M")%> <br/> <b>Local: </b> <%= @event.place %></span>
             <div class="news-body2">
                 <p class="call-out">
                     <p align="justify">
