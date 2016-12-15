@@ -1,11 +1,6 @@
 <div class="col-sm-9 col-md-9 col-lg-9 sty-margin-box">
-    <!-- <figure id="slide">
-      <img class="mySlides" src="/assets/img/slide-1.jpg" data-description="Meninas do curso de computação" style="width:100%">
-      <img class="mySlides" src="/assets/img/slide-2.jpg" data-description="Biblioteca da unicap" style="width:100%">
-      <img class="mySlides" src="/assets/img/slide-3.jpg" data-description="Alunos no laboratório Inácio Loyola" style="width:100%">
-      <img class="mySlides" src="/assets/img/slide-4.jpg" data-description="65 anos da Unicap" style="width:100%">
-    </figure> -->
 
+<!-- indicadores do slideshow, não alterar, são fixos -->
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators hidden-xs- hidden-sm" style="padding-bottom: 42px;">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -13,42 +8,61 @@
         <li data-target="#carousel" data-slide-to="2"></li>
         <li data-target="#carousel" data-slide-to="3"></li>
   </ol>
-  <!-- Carousel items -->
+
+  <!-- fim indicadores do slideshow, não alterar, são fixos -->
+  
+  <!-- Código referente aos slides do slideshow -->
   <div class="carousel-inner" role="listbox">
-        <div class="active item" align="center" height="100%">
-            <a href=""><img class="mySlides" src="/assets/img/slide-1.jpg">
+        <div class="active item" align="center">
+            <!-- INICIO DO SLIDE 1 -->
+            <!-- Em href="" alterar para o link que quer redirecionar ao clicar na imagem, se não tiver, deixar vazio mesmo -->
+            <a href="">
+            <!-- Em src abaixo não alterar, é o endereço da imagem, é necessário apenas substituir o arquivo por um com o mesmo nome na pasta "public/assets/img/"  -->
+            <img class="mySlides" src="/assets/img/slide-1.jpg">
             <div class="carousel-caption">
+                <!-- Dentro da tag H4 abaixo está a descrição da imagem que quiser adicionar -->
                 <h4 class="sty-title-img">Cresce o número de mulheres que fazem cursos na área de TI</h4>
-                <!-- <p class="sty-desc-img">Nos últimos anos o número de mulheres em cursos relacionados a TI cresceu...Leia mais</p> -->
             </div>
             </a>
             <div class="clear"></div>
+            <!-- FIM DO SLIDE 1 -->
         </div>
         <div class="item" align="center">
-            <a href=""><img class="mySlides" src="/assets/img/slide-2.jpg"></a>
+            <!-- INICIO DO SLIDE 2 -->
+            <a href="">
+            <img class="mySlides" src="/assets/img/slide-2.jpg"></a>
             <div class="carousel-caption">
                 <h4 class="sty-title-img">A Biblioteca da Católica é a maior do Nordeste!</h4>
             </div>
             </a>
             <div class="clear"></div>
+            <!-- FIM DO SLIDE 2 -->
         </div>
         <div class="item" align="center">
-            <a href=""><img class="mySlides" src="/assets/img/slide-3.jpg"></a>
+            <!-- INICIO DO SLIDE 3 -->
+            <a href="">
+            <img class="mySlides" src="/assets/img/slide-3.jpg"></a>
             <div class="carousel-caption">
                 <h4 class="sty-title-img">Alunos de TI tem acesso exclusivo ao Laboratório Inácio Loyola</h4>
             </div>
             </a>
             <div class="clear"></div>
+            <!-- FIM DO SLIDE 3 -->
         </div>
         <div class="item" align="center">
-            <a href=""><img class="mySlides" src="/assets/img/slide-4.jpg"></a>
+            <!-- INICIO DO SLIDE 4 -->
+            <a href="">
+            <img class="mySlides" src="/assets/img/slide-4.jpg"></a>
             <div class="carousel-caption">
                 <h4 class="sty-title-img">65 anos de Unicap, várias conquistas marcam a história da universidade e o futuro promete muito mais.</h4>
             </div>
             </a>
             <div class="clear"></div>
+            <!-- FIM DO SLIDE 4 -->
         </div>
   </div>
+<!-- fim Código referente aos slides do slideshow -->
+
   <!-- Carousel nav -->
   <a class="carousel-control left" role="button" href="#carousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" role="button" href="#carousel" data-slide="next">&rsaquo;</a>
