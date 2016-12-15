@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    sql = "SELECT 
+     sql = "SELECT 
             id,
             'article' as type,
             description,
@@ -9,7 +9,7 @@ class SearchController < ApplicationController
           from 
             articles 
           where
-            title like '%#{params[:search]}%'
+            LOWER(title) like ?
 
         union
          
@@ -22,7 +22,7 @@ class SearchController < ApplicationController
           from 
             events 
           where
-            title like '%#{params[:search]}%'
+            LOWER(title) like ?
             
         union
 
@@ -35,10 +35,11 @@ class SearchController < ApplicationController
           from 
             oportunities 
           where
-            title like '%#{params[:search]}%'
+            LOWER(title) like ?
 
           order by 
-            created_at desc";
+            created_at desc", "%"+params[:search].downcase+"%", "%"+params[:search].downcase+"%", "%"+params[:search].downcase+"%";
+
 
     @results = Article.paginate_by_sql(sql, :page => params[:page], :per_page => 30);
   end
