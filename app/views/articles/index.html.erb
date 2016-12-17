@@ -15,7 +15,7 @@
                 <figure class="news-featured-image2 col-xs-2">
                     <img src="<%= article.image.url %>" class="attachment-thumbnail wp-post-image" height="123" width="264" />
                 </figure>
-                <div class="page-subtitle-meta col-xs-10">
+                <div class="page-title-meta col-xs-10">
                     <h1 class="page-subtitle"><%= article.title%></h1>
                     <span class="news-date2"><%= article.created_at.strftime("%H:%M")%></span>
                     <div class="news-summary2">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <% else %>
-                <div class="page-subtitle-meta col-xs-12">
+                <div class="page-title-meta col-xs-12">
                     <h1 class="page-subtitle"><%= article.title%></h1>
                     <span class="news-date2"><%= article.created_at.strftime("%H:%M")%></span>
                     <div class="news-summary2">
