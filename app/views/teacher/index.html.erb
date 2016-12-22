@@ -11,9 +11,9 @@
                         <li class="sty-spacing-articles news-mini-wrap2"><a href="<%= teacher_path(teacher) %>" title="<%= teacher.name %>">
                             <div class="col-sm-2 col-lg-2 col-md-2 sty-teacher-img">
                                 <% if teacher.avatar? %>
-                                    <img src="<%= teacher.avatar.url %>" width="130" height="130">
+                                    <img class="img-responsive" src="<%= teacher.avatar.url %>" width="130" height="130">
                                 <% else %>
-                                    <img src="/avatars/original/missing.png" alt="" width="130" height="130">
+                                    <img class="img-responsive" src="/avatars/original/missing.png" alt="" width="130" height="130">
                                 <% end %>
                             </div>
                             <div class="col-sm-10 col-md-10 col-lg-10">
