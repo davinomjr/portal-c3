@@ -20,13 +20,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    #   :address => "smtp.live.com",
+      :address => "smtp.live.com",
       :port => 587,
       :domain => "sm.c3.unicap.br",
       :authentication => "plain",
       :enable_starttls_auto => true,
-    #   :user_name => "portalc3@outlook.com",
-    #   :password => "Smc3unicap2016"
+      :user_name => "portalc3@outlook.com",
+      :password => "Smc3unicap2016"
   }  
 
 

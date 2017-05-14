@@ -19,6 +19,52 @@
                         <% if current_user.admin? %>
                             <th>Autor</th>
                         <% end %>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @dashboard_articles.each do |article| %>
+                        <tr>
+                            <td>
+                                <%= link_to article.title,  edit_dashboard_article_path(article) %>
+                            </td>
+                            <td>
+                                <%= link_to article.created_at.strftime('%F %T'),  edit_dashboard_article_path(article) %>
+                            </td>
+                            <% if current_user.admin? %>
+                            <td>
+                                <%= link_to article.user_id == current_user.id ? 'Você' : article.user.name,  edit_dashboard_article_path(article) %>
+                            </td>
+                            <% end %>
+                            <td class="td-action">
+                              <%= link_to 'Remover', {:controller => :articles,
+                              :action => 'destroy', :id => article.id },:class => "button danger icon trash", :method => :delete %>  
+                            </td>
+                        </tr>
+                      <% end %>
+                </tbody>
+            </table>
+
+              <div class="col-md-12" id="pagination-content" style="margin-top:15px;">
+                    <%= will_paginate(@dashboard_articles) %>
+                </div>
+        </div>
+    </section>
+   </div>
+</div>   
+
+
+
+        </header>
+        <div class="content">
+            <table class="table dashboard_table sorteable-table table-hover" border="0" width="100">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Data</th>
+                        <% if current_user.admin? %>
+                            <th>Autor</th>
+                        <% end %>
                         <th class="center-text">Opções</th>
                     </tr>
                 </thead>
@@ -54,3 +100,14 @@
 </div>   
 
 
+
+<div class="row">
+    <div class="col-xs-12">
+    <section class="widget">
+    <%= render "shared/messages" %>     
+        <header>
+       <span class="icon">&#59160;</span>
+            <hgroup>
+                <h1>Notícias</h1>
+                <h2>Notícias recentes</h2>
+            </hgroup>

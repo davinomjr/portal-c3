@@ -132,13 +132,13 @@
 		        lang: 'pt-BR', // default: 'en-US',
 		        toolbar: [
 		            ['style', ['bold', 'italic', 'underline', 'clear']],
-		            ['font', ['strikethrough', 'superscript', 'subscript']],
+		            ['font', ['strikethrough', 'superscript', 'subscript', 'clear']],
 		            ['fontsize', ['fontsize']],
 		            ['fontNames', ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather']],
-		            ['fontsize', ['fontsize']],
+		            ['link', ['linkDialogShow', 'unlink']],
 		            ['color', ['color']],
 		            ['para', ['ul', 'ol', 'paragraph']],
-		            ['misc', ['fullscreen']]
+		            ['misc', ['fullscreen','undo','redo']]
 		        ]
 		    });
 
