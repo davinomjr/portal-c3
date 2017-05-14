@@ -37,6 +37,7 @@ class Dashboard::MaterialsController < Dashboard::AuthenticatedController
     @selected_discipline = params[:discipline_id] 
     @dashboard_material = Material.new
   end
+  
 
 
   # PATCH/PUT /dashboard/materials/1

@@ -229,7 +229,6 @@ select {
     color: #606060;
     border: 1px solid #e3e3e3;
     background: #fff;
-    width: 100%;
     margin: 0 0 15px 0;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -432,6 +431,7 @@ div.green {
     background: linear-gradient(to bottom, #9bc747 0%, #82bd42 100%);
     /* W3C */
 }
+
 
 section.alert .green a,
 div.green a {
@@ -2478,10 +2478,16 @@ a.discipline-link:hover {
     background: none;
 }
 
-.text-padding-8 {
-    padding-top: 8px;
+.link-dialog .checkbox{
+    margin-left: 3px !important;
+    margin-top: -15px !important;
 }
 
-.text-padding-7 {
-    padding-top: 7px;
+.link-dialog .form-group{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+
+.link-dialog input[type='checkbox']{
+	margin-top: -1px !important;
 }

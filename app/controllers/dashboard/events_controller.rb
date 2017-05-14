@@ -2,7 +2,11 @@ class Dashboard::EventsController < Dashboard::AuthenticatedController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
+    if current_user.admin?
+      @events = Event.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
+    else
+      @events = current_user.events.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
+    end    
   end
 
   def show

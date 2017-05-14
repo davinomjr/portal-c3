@@ -119,9 +119,9 @@
 		});
 
 		function loadComponents() {
-		    $('.datetime-local').mask('99/99/9999 99:99');
-		    $(".datarangepicker").loadDate();
-
+		    // $('.datetime-local').mask('99/99/9999 99:99');
+		    $(".daterange").loadDate();
+		    $(".daterange").val(moment($(".daterange").attr("value")).format("L LT"));
 		    $('.multiselect').multiselect({
 		        includeSelectAllOption: true,
 		        maxHeight: 200
@@ -132,15 +132,17 @@
 		        lang: 'pt-BR', // default: 'en-US',
 		        toolbar: [
 		            ['style', ['bold', 'italic', 'underline', 'clear']],
-		            ['font', ['strikethrough', 'superscript', 'subscript']],
+		            ['font', ['strikethrough', 'superscript', 'subscript', 'clear']],
 		            ['fontsize', ['fontsize']],
 		            ['fontNames', ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather']],
-		            ['fontsize', ['fontsize']],
+		            ['link', ['linkDialogShow', 'unlink']],
 		            ['color', ['color']],
 		            ['para', ['ul', 'ol', 'paragraph']],
-		            ['misc', ['fullscreen']]
+		            ['misc', ['fullscreen','undo','redo']]
 		        ]
 		    });
+
+		    $(".daterange").trigger("keyup");
 		}
 
 		function enableTableSorter() {

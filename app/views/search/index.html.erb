@@ -1,0 +1,28 @@
+<div class="col-sm-9 col-md-9 col-lg-9 sty-background-default">
+    <!-- <div class="col-padded2"> -->
+    <div class="gutter">
+        <div class="">
+            <h1 class="page-title2">Resultados da busca</h1>
+            <div class="category-description">
+            </div>
+        </div>
+    </div>
+    <ul class="gutter k-equal-height list-unstyled">
+        <% @results.each do |resultObject| %>
+        <li class="news-mini-wrap">
+            <a href="<%= pathGenerator(resultObject) %>" title="<%= resultObject.title%>" style="width: 100%;height: 100%;display: block;margin:0;">
+                <div class="page-title-meta col-xs-12">
+                    <h1 class="page-subtitle"><%= resultObject.title%></h1>
+                    <span class="news-date2"><%= resultObject.created_at.strftime("%H:%M")%></span>
+                </div>
+            </a>
+            <div class="clear"></div>
+        </li>
+        <% end %>
+    </ul>
+
+         <div class="col-sm-12" id="pagination-content" style="margin-top:15px;">
+                    <%= will_paginate(@results) %>
+        </div>
+        <div class="clear"></div>
+</div>

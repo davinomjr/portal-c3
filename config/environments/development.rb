@@ -14,30 +14,22 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  # config.action_mailer.default_url_options = {:host => 'http://sm.c3.unicap.br'}
-
-     config.action_mailer.default_url_options = { 
-        host: 'localhost', 
-        port: 3000 
-     }
-
-
   config.action_mailer.delivery_method = :smtp
-
+  config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
+  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-      :user_name => 'portalC3',
-      :password => 'abcde12345',
-      :domain => 'sm.c3.unicap.br',
-      :address => 'smtp.sendgrid.net',
+      :address => "smtp.live.com",
       :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-  }
+      :domain => "sm.c3.unicap.br",
+      :authentication => "plain",
+      :enable_starttls_auto => true,
+      :user_name => "portalc3@outlook.com",
+      :password => "Smc3unicap2016"
+  }  
 
-  # Print deprecation notices to the Rails logger.
+
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.

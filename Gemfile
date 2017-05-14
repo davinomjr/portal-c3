@@ -27,6 +27,9 @@ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'devise'
 
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
+
 gem "nokogiri"
 
 # fix on time-zone for Windows platform

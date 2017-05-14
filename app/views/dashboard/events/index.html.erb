@@ -30,7 +30,7 @@
                               <%= link_to event.title,  edit_dashboard_event_path(event) %>
                             </td>
                             <td>
-                              <%= link_to event.created_at,  edit_dashboard_event_path(event) %>
+                              <%= link_to event.date.strftime("%d/%m/%Y - %H:%M"),  edit_dashboard_event_path(event) %>
                             </td>
                             <td>
                               <%= link_to event.place,  edit_dashboard_event_path(event) %>

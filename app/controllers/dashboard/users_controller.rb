@@ -2,7 +2,7 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.paginate(:page => params[:page], :per_page => 10)
+    @users = User.order("users.name").paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
@@ -54,6 +54,9 @@ class Dashboard::UsersController < Dashboard::AuthenticatedController
   def destroy
     profile = @user.user_profile
     @user.materials.delete(@user.materials)
+    @user.articles.delete(@user.articles)
+    @user.events.delete(@user.events)
+    @user.oportunities.delete(@user.oportunities)
     @user.destroy
     profile.destroy
     respond_to do |format|

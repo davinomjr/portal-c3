@@ -13,16 +13,44 @@
         </header>
         
         <div class="content">
-                    <div class="col-sm-12 col-sm-push-6">
+                    <div class="col-sm-12 col-sm-push-6" style="margin-bottom:15px;">
                         <img src="<%= @user.avatar.url %>" width="128" height="128"/>
                     </div>
                     
-                    <div class="form-group">
-                      <label class="control-label col-sm-4">Imagem do Perfil</label>
-                      <div class="col-sm-6">
-                        <%= file_field :user, :avatar, :class => "form-control" %>
-                       </div>
+                    <% if @user.avatar? %>
+                   <div class="form-group">
+                      <label class="control-label col-sm-3" style="margin-top:9px;">Imagem do Perfil</label>
+                      <div class="col-sm-9">
+                              <div class="col-sm-12">
+                                  <i>Cadastrado previamente</i>: <a href="<%= @user.avatar.url %>" target="_blank"><%=Pathname.new(@user.avatar.url).basename.to_s.split("?").first %></a>
+                              </div>
+                          
+                          <div class="col-sm-9">
+                            <%= f.file_field :avatar, :class => "form-control" %>
+                          </div>
+      
+                          <div class="col-sm-3">   
+                              <label class="control-label col-sm-3">Remover Imagem</label>       
+                              <div class="col-sm-5" id="checkbox-image" style="padding-top: 10px;margin-left:10px;">
+                                  <%= f.check_box(:delete_avatar) %>
+                                  </div>
+                          </div>
+                        </div>
                       </div>
+                    <% else %>
+                            <div class="form-group">
+                      <label class="control-label col-sm-3">Imagem do Perfil</label>
+                      <div class="col-sm-9">
+                          <div class="col-sm-9">
+                            <%= f.file_field :avatar, :class => "form-control" %>
+                          </div>
+    
+                        </div>
+                      </div>
+
+                    <% end %>
+
+           
 
 											    	
           <div class="col-sm-6">
@@ -127,7 +155,11 @@
             <div class="form-group">
               <label class="control-label col-sm-3">Tipo de conta</label>
               <div class="col-md-5">
-                <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+                  <%if current_user.admin? %>
+                     <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control" } %>
+                  <% else %>
+                     <%= select :user, :role, options_for_select([['Usuário','user'], ['Admin','admin']], selected: @user.role.nil? ? :user : @user.role), {}, { :class => "form-control", :disabled => "disabled" } %>
+                  <% end %>
               </div>
           </div>
 
@@ -136,7 +168,11 @@
       <div class="form-group">
             <div class="col-sm-6 col-sm-offset-6">
                 <%= f.button 'Salvar', class: 'btn btn-warning', type: 'submit' %>
-                 <a href="<%= dashboard_materials_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% if current_user.admin? %>
+                  <a href="<%= dashboard_users_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% else %>
+                <a href="<%= dashboard_root_path %>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <% end %>
               </div>
        </div>
 

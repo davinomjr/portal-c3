@@ -21,6 +21,8 @@ pt-BR:
         subject: "Instruções para reinicialização de senha"
       unlock_instructions:
         subject: "Instruções para desbloqueio de conta"
+      password_change:
+        subject: "Senha alterada"
     omniauth_callbacks:
       failure: "Não foi possível autorizar você através do %{kind} porque \"%{reason}\"."
       success: "Autorizado com sucesso pela conta %{kind}."

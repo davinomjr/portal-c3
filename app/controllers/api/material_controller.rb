@@ -11,10 +11,20 @@ class Api::MaterialController < ApplicationController
     end
     
     def show
-        @material = Material.find params[:id]
-        
+        @material = Material.find params[:id]        
         render :json => to_json(@material)
     end
+
+    def getbyname
+        @materials = Material.where('name LIKE :u', :u => "%#{params[:name]}%")
+         @json_materials = []
+         for material in @materials
+            @material = to_json material
+            @json_materials << @material
+        end
+        render :json => @json_materials
+    end
+
     
     private
     def to_json(material)
